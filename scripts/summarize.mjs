@@ -1,0 +1,126 @@
+#!/usr/bin/env node
+// summarize.mjs — DeepSeek 汇总：去重合并 → 过滤 → 小白科普 → 输出 Markdown 日报
+// 密钥：DEEPSEEK_API_KEY（环境变量，绝不入库）
+// 坑（2026-08-23 实测）：deepseek-v4-flash 为推理模型，reasoning 吃 token，
+// 大 prompt 会导致 content 为空 → 必须精简输入 + 重试兜底。
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DATA_DIR = path.join(__dirname, "..", "data");
+const RAW = path.join(DATA_DIR, "raw.json");
+const REPORT = path.join(DATA_DIR, "report.md");
+
+const KEY = process.env.DEEPSEEK_API_KEY;
+if (!KEY) { console.error("缺少 DEEPSEEK_API_KEY 环境变量"); process.exit(1); }
+const MODEL = process.env.DAILY_MODEL || "deepseek-v4-flash";
+const API = "https://api.deepseek.com/chat/completions";
+
+// 官方公司源 id（与 fetch-sources.mjs 保持一致，用于预筛保底）
+const COMPANY_SOURCE_IDS = new Set(["openai", "deepseek", "qwen", "zhipu", "kimi", "anthropic", "deepmind", "googai"]);
+
+const dailyPrompt = (items) => `你是AI资讯编辑，读者是[A]的人工智能小白用户。请对下面 ${items.length} 条中文资讯JSON做：①同一事件多源→合并标注「多源交叉」；②丢弃无关/重复/软文；③每条配≤40字「💡科普」（术语用生活类比，可联动历史：这是…之后第二次）；④客观不夸大，中英混排。
+
+输出Markdown（严格结构，总长≤650字）：
+# 📰 AI 今日动态 — ${new Date().toISOString().slice(0, 10)}
+## 📝 今日看点
+（3-5条客观趋势归纳，每条一行）
+## 🏆 今日必读
+（2-3条，格式：**标题**（来源·时间）\n> 摘要\n💡 科普：…\n🏷️ 关键词）
+## 🏢 公司动态
+### 公司名
+- **标题**：《一句摘要》（科普）
+（无内容的公司不出现）
+## 📈 趋势雷达
+（2-4条值得跟踪的信号+一句为什么）
+
+【数据】
+${JSON.stringify(items)}`;
+
+const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON。
+判定爆炸级标准：头部公司（OpenAI/Anthropic/Google/DeepSeek/阿里Qwen/智谱/月之暗面/xAI/微软/Meta/Nvidia/Mistral）发布新模型或重大战略/政策；行业级突破；≥2不同来源同报一件重磅事。
+【输出】严格JSON：
+{"is_explosive":true/false,"reason":"一句话","items":[{"title":"…","url":"…","why":"…"}]}
+【数据】
+${JSON.stringify(items)}`;
+
+async function callLLM(prompt, maxTokens) {
+  const r = await fetch(API, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: MODEL,
+      messages: [{ role: "user", content: prompt }],
+      max_tokens: maxTokens,
+      temperature: 0.3,
+      stream: false,
+      // 2026-08-23 实测：deepseek-v4-flash 推理模型默认 reasoning 会吃满 max_tokens
+      // 导致 content 为空；reasoning_effort: low 修复（reasoning 8185→336 token）
+      reasoning_effort: "low",
+    }),
+  });
+  if (!r.ok) {
+    const t = await r.text();
+    throw new Error(`LLM HTTP ${r.status}: ${t.slice(0, 200)}`);
+  }
+  const j = await r.json();
+  const c = j.choices?.[0];
+  if (!c || !c.message?.content || c.message.content.length < 20) {
+    throw new Error(`LLM 空输出 (finish=${c?.finish_reason}, usage=${JSON.stringify(j.usage)})`);
+  }
+  return c.message.content;
+}
+
+// 精简字段，控制 prompt 体积（推理模型：输入越小 content 空间越大）
+function slim(items) {
+  return items.slice(0, 110).map(i => ({
+    title: (i.title || "").slice(0, 100),
+    source: (i.source || "").slice(0, 24),
+    time: (i.published_at || "").slice(5, 10),
+    summary: (i.summary || "").slice(0, 70),
+  }));
+}
+
+async function withRetry(fn, attempts = 2) {
+  let lastErr;
+  for (let i = 0; i < attempts; i++) {
+    try { return await fn(i); }
+    catch (e) { lastErr = e; console.warn(`  重试 ${i + 1}: ${e.message}`); }
+  }
+  throw lastErr;
+}
+
+async function main() {
+  const raw = JSON.parse(fs.readFileSync(RAW, "utf8"));
+  let items = raw.items || [];
+
+  // 预筛：官方公司源全保留 + 其余截止到 N 条
+  const official = items.filter(i => COMPANY_SOURCE_IDS.has(i.source_id));
+  const others = items.filter(i => !COMPANY_SOURCE_IDS.has(i.source_id));
+  const cap = process.env.HOT_MODE ? 40 : 90;
+  items = [...official, ...others.slice(0, cap)];
+
+  if (process.env.HOT_MODE) {
+    // 爆炸检测
+    const cutoff = Date.now() - 12 * 3600 * 1000;
+    const fresh = items.filter(it => it.published_at && new Date(it.published_at).getTime() > cutoff);
+    const pool = slim(fresh.length >= 5 ? fresh : items.slice(0, 15));
+    console.log(`爆炸检测：${items.length} 条（新条目 ${fresh.length}）送入判定`);
+    // hot 需要 url，所以单独保留 url 字段
+    const poolHot = (fresh.length >= 5 ? fresh : items.slice(0, 15)).map(i => ({
+      title: (i.title || "").slice(0, 100), source: (i.source || "").slice(0, 24), url: i.url || "",
+    }));
+    const out = await withRetry(() => callLLM(hotPrompt(poolHot), 4096));
+    fs.writeFileSync(path.join(DATA_DIR, "hot.json"), out);
+    console.log("判定结果:", out.slice(0, 400));
+    return;
+  }
+
+  // 日报模式
+  console.log(`日报模式：${items.length} 条送入 DeepSeek(${MODEL}) 汇总…`);
+  const out = await withRetry(() => callLLM(dailyPrompt(slim(items)), 8192));
+  fs.writeFileSync(REPORT, out);
+  console.log("已生成日报:", REPORT, `(${out.length} 字符)`);
+}
+main().catch(e => { console.error("FATAL", e.message); process.exit(1); });
