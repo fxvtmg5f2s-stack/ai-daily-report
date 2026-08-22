@@ -1,0 +1,29 @@
+name: Daily AI Report
+
+on:
+  schedule:
+    # UTC 0:00 = 北京时间 8:00
+    - cron: "0 0 * * *"
+  workflow_dispatch: {} # 支持手动触发
+
+permissions:
+  contents: read
+
+jobs:
+  daily-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+      - name: 抓取信息源
+        run: node scripts/fetch-sources.mjs
+      - name: DeepSeek 汇总（去重/过滤/科普）
+        run: node scripts/summarize.mjs
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DAILY_MODEL: ${{ vars.DAILY_MODEL || 'deepseek-v4-flash' }}
+      - name: Server酱 推送日报
+        run: node scripts/push.mjs daily
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
