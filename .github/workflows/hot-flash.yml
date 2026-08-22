@@ -1,0 +1,30 @@
+name: Hot Flash Watch
+
+on:
+  schedule:
+    # 每 15 分钟检测一次（UTC），相当于北京时间 8:00/8:15/8:30... 
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+# 爆炸检测需要读上一次的 hot 状态文件（先读仓库中的 data/hot-state.json），
+# 为简单起见每次全量判定近 12h 新条目；文案里带时间戳做去重引导。
+permissions:
+  contents: read
+
+jobs:
+  hot-flash:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+      - name: 抓取信息源（热模式）
+        run: HOT_MODE=1 node scripts/fetch-sources.mjs
+      - name: DeepSeek 爆炸判定
+        run: HOT_MODE=1 node scripts/summarize.mjs
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      - name: Server酱 推送（仅爆炸级）
+        run: node scripts/push.mjs hot
+        env:
+          SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
