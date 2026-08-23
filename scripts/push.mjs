@@ -28,8 +28,8 @@ async function send(title, desp) {
 async function daily() {
   const report = fs.readFileSync(path.join(DATA_DIR, "report.md"), "utf8");
   const title = `📰 AI 日报 ${new Date().toISOString().slice(0, 10)}`;
-  // 微信推送用 markdown；标题取报告第一行
-  const short = report.replace(/#+ /g, "").slice(0, 3200);
+  // 微信推送用 markdown；标题取报告第一行（上限放宽到 6000 字符，支持加长版日报）
+  const short = report.replace(/#+ /g, "").slice(0, 6000);
   const ok = await send(title, short);
   console.log("日报已推送:", JSON.stringify(ok).slice(0, 200));
 }

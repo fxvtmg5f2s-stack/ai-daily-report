@@ -26,22 +26,30 @@ const API = "https://api.deepseek.com/chat/completions";
 // 官方公司源 id（与 fetch-sources.mjs 保持一致，用于预筛保底）
 const COMPANY_SOURCE_IDS = new Set(["openai", "deepseek", "qwen", "zhipu", "kimi", "anthropic", "deepmind", "googai"]);
 
-const dailyPrompt = (items) => `你是AI资讯编辑，读者是[A]的人工智能小白用户。请对下面 ${items.length} 条中文资讯JSON做：①同一事件多源→合并标注「多源交叉」；②丢弃无关/重复/软文；③每条配≤40字「💡科普」（术语用生活类比，可联动历史：这是…之后第二次）；④客观不夸大，中英混排。
+const dailyPrompt = (items) => `你是AI资讯编辑，读者是[A]的人工智能小白用户。请对下面 ${items.length} 条中文资讯JSON做：①同一事件多源→合并标注「多源交叉」；②丢弃无关/重复/软文/超过48小时的旧闻；③每条配≤40字「💡科普」（术语用生活类比）；④客观不夸大；⑤禁止编造背景或历史（不确定就不写）。
 
-输出Markdown（严格结构，总长≤650字）：
+输出Markdown（严格模板，总长1500~1800字，日期统一 YYYY-MM-DD，每个板块标题与内容之间必须空一行）：
 # 📰 AI 今日动态 — ${new Date().toISOString().slice(0, 10)}
 ## 📝 今日看点
 （3-5条客观趋势归纳，每条一行）
 ## 🏆 今日必读
-（2-3条，格式：**标题**（来源·时间）\n> 摘要\n💡 科普：…\n🏷️ 关键词）
+（3条；至少1条来源不是OpenAI；优先「多源交叉」；格式：
+**标题**（来源·YYYY-MM-DD）
+> 摘要
+💡 科普：…
+🔗 [原文](url)
+🏷️ 关键词：#词1 #词2）
 ## 🏢 公司动态
 ### 公司名
 - **标题**：《一句摘要》（科普）
-（无内容的公司不出现）
+  🔗 [原文](url)
+（每家最多4条，无内容的公司不出现）
+## ⚡ 快讯速览
+（8-10条一句话快讯，每条带🔗链接，无摘要无科普）
 ## 📈 趋势雷达
-（2-4条值得跟踪的信号+一句为什么）
+（3-4条值得跟踪的信号，每条两行：信号一句话 + 「为什么值得跟踪」一句话）
 
-【数据】
+【数据（title/source/time/summary/url；time=未知表示无时间戳，谨慎使用）】
 ${JSON.stringify(items)}`;
 
 const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary）。
@@ -84,8 +92,9 @@ function slim(items) {
   return items.slice(0, 110).map(i => ({
     title: (i.title || "").slice(0, 100),
     source: (i.source || "").slice(0, 24),
-    time: (i.published_at || "").slice(5, 10),
+    time: i.published_at ? String(i.published_at).slice(0, 10) : "未知",
     summary: (i.summary || "").slice(0, 70),
+    url: (i.url || "").slice(0, 200),
   }));
 }
 
@@ -141,9 +150,17 @@ async function main() {
     return;
   }
 
-  // 日报模式
-  console.log(`日报模式：${items.length} 条送入 DeepSeek(${MODEL}) 汇总…`);
-  const out = await withRetry(() => callLLM(dailyPrompt(slim(items)), 8192));
+  // 日报模式：优先近 24h，不足放宽到 48h，再不足全量；无时间戳官方条目标注"未知"
+  const now = Date.now();
+  const dated = items.filter(i => i.published_at && !isNaN(new Date(i.published_at).getTime()));
+  const byDateDesc = (a, b) => new Date(b.published_at) - new Date(a.published_at);
+  const fresh24 = dated.filter(i => now - new Date(i.published_at).getTime() < 24 * 3600 * 1000).sort(byDateDesc);
+  const fresh48 = dated.filter(i => now - new Date(i.published_at).getTime() < 48 * 3600 * 1000).sort(byDateDesc);
+  const undated = items.filter(i => !i.published_at);
+  let pool = fresh24.length >= 8 ? fresh24 : (fresh48.length >= 8 ? fresh48 : items);
+  pool = [...pool, ...undated.slice(0, 10)];
+  console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length}）送入 DeepSeek(${MODEL}) 汇总…`);
+  const out = await withRetry(() => callLLM(dailyPrompt(slim(pool)), 8192));
   fs.writeFileSync(REPORT, out);
   console.log("已生成日报:", REPORT, `(${out.length} 字符)`);
 }
