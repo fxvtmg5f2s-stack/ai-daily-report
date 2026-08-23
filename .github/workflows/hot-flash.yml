@@ -2,8 +2,9 @@ name: Hot Flash Watch
 
 on:
   schedule:
-    # 每 15 分钟检测一次（UTC），相当于北京时间 8:00/8:15/8:30... 
-    - cron: "*/15 * * * *"
+    # 北京时间 8:00-21:45 每 15 分钟一次（UTC 0-13点）。
+    # 夜间 22:00-次日 8:00 静默不跑（省费用+不打扰）；summarize.mjs 内有北京时间双保险。
+    - cron: "*/15 0-13 * * *"
   workflow_dispatch: {}
 
 # 爆炸检测需要读上一次的 hot 状态文件（先读仓库中的 data/hot-state.json），

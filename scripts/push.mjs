@@ -41,10 +41,14 @@ async function hot() {
   if (j.is_explosive !== true) { console.log(`非爆炸级（${j.reason || "无理由"}），不推送`); return; }
   const items = (j.items || []).slice(0, 5);
   if (items.length === 0) { console.log("无条目，不推送"); return; }
+  // 与日报排版一致：链接内嵌标题 + 来源·日期 + 科普，每条三行
   const lines = items.map(i => {
     const icon = i.level === "explosive" ? "🔥" : "🔔";
-    const tip = i.tip ? `\n\n💡 科普：${i.tip}` : "";
-    return `### ${icon} ${i.title}\n\n${i.why || ""}${tip}\n\n${i.url || ""}`;
+    const titleLine = i.url
+      ? `**${icon} [${i.title}](${i.url})**`
+      : `**${icon} ${i.title}**`;
+    const srcTime = [i.source, i.time].filter(Boolean).join("·");
+    return `${titleLine}${srcTime ? `（${srcTime}）` : ""}\n> ${i.why || ""}\n💡 科普：${i.tip || "略"}`;
   }).join("\n\n");
   const main = items.find(i => i.level === "explosive") || items[0];
   const ok = await send(`⚠️ 爆炸级：${(main.title || "").slice(0, 28)}…`, lines);

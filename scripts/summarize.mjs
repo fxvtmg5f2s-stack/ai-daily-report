@@ -49,11 +49,11 @@ const dailyPrompt = (items) => `你是AI资讯编辑，读者是[A]的人工智�
 【数据（title/source/time/summary/url；time=未知表示无时间戳，谨慎使用）】
 ${JSON.stringify(items)}`;
 
-const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary）。
+const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary/time）。
 判定爆炸级标准：头部公司（OpenAI/Anthropic/Google/DeepSeek/阿里Qwen/智谱/月之暗面/xAI/微软/Meta/Nvidia/Mistral）发布新模型或重大战略/政策；行业级突破；≥2不同来源同报一件重磅事。
 【输出】严格JSON（不要markdown代码块、不要多余文字）：
-{"is_explosive":true或false,"reason":"一句话","items":[{"title":"原标题","url":"原url","level":"explosive或attention","why":"一句话说明为什么值得看","tip":"≤40字科普，术语用生活化类比"}]}
-规则：is_explosive=true 时，items 第一项必须是爆炸主条目(level="explosive")，随后最多再补4条（同事件相关条目或过去12小时其他值得关注条目，level="attention"）；每条都必须有 tip。is_explosive=false 时 items 输出空数组 []。
+{"is_explosive":true或false,"reason":"一句话","items":[{"title":"原标题","url":"原url","source":"来源名","time":"YYYY-MM-DD","level":"explosive或attention","why":"一句话说明为什么值得看","tip":"≤40字科普，术语用生活化类比"}]}
+规则：is_explosive=true 时，items 第一项必须是爆炸主条目(level="explosive")，随后最多再补4条（同事件相关条目或过去12小时其他值得关注条目，level="attention"）；每条都必须有 tip；source/time 从输入数据复制，无时间戳写"未知"。is_explosive=false 时 items 输出空数组 []。
 【数据】
 ${JSON.stringify(items)}`;
 
@@ -115,6 +115,13 @@ async function main() {
   items = [...official, ...others.slice(0, cap)];
 
   if (process.env.HOT_MODE) {
+    // 夜间静默：北京时间 22:00-次日 8:00 不做判定、不推送（双保险，cron 已避开此时段）
+    const bjHour = new Date(Date.now() + 8 * 3600 * 1000).getUTCHours();
+    if (bjHour >= 22 || bjHour < 8) {
+      fs.writeFileSync(path.join(DATA_DIR, "hot.json"), JSON.stringify({ is_explosive: false, reason: "夜间静默时段(北京时间22:00-8:00)" }));
+      console.log(`夜间静默（北京时间 ${bjHour} 点），跳过爆炸判定`);
+      return;
+    }
     // 爆炸检测
     const cutoff = Date.now() - 12 * 3600 * 1000;
     const fresh = items.filter(it => it.published_at && new Date(it.published_at).getTime() > cutoff);
@@ -124,6 +131,7 @@ async function main() {
       source: (i.source || "").slice(0, 24),
       url: i.url || "",
       summary: (i.summary || "").slice(0, 60),
+      time: (i.published_at || "").slice(0, 10),
     }));
     console.log(`爆炸检测：${items.length} 条（新条目 ${fresh.length}）送入判定`);
     const raw = await withRetry(() => callLLM(hotPrompt(poolHot), 8192));
