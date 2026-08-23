@@ -8,8 +8,10 @@ on:
 
 # 爆炸检测需要读上一次的 hot 状态文件（先读仓库中的 data/hot-state.json），
 # 为简单起见每次全量判定近 12h 新条目；文案里带时间戳做去重引导。
+# 2026-08-23：去重状态改存 Actions artifact（state/pushed.json），12h 内已推条目不再重复推送。
 permissions:
   contents: read
+  actions: write
 
 jobs:
   hot-flash:
@@ -18,6 +20,12 @@ jobs:
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
+      - name: 下载推送去重状态
+        uses: actions/download-artifact@v4
+        with:
+          name: hot-state
+          path: state
+        continue-on-error: true
       - name: 抓取信息源（热模式）
         run: HOT_MODE=1 node scripts/fetch-sources.mjs
       - name: DeepSeek 爆炸判定
@@ -28,3 +36,11 @@ jobs:
         run: node scripts/push.mjs hot
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+      - name: 上传推送去重状态
+        uses: actions/upload-artifact@v4
+        with:
+          name: hot-state
+          path: state/pushed.json
+          retention-days: 7
+          overwrite: true
+          if-no-files-found: warn

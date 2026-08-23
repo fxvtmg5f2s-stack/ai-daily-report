@@ -11,6 +11,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
 const RAW = path.join(DATA_DIR, "raw.json");
 const REPORT = path.join(DATA_DIR, "report.md");
+// 爆炸推送去重状态（经 GitHub Actions artifact 跨运行持久化）
+const STATE_DIR = path.join(__dirname, "..", "state");
+const STATE_FILE = path.join(STATE_DIR, "pushed.json");
+
+function normTitle(t) { return (t || "").replace(/[^\w\u4e00-\u9fa5]/g, "").slice(0, 40); }
+function loadState() { try { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8")); } catch { return { pushed: [] }; } }
 
 const KEY = process.env.DEEPSEEK_API_KEY;
 if (!KEY) { console.error("缺少 DEEPSEEK_API_KEY 环境变量"); process.exit(1); }
@@ -38,10 +44,11 @@ const dailyPrompt = (items) => `你是AI资讯编辑，读者是[A]的人工智�
 【数据】
 ${JSON.stringify(items)}`;
 
-const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON。
+const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary）。
 判定爆炸级标准：头部公司（OpenAI/Anthropic/Google/DeepSeek/阿里Qwen/智谱/月之暗面/xAI/微软/Meta/Nvidia/Mistral）发布新模型或重大战略/政策；行业级突破；≥2不同来源同报一件重磅事。
-【输出】严格JSON：
-{"is_explosive":true/false,"reason":"一句话","items":[{"title":"…","url":"…","why":"…"}]}
+【输出】严格JSON（不要markdown代码块、不要多余文字）：
+{"is_explosive":true或false,"reason":"一句话","items":[{"title":"原标题","url":"原url","level":"explosive或attention","why":"一句话说明为什么值得看","tip":"≤40字科普，术语用生活化类比"}]}
+规则：is_explosive=true 时，items 第一项必须是爆炸主条目(level="explosive")，随后最多再补4条（同事件相关条目或过去12小时其他值得关注条目，level="attention"）；每条都必须有 tip。is_explosive=false 时 items 输出空数组 []。
 【数据】
 ${JSON.stringify(items)}`;
 
@@ -105,15 +112,32 @@ async function main() {
     // 爆炸检测
     const cutoff = Date.now() - 12 * 3600 * 1000;
     const fresh = items.filter(it => it.published_at && new Date(it.published_at).getTime() > cutoff);
-    const pool = slim(fresh.length >= 5 ? fresh : items.slice(0, 15));
-    console.log(`爆炸检测：${items.length} 条（新条目 ${fresh.length}）送入判定`);
-    // hot 需要 url，所以单独保留 url 字段
-    const poolHot = (fresh.length >= 5 ? fresh : items.slice(0, 15)).map(i => ({
-      title: (i.title || "").slice(0, 100), source: (i.source || "").slice(0, 24), url: i.url || "",
+    const base = fresh.length >= 5 ? fresh : items.slice(0, 15);
+    const poolHot = base.slice(0, 80).map(i => ({
+      title: (i.title || "").slice(0, 100),
+      source: (i.source || "").slice(0, 24),
+      url: i.url || "",
+      summary: (i.summary || "").slice(0, 60),
     }));
-    const out = await withRetry(() => callLLM(hotPrompt(poolHot), 4096));
-    fs.writeFileSync(path.join(DATA_DIR, "hot.json"), out);
-    console.log("判定结果:", out.slice(0, 400));
+    console.log(`爆炸检测：${items.length} 条（新条目 ${fresh.length}）送入判定`);
+    const raw = await withRetry(() => callLLM(hotPrompt(poolHot), 8192));
+    // 去掉可能的 ```json 围栏，容错解析
+    const jsonText = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
+    let out;
+    try { out = JSON.parse(jsonText); } catch (e) { throw new Error(`LLM 返回非 JSON: ${raw.slice(0, 200)}`); }
+    // 去重：12 小时内已推送过的标题/URL 不再推
+    const state = loadState();
+    const now = Date.now();
+    const live = state.pushed.filter(p => now - p.ts < 12 * 3600 * 1000);
+    const titleKeys = new Set(live.map(p => p.key));
+    const urlKeys = new Set(live.map(p => p.url).filter(Boolean));
+    out.items = (out.items || []).filter(it => !titleKeys.has(normTitle(it.title)) && !(it.url && urlKeys.has(it.url)));
+    if (out.items.length === 0) out.is_explosive = false;
+    for (const it of out.items) live.push({ key: normTitle(it.title), url: it.url || "", ts: now });
+    fs.mkdirSync(STATE_DIR, { recursive: true });
+    fs.writeFileSync(STATE_FILE, JSON.stringify({ pushed: live.slice(-500) }));
+    fs.writeFileSync(path.join(DATA_DIR, "hot.json"), JSON.stringify(out));
+    console.log("判定结果:", JSON.stringify(out).slice(0, 400));
     return;
   }
 

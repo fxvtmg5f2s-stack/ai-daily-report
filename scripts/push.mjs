@@ -36,11 +36,18 @@ async function daily() {
 
 async function hot() {
   const hot = fs.readFileSync(path.join(DATA_DIR, "hot.json"), "utf8");
-  const j = JSON.parse(hot);
+  let j;
+  try { j = JSON.parse(hot); } catch (e) { console.error("hot.json 解析失败，跳过推送:", e.message); return; }
   if (j.is_explosive !== true) { console.log(`非爆炸级（${j.reason || "无理由"}），不推送`); return; }
-  const items = (j.items || []).slice(0, 3);
-  const lines = items.map(i => `### 🔥 ${i.title}\n\n${i.why || ""}\n\n${i.url || ""}`).join("\n\n");
-  const ok = await send(`⚠️ 爆炸级：${(items[0]?.title || "").slice(0, 28)}…`, lines);
+  const items = (j.items || []).slice(0, 5);
+  if (items.length === 0) { console.log("无条目，不推送"); return; }
+  const lines = items.map(i => {
+    const icon = i.level === "explosive" ? "🔥" : "🔔";
+    const tip = i.tip ? `\n\n💡 科普：${i.tip}` : "";
+    return `### ${icon} ${i.title}\n\n${i.why || ""}${tip}\n\n${i.url || ""}`;
+  }).join("\n\n");
+  const main = items.find(i => i.level === "explosive") || items[0];
+  const ok = await send(`⚠️ 爆炸级：${(main.title || "").slice(0, 28)}…`, lines);
   console.log("爆炸推送成功:", JSON.stringify(ok).slice(0, 200));
 }
 
