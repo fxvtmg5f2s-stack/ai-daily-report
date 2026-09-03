@@ -33,10 +33,11 @@ jobs:
         run: HOT_MODE=1 node scripts/summarize.mjs
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-      - name: Server酱 推送（仅爆炸级）
+      - name: 推送（仅爆炸级，微信 + Bark）
         run: node scripts/push.mjs hot
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
+          BARK_DEVICE_KEY: ${{ secrets.BARK_DEVICE_KEY }}
       - name: 上传推送去重状态
         uses: actions/upload-artifact@v4
         with:
