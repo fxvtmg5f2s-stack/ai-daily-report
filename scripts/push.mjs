@@ -76,7 +76,8 @@ function chunkMarkdown(md, max) {
 
 async function daily() {
   const report = fs.readFileSync(path.join(DATA_DIR, "report.md"), "utf8");
-  const date = new Date().toISOString().slice(0, 10);
+  // 北京时间日期（UTC 日期在凌晨会错一天）
+  const date = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
   const title = `📰 AI 日报 ${date}`;
   // 微信推送用 markdown；标题取报告第一行（上限放宽到 6000 字符，支持加长版日报）
   const short = report.replace(/#+ /g, "").slice(0, 6000);
@@ -88,7 +89,7 @@ async function daily() {
     const chunks = chunkMarkdown(report, 1000);
     if (chunks.length === 0) chunks.push({ title: "", body: report.replace(/#+ /g, "").slice(0, 1000) });
     for (const c of chunks) {
-      await barkSend(`📰 AI 日报 ${date} · ${c.title}`, c.body, "AI日报");
+      await barkSend(`📰 AI 日报 ${date} · ${c.title}`, c.body, "AI日报", { sound: "glass", isArchive: "1" });
     }
     console.log(`Bark 日报已推 ${chunks.length} 条`);
   }
@@ -114,9 +115,9 @@ async function hot() {
   const ok = await send(`⚠️ 爆炸级：${(main.title || "").slice(0, 28)}…`, lines);
   console.log("爆炸推送成功(微信):", JSON.stringify(ok).slice(0, 200));
 
-  // Bark：单条直达，归档进「AI爆炸」组（普通提醒级别，2026-09-04 创作者拍板）
+  // Bark：单条直达，归档进「AI爆炸」组（普通提醒级别，2026-09-04 创作者拍板；带提示音+存档）
   if (BARK_KEY) {
-    await barkSend(`⚠️ 爆炸级：${(main.title || "").slice(0, 28)}…`, lines, "AI爆炸");
+    await barkSend(`⚠️ 爆炸级：${(main.title || "").slice(0, 28)}…`, lines, "AI爆炸", { sound: "crystal", isArchive: "1" });
     console.log("Bark 爆炸推送已发");
   }
 }

@@ -10,7 +10,8 @@ const DATA_DIR = path.join(__dirname, "..", "data");
 const OUT = path.join(DATA_DIR, "raw.json");
 
 // ============ 源配置 ============
-// kind: company(公司官方) / trend(趋势社区) / media(媒体) / radar(聚合雷达)
+// kind: company(公司官方) / trend(趋势社区) / media(媒体) / radar(聚合雷达) / release(GitHub发布流)
+// 2026-09-05 改版：官方公告+GitHub发布流=主力；媒体仅辅助交叉；时间戳统一北京+08:00
 const SOURCES = [
   // —— 公司官方一手（爆炸检测重点）——
   { id: "openai", name: "OpenAI", kind: "company", priority: 1, host: "官方", type: "rss", url: "https://openai.com/news/rss.xml" },
@@ -19,9 +20,21 @@ const SOURCES = [
   { id: "zhipu", name: "智谱 GLM", kind: "company", priority: 1, host: "官方", type: "html", url: "https://www.zhipuai.cn/news" },
   { id: "kimi", name: "月之暗面 Kimi", kind: "company", priority: 1, host: "官方", type: "html", url: "https://www.moonshot.cn/" },
   { id: "anthropic", name: "Anthropic", kind: "company", priority: 1, host: "官方", type: "html", url: "https://www.anthropic.com/news" },
+  { id: "msai", name: "微软 AI", kind: "company", priority: 1, host: "官方", type: "html", url: "https://blogs.microsoft.com/ai/" },
+  { id: "awsml", name: "AWS AI", kind: "company", priority: 1, host: "官方", type: "rss", url: "https://aws.amazon.com/blogs/machine-learning/feed/" },
+  { id: "appleml", name: "Apple ML", kind: "company", priority: 1, host: "官方", type: "rss", url: "https://machinelearning.apple.com/rss.xml" },
+  { id: "doubao", name: "字节豆包", kind: "company", priority: 1, host: "官方", type: "html", url: "https://team.doubao.com/blog" },
+  { id: "minimax", name: "MiniMax", kind: "company", priority: 1, host: "官方", type: "html", url: "https://www.minimaxi.com/news" },
   // —— Google 系（DeepMind + AI blog 双源）——
   { id: "deepmind", name: "Google DeepMind", kind: "company", priority: 1, host: "官方", type: "rss", url: "https://deepmind.google/blog/rss.xml" },
   { id: "googai", name: "Google AI", kind: "company", priority: 1, host: "官方", type: "rss", url: "https://blog.google/technology/ai/rss/" },
+  // —— GitHub 发布流（社媒/发布动态的免代理一手替代，2026-09-05 实测全通）——
+  { id: "rel-meta", name: "Meta Llama 发布", kind: "release", priority: 1, host: "GitHub发布", type: "rss", url: "https://github.com/meta-llama/llama-models/releases.atom" },
+  { id: "rel-nvidia", name: "NVIDIA 发布", kind: "release", priority: 1, host: "GitHub发布", type: "rss", url: "https://github.com/NVIDIA/TensorRT-LLM/releases.atom" },
+  { id: "rel-openai", name: "OpenAI SDK 发布", kind: "release", priority: 1, host: "GitHub发布", type: "rss", url: "https://github.com/openai/openai-python/releases.atom" },
+  { id: "rel-hf", name: "HuggingFace 发布", kind: "release", priority: 1, host: "GitHub发布", type: "rss", url: "https://github.com/huggingface/transformers/releases.atom" },
+  { id: "rel-mistral", name: "Mistral 发布", kind: "release", priority: 1, host: "GitHub发布", type: "rss", url: "https://github.com/mistralai/mistral-inference/releases.atom" },
+  { id: "rel-deepseek", name: "DeepSeek 发布", kind: "release", priority: 1, host: "GitHub发布", type: "rss", url: "https://github.com/deepseek-ai/DeepSeek-V3/releases.atom" },
   // —— 趋势与社区 ——
   { id: "hn", name: "Hacker News", kind: "trend", priority: 2, host: "社区", type: "rss", url: "https://hnrss.org/frontpage" },
   { id: "techcrunch", name: "TechCrunch AI", kind: "media", priority: 2, host: "媒体", type: "rss", url: "https://techcrunch.com/category/artificial-intelligence/feed/" },
@@ -44,6 +57,13 @@ function stripHtml(s = "") {
     .trim();
 }
 function clamp(s, n) { return s.length > n ? s.slice(0, n - 1) + "…" : s; }
+// 时间戳统一转北京 ISO（+08:00 显式时区，任何环境 new Date 解析都正确）
+function toBeijingISO(s) {
+  if (!s) return "";
+  const d = new Date(s);
+  if (isNaN(d.getTime())) return "";
+  return new Date(d.getTime() + 8 * 3600 * 1000).toISOString().replace(/\.\d{3}Z$/, "+08:00");
+}
 async function getText(url, timeoutMs = 15000) {
   const ctl = new AbortController();
   const t = setTimeout(() => ctl.abort(), timeoutMs);
@@ -69,7 +89,7 @@ function parseRss(xml, src) {
       || (b.match(/<published[^>]*>([\s\S]*?)<\/published>/i) || [])[1]?.trim() || "";
     const desc = stripHtml((b.match(/<(?:description|summary|content:encoded|content)[^>]*>([\s\S]*?)<\/(?:description|summary|content:encoded|content)>/i) || [])[1] || "");
     if (title && title.length > 3) {
-      items.push({ source: src.name, source_id: src.id, kind: src.kind, priority: src.priority, host: src.host, title, url: link, published_at: pub, summary: clamp(desc, 300) });
+      items.push({ source: src.name, source_id: src.id, kind: src.kind, priority: src.priority, host: src.host, title, url: link, published_at: toBeijingISO(pub), summary: clamp(desc, 300) });
     }
   }
   return items.slice(0, 30);
@@ -118,7 +138,7 @@ function parseRadarJson(j) {
     host: "聚合",
     title: i.title_zh || i.title || "",
     url: i.url || "",
-    published_at: i.published_at || "",
+    published_at: toBeijingISO(i.published_at),
     summary: i.recommend_reason_zh ? ("推荐理由：" + i.recommend_reason_zh) : "",
     ai_score: i.ai_score ?? null,
     ai_label: i.ai_label || "",

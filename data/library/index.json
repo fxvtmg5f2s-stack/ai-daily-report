@@ -1,0 +1,229 @@
+[
+ {
+  "date": "2026-09-05",
+  "items": [
+   {
+    "title": "OpenAI发布GPT-6Astra：行业迈入AGI时代，性能多维跃升并重塑安全边界",
+    "url": "https://www.aibase.com/news/30824",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "Google Workspace全线接入Gemini语音交互，告别手动打字时代",
+    "url": "https://www.aibase.com/news/30829",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "微软给 Copilot 智能体装上\"刹车\"：发邮件、付款前必须人工点头",
+    "url": "https://www.aibase.com/news/30833",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "微软最强转录模型 MAI-Transcribe-2 登场：60 语种词错误率 5.2%，每小时仅 0.67 元",
+    "url": "https://www.aibase.com/news/30820",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "Build a Physical AI model factory with NVIDIA Cosmos 3 on SageMaker HyperPod",
+    "url": "https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-05 00:16"
+   },
+   {
+    "title": "全球 AI 集体大罢工：海外多款主力大模型突发瘫痪超 3 小时",
+    "url": "https://www.aibase.com/news/30837",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "趋境科技与摩尔线程达成战略合作，国产异构方案性价比超越国际先进算力",
+    "url": "https://www.qbitai.com/2026/09/484547.html",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 17:23"
+   },
+   {
+    "title": "Gemini 3.8 Flash正式接入B.AI API，聚焦长周期编程与自主Agent",
+    "url": "https://www.aibase.com/news/30836",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "全国小学初中教材 100% 换新：AI 教育同步大规模进课堂",
+    "url": "https://www.aibase.com/news/30818",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-04",
+  "items": [
+   {
+    "title": "OpenAI 正式发布 GPT-6 Astra：性能多维跃升，ARC-AGI-3 达 98.6%",
+    "url": "https://www.aibase.com/news/30817",
+    "company": "",
+    "section": "🏆",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "路透社：OpenAI 智能体 5 月失控，渗透德语维基互动作弊并躲避清理",
+    "url": "https://www.ithome.com/0/998/593.htm",
+    "company": "",
+    "section": "🏆",
+    "time": "09-04 20:41"
+   },
+   {
+    "title": "NVIDIA 129 亿美元收购 Hugging Face，黄仁勋详解收购逻辑",
+    "url": "https://www.aibase.com/news/30843",
+    "company": "",
+    "section": "🏆",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "微软 Copilot Studio 推出人工审批功能",
+    "url": "https://www.aibase.com/news/30825",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "微软发布 MAI-Transcribe-2 语音识别模型",
+    "url": "https://www.aibase.com/news/30822",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "NVIDIA 开源 PAIR：Mac 与 RTX PC 组成 AI 算力小队",
+    "url": "https://www.aibase.com/news/30828",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "OpenAI 投 10 亿美元为关键基础设施筑 AI 防线",
+    "url": "https://www.aibase.com/news/30823",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "奥特曼证实 OpenAI 自研人形机器人",
+    "url": "https://www.aibase.com/news/30835",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "Google DeepMind 发布 WeatherNext 3",
+    "url": "https://www.aibase.com/news/30841",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "谷歌 9 月 4 日起停用 Google Assistant，Gemini 全面接棒",
+    "url": "https://www.aibase.com/news/30839",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "Meta 改 AI 考核标准：不再看 Token 用量",
+    "url": "https://www.aibase.com/news/30830",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "阿里千问上线首月用户破 3000 万",
+    "url": "https://www.aibase.com/news/30832",
+    "company": "",
+    "section": "🏢",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "全球 AI 集体宕机近 4 小时，智谱发文「我们还在线」",
+    "url": "https://www.aibase.com/news/30847",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "AI 数据中心 Crusoe 融资 30 亿美元，估值 300 亿",
+    "url": "https://www.aibase.com/news/30838",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "德国 Vara 获全球首个自主乳腺癌筛查 AI 认证",
+    "url": "https://www.aibase.com/news/30840",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "AI 3D 独角兽 VAST 半年融资超 57 亿元",
+    "url": "https://www.aibase.com/news/30831",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "沙特借力中国 MiniMax 开源模型打造国家级 AI 平台",
+    "url": "https://www.aibase.com/news/30821",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "谷歌 Gemini Spark 可管理 Google Photos 相册",
+    "url": "https://techcrunch.com/2026/09/04/googles-gemini-spark-can-now-manage-your-google-photos-library/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 22:47"
+   },
+   {
+    "title": "小红书清除近 12 万条 AI 虚假探店与医美内容",
+    "url": "https://www.aibase.com/news/30826",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "未发布 GPT Image 2.5 多项升级引关注",
+    "url": "https://www.aibase.com/news/30842",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "AI 生成菜单陷入「完美美学」恐怖谷效应",
+    "url": "https://www.aibase.com/news/30845",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "Thinking Machines 洽谈 10 亿美元融资，估值 400 亿",
+    "url": "https://techcrunch.com/2026/09/03/accel-reportedly-in-talks-to-lead-1b-round-for-thinking-machines-at-40b-valuation/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 03:36"
+   }
+  ]
+ }
+]
