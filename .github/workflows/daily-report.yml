@@ -22,7 +22,7 @@ jobs:
         run: node scripts/summarize.mjs
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          DAILY_MODEL: ${{ vars.DAILY_MODEL || 'deepseek-v4-flash' }}
+          DAILY_MODEL: ${{ vars.DAILY_MODEL || 'deepseek-flash' }}
       - name: 推送日报（微信 + Bark）
         run: node scripts/push.mjs daily
         env:

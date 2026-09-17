@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // summarize.mjs — DeepSeek 汇总：去重合并 → 过滤 → 小白科普 → 输出 Markdown 日报
 // 密钥：DEEPSEEK_API_KEY（环境变量，绝不入库）
-// 坑（2026-08-23 实测）：deepseek-v4-flash 为推理模型，reasoning 吃 token，
+// 坑（2026-08-23 实测）：deepseek-flash（V4.1 Flash；2026-09-18 由已退役的 deepseek-v4-flash 迁入）为推理模型，reasoning 吃 token，
 // 大 prompt 会导致 content 为空 → 必须精简输入 + 重试兜底。
 import fs from "node:fs";
 import path from "node:path";
@@ -20,7 +20,7 @@ function loadState() { try { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8
 
 const KEY = process.env.DEEPSEEK_API_KEY;
 if (!KEY) { console.error("缺少 DEEPSEEK_API_KEY 环境变量"); process.exit(1); }
-const MODEL = process.env.DAILY_MODEL || "deepseek-v4-flash";
+const MODEL = process.env.DAILY_MODEL || "deepseek-flash";
 const API = "https://api.deepseek.com/chat/completions";
 
 // 官方一手源 id（公司官方 + GitHub 发布流，与 fetch-sources.mjs 保持一致，用于预筛保底）
@@ -72,7 +72,10 @@ const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是
 【数据】
 ${JSON.stringify(items)}`;
 
-async function callLLM(prompt, maxTokens) {
+async function callLLM(prompt, maxTokens, opts = {}) {
+  // 2026-09-18 加：正文长度闸门 + 按次指定 reasoning 档位（防「存根日报被当成功」）
+  const minChars = opts.minChars ?? 20;
+  const effort = opts.reasoningEffort ?? "low";
   const r = await fetch(API, {
     method: "POST",
     headers: { Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" },
@@ -82,9 +85,11 @@ async function callLLM(prompt, maxTokens) {
       max_tokens: maxTokens,
       temperature: 0.3,
       stream: false,
-      // 2026-08-23 实测：deepseek-v4-flash 推理模型默认 reasoning 会吃满 max_tokens
-      // 导致 content 为空；reasoning_effort: low 修复（reasoning 8185→336 token）
-      reasoning_effort: "low",
+      // 2026-08-23 实测：推理模型 reasoning 会吃满 max_tokens 致 content 空；reasoning_effort:"low" 缓解。
+      // 2026-09-18 实测（模型换 deepseek-flash = V4.1 Flash 后）：数据稀疏/自相矛盾时仍会烧穿整个预算
+      //   （finish=length、reasoning_tokens=8193、content 空，日报退化成 45 字符存根）；
+      //   实测 reasoning_effort:"none" 能真正关掉思考（3.2s、0 reasoning token、正文照出）→ 作降级档。
+      reasoning_effort: effort,
     }),
   });
   if (!r.ok) {
@@ -93,8 +98,8 @@ async function callLLM(prompt, maxTokens) {
   }
   const j = await r.json();
   const c = j.choices?.[0];
-  if (!c || !c.message?.content || c.message.content.length < 20) {
-    throw new Error(`LLM 空输出 (finish=${c?.finish_reason}, usage=${JSON.stringify(j.usage)})`);
+  if (!c || !c.message?.content || c.message.content.length < minChars) {
+    throw new Error(`LLM 输出过短/为空 (len=${c?.message?.content?.length ?? 0}, 阈值=${minChars}, finish=${c?.finish_reason}, usage=${JSON.stringify(j.usage)})`);
   }
   return c.message.content;
 }
@@ -220,7 +225,8 @@ async function main() {
       time: (i.published_at || "").slice(0, 10),
     }));
     console.log(`爆炸检测：${items.length} 条（新条目 ${fresh.length}）送入判定`);
-    const raw = await withRetry(() => callLLM(hotPrompt(poolHot), 8192));
+    // 2026-09-18 实测：V4.1 Flash 在这类大 prompt 上 reasoning 必烧穿预算 ⇒ 首枪直接关思考
+    const raw = await withRetry((i) => callLLM(hotPrompt(poolHot), i === 0 ? 8192 : 12000, { reasoningEffort: "none" }));
     // 去掉可能的 ```json 围栏，容错解析
     const jsonText = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
     let out;
@@ -252,7 +258,9 @@ async function main() {
   pool = [...pool, ...undated.slice(0, 10)];
   const trendHistory = loadTrendHistory(7);
   console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length} / 趋势追踪历史 ${trendHistory ? "有" : "无"}）送入 DeepSeek(${MODEL}) 汇总…`);
-  const out = await withRetry(() => callLLM(dailyPrompt(slim(pool), trendHistory), 8192));
+  // 日报：2026-09-18 实测 V4.1 Flash 在真实数据下 reasoning 两次都烧穿（8191 tokens、content 空）
+  //   ⇒ 首枪起就关思考（"none"），只把「放大预算」留作降级；正文长度闸门 400 字符防存根。
+  const out = await withRetry((i) => callLLM(dailyPrompt(slim(pool), trendHistory), i === 0 ? 8192 : 12000, { minChars: 400, reasoningEffort: "none" }));
   fs.writeFileSync(REPORT, out);
   console.log("已生成日报:", REPORT, `(${out.length} 字符)`);
   updateLibrary(out);
