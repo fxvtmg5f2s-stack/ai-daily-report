@@ -3,32 +3,39 @@
   "date": "2026-10-20",
   "items": [
    {
-    "title": "亚马逊推出 TorchNeuron，直攻英伟达 PyTorch 护城河",
+    "title": "美国土安全部下令联邦民事机构禁用 DeepSeek",
+    "url": "https://www.reuters.com/technology/us-banning-chinese-ai-deepseek-government-agency-it-systems-2026-10-19/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-20 00:16"
+   },
+   {
+    "title": "Amazon Bedrock 为 Claude 全系模型支持结构化输出",
+    "url": "https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-20 07:32"
+   },
+   {
+    "title": "亚马逊发布 TorchNeuron 开发工具，直攻英伟达 PyTorch 生态",
     "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
     "company": "",
     "section": "三件事",
     "time": "10-20 04:09"
    },
    {
-    "title": "英伟达发布开放代理模型，可在企业与 PC 本地运行",
-    "url": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/",
-    "company": "",
-    "section": "三件事",
-    "time": "10-19 23:37"
-   },
-   {
-    "title": "微软称 AI 代理形同\"内部威胁\"，前沿模型不可信",
-    "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
-    "company": "",
-    "section": "三件事",
-    "time": "10-20 06:04"
-   },
-   {
-    "title": "AWS Bedrock 为 Claude 模型支持结构化输出",
-    "url": "https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/",
+    "title": "Nscale 与 Anthropic 据称洽谈 450 亿美元算力协议",
+    "url": "https://techcrunch.com/2026/10/19/nscale-and-anthropic-are-reportedly-in-talks-for-yet-another-45-billion-compute-deal/",
     "company": "",
     "section": "其他值得留意",
-    "time": "10-20 07:32"
+    "time": "10-20 07:39"
+   },
+   {
+    "title": "微软称 AI 代理如同\"内部威胁\"",
+    "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-20 06:04"
    },
    {
     "title": "Tenstorrent 估值达 62 亿美元",
@@ -36,13 +43,6 @@
     "company": "",
     "section": "其他值得留意",
     "time": "10-20 02:37"
-   },
-   {
-    "title": "DHS 下令联邦民事机构禁用 DeepSeek",
-    "url": "https://www.reuters.com/technology/us-banning-chinese-ai-deepseek-government-agency-it-systems-2026-10-19/",
-    "company": "",
-    "section": "其他值得留意",
-    "time": "10-20 00:16"
    }
   ]
  },

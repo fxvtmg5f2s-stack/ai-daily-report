@@ -90,7 +90,7 @@ function summaryForPush(md) {
   for (const l of lines) {
     if (l.startsWith("## ")) { inThree = l.includes("三件事"); continue; }
     if (!inThree) continue;
-    const m = l.match(/^\*\*\d+\.\s*\[([^\]]+)\]/);
+    const m = l.match(/^\*\*\d+\.\s*(?:\[持续跟踪\]\s*)?\[([^\]]+)\]/);
     if (m) titles.push(m[1]);
   }
   return [one, ...titles.map((t, k) => `${k + 1}. ${t}`)].filter(Boolean).join("\n");

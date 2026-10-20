@@ -36,32 +36,49 @@ function bjTime(s) {
 }
 const bjToday = () => new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
 
-const dailyPrompt = (items, trendHistory) => `你是AI资讯主编。读者每天只有60秒，只想弄清"今天有没有值得我管的事"。下面 ${items.length} 条候选资讯JSON（title/source/host/time/summary/url）。
+const dailyPrompt = (items, trendHistory, recentTitles) => `你是AI资讯主编。读者每天只有60秒，只想弄清"今天有没有值得我管的事"。下面 ${items.length} 条候选资讯JSON（title/source/host/domain/time/summary/url）。
 
-先在心里给每条打「重要度」1-5 分：
-5=改变行业能力/价格/规则，且有一手来源可验证（头部公司发新模型、重大政策、行业级突破）
-4=头部公司重要发布或重大事件，或≥2家不同来源同报一件事
-3=值得知道，但不改变判断
-2=边缘、软文、猜测、纯标题
-1=与AI无关或旧闻，直接丢
+【先记三条铁律】
+1) 「三件事」最多3条，其中**媒体单源最多1条**；官方一手不足就少写（1-2条），绝不许用媒体单源凑数。
+2) 官方一手（host=官方/GitHub发布）的重要更新，优先于媒体的重磅传闻/爆料。
+3) 标题一律译成简洁中文，模型名/产品名保留英文。
 
-然后输出 Markdown，总长硬性 ≤1000 字（超了会被退回重写）：
+【重要度打分（先逐条打分，再选）】
+5分=官方一手首发 + 行业级影响（只给新模型、重大降价、平台级政策；「某个 API 支持某格式」这类功能更新最高 4 分）
+4分=官方重要更新但影响面有限；**权威媒体**（路透/彭博/WSJ/NYT/AP/FT）单源报道的重大事件；≥2家不同来源交叉的重磅
+3分=科技媒体单源（TechCrunch/量子位/Hacker News/聚合站）、官方例行更新、社区热议
+≤2分=非AI、无时间戳、纯转述、纯观点、软文、旧闻
+同一档内按影响面排序：受影响的人/公司/地区越多越靠前。
+
+【硬上限（不许突破）】
+- **科技媒体单源**最高 3 分；权威媒体单源可到 4 分，但要在"为什么重要"里说明为何重大
+- 非AI主题最高 2 分
+- 无时间戳（time=未知）最高 3 分
+- KOL/二手转述最高 3 分，除非官方确认
+来源名写实际发布方：链接指向 reuters.com 就写 Reuters，不要写 Hacker News。
+「三件事」只收 ≥4 分；够格不足3条就给2条，不许凑数。若 ≥4 分不足2条，**最多取1条**最高分的单源媒体，条目后标「（单源）」，并在"为什么重要"里写清影响（不要写"单源/媒体/权威媒体"这类元信息）。
+
+【判重与延续】
+下面给你近3天已报事件标题：只是重复昨天事实的→直接丢弃；是延续（新进展/反转/后续）的→标题最前加「[持续跟踪]」，第一行改成「前情：… ｜ 最新：…」。
+
+【输出 Markdown，总长硬性 ≤1000 字，日期统一 YYYY-MM-DD】
 # 📰 AI 日报 — ${bjToday()}
 
 ## 一句话
-（≤50字，给出今天的主线判断；不要罗列条目，不要写"今天有以下"）
+（≤50字，只写"谁做了什么、有什么具体后果"，按重要性串联。禁止词：主线/拐点/深水区/白热化/下半场/元年/格局/正成为/同日/博弈/洗牌/重塑/范式；禁止"今日AI世界…"开头；禁止评价性形容词。）
 
 ## 三件事
 
 **1. [标题](url)**（来源·MM-DD HH:mm）
-> 发生了什么：≤45字 ｜ 为什么重要：≤35字，说人话
+> 发生了什么：≤45字 ｜ 为什么重要：≤35字
+> 验证点：≤25字，一个之后可观察、可证伪的信号
 
-（共3条，按重要度从高到低；只有重要度≥4才能进；够格不足3条就给2条，不许凑数）
+（最多3条，媒体单源最多1条，按分数从高到低。延续事件：标题前加「[持续跟踪]」，第一行换成「前情：… ｜ 最新：…」，第二行「为什么重要：… ｜ 验证点：…」；合并了≥2家来源的在时间后加「·多源」）
 
 ## 其他值得留意
 
 - **[标题](url)**（来源·MM-DD HH:mm）——≤25字说明
-（3条，重要度=3；没有就整节省略）
+（3条，3分；没有就整节省略）
 
 ## 趋势
 
@@ -69,11 +86,13 @@ const dailyPrompt = (items, trendHistory) => `你是AI资讯主编。读者每�
   「为什么值得跟踪」一句话
 （2-3条；对照下面的往期记录，上期出现过的必须给状态，新信号标🆕）
 
-铁律：①同一事件只出现一次，"一句话"和正文不得重复；②每条必须带来源与北京时间（从 time 字段复制；未知的条目不进"三件事"）；③不编造背景；④媒体单源爆料不得当主条，除非官方确认或两家以上交叉；⑤不写"科普"小节，把术语直接换成日常说法；⑥宁少勿凑。
+铁律：①同一事件只出现一次；②每条必须带来源与北京时间（从 time 字段复制；未知的不进"三件事"）；③不编造背景与数字；④媒体单源不得当主条（除非按上面的兜底规则标注）；⑤不写"科普"小节，术语直接换成日常说法；⑥宁少勿凑；⑦正文只写事实与影响，不解释来源等级、不写"据报/单源"之外的元信息。
+
+${recentTitles}
 
 ${trendHistory}
 
-【数据（host=官方/GitHub发布为一手源，媒体为辅助；time=未知表示无时间戳）】
+【数据（host=官方/GitHub发布为一手源；domain=链接域名，可用于判断权威媒体；time=未知表示无时间戳）】
 ${JSON.stringify(items)}`;
 
 const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary/time）。
@@ -122,6 +141,7 @@ function slim(items) {
     title: (i.title || "").slice(0, 100),
     source: (i.source || "").slice(0, 24),
     host: i.host || "",
+    domain: (() => { try { return new URL(i.url).hostname.replace(/^www\./, ""); } catch { return ""; } })(),
     time: bjTime(i.published_at),
     summary: (i.summary || "").slice(0, 70),
     url: (i.url || "").slice(0, 200),
@@ -185,6 +205,41 @@ function recentUrls(days = 2) {
   } catch { return new Set(); }
 }
 
+// 2026-10-20 加：近 3 天已报标题（判重 + 判延续），最多 40 条
+function loadRecentTitles(days = 3, max = 40) {
+  try {
+    const lib = JSON.parse(fs.readFileSync(LIB_FILE, "utf8"));
+    const today = bjToday();
+    const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+    const list = [];
+    for (const d of lib) {
+      if (d.date === today || d.date < cutoff) continue;
+      for (const it of d.items || []) if (it.title) list.push(`${d.date} ${it.title}`);
+    }
+    if (!list.length) return "";
+    return "【近3天已报事件（只用于判重/判延续，严禁照抄措辞）】\n" + list.slice(0, max).map(t => "- " + t.slice(0, 70)).join("\n");
+  } catch { return ""; }
+}
+
+// 2026-10-20 加：日报末尾透明度统计（代码算，不让模型编）
+function statsFooter(md, scrapedCount, poolCount) {
+  const urls = new Set([...md.matchAll(/\((https?:\/\/[^)\s]+)\)/g)].map(m => m[1]));
+  const mediaRe = /（(?:TechCrunch|量子位|Hacker News|AI News Radar|CloudFlare)[^）]*）/;
+  let singleMedia = 0;
+  for (const line of md.split(/\r?\n/)) {
+    if (!/\[[^\]]+\]\(http/.test(line) || line.includes("·多源")) continue;
+    if (mediaRe.test(line)) singleMedia++;
+  }
+  return `\n\n---\n> 本期：抓取候选 ${scrapedCount} 条 → 进入评选 ${poolCount} 条 → 收录 ${urls.size} 条（媒体单源 ${singleMedia} 条）；其余按「非 AI / 重复 / 超 48h / 低重要度」剔除。`;
+}
+
+// 2026-10-20 加：代码侧校验「三件事」里媒体单源条数（模型经常无视上限）
+const MEDIA_SRC_RE = /（(?:TechCrunch|量子位|Hacker News|AI News Radar|CloudFlare)[^）]*）/;
+function mediaTopCount(md) {
+  const body = (md.split(/^## 三件事/m)[1] || "").split(/^## /m)[0];
+  return body.split(/\r?\n/).filter(l => /^\*\*\d+\./.test(l.trim()) && !l.includes("·多源") && MEDIA_SRC_RE.test(l)).length;
+}
+
 // 从日报提取条目（标题+链接+公司+时间）追加进内容库索引
 function updateLibrary(reportMd) {
   try {
@@ -235,6 +290,7 @@ async function main() {
   const recent = recentUrls(2);
   const before = items.length;
   items = items.filter(i => !(i.source_id === "hn" && !AI_TITLE_RE.test(i.title || "")) && !recent.has(i.url));
+  const scrapedCount = items.length;
   console.log(`候选过滤：${before} → ${items.length}（剔除 HN 非AI / 近2天已报 ${before - items.length} 条）`);
 
   // 预筛：官方一手每源保留最近 5 条（防止一手挤满额度）；媒体限额 20 条（辅助角色）；其余按量截断
@@ -303,19 +359,33 @@ async function main() {
   let pool = fresh24.length >= 8 ? fresh24 : (fresh48.length >= 8 ? fresh48 : items);
   pool = [...pool, ...undated.slice(0, 10)];
   const trendHistory = loadTrendHistory(7);
-  console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length} / 趋势追踪历史 ${trendHistory ? "有" : "无"}）送入 DeepSeek(${MODEL}) 汇总…`);
+  const recentTitles = loadRecentTitles(3);
+  console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length} / 趋势历史 ${trendHistory ? "有" : "无"} / 近3天已报标题 ${recentTitles ? "有" : "无"}）送入 DeepSeek(${MODEL}) 汇总…`);
   // 日报：2026-09-18 实测 V4.1 Flash 在真实数据下 reasoning 两次都烧穿（8191 tokens、content 空）
   //   ⇒ 首枪起就关思考（"none"），只把「放大预算」留作降级；正文长度闸门 400 字符防存根。
-  let out = await withRetry((i) => callLLM(dailyPrompt(slim(pool), trendHistory), i === 0 ? 8192 : 12000, { minChars: 400, reasoningEffort: "none" }));
-  // 2026-10-20 加：60 秒版长度闸门。按「去掉 URL 后可见字数」算（链接本身占几百字符，不该算阅读量）
   const visibleLen = (s) => s.replace(/\((https?:\/\/[^)\s]+)\)/g, "").length;
-  if (visibleLen(out) > 1200) {
-    console.log(`首版可见 ${visibleLen(out)} 字超长，要求重写压缩…`);
+  let out = await withRetry((i) => callLLM(dailyPrompt(slim(pool), trendHistory, recentTitles), i === 0 ? 8192 : 12000, { minChars: 400, reasoningEffort: "none" }));
+  // 2026-10-20 长度闸门：>1500 可见字才压缩，且必须保留「验证点」与「其他值得留意」，只压措辞
+  if (visibleLen(out) > 1500) {
+    console.log(`首版可见 ${visibleLen(out)} 字超长，要求压缩…`);
     try {
-      const shorter = await callLLM(dailyPrompt(slim(pool), trendHistory) + "\n\n【上一版超长，必须压到1000字以内：只留3条主事件+2条趋势，删掉所有重复表述】", 12000, { minChars: 300, reasoningEffort: "none" });
-      if (shorter.length < out.length) { out = shorter; console.log(`压缩版 ${out.length} 字符`); }
+      const shorter = await callLLM(dailyPrompt(slim(pool), trendHistory, recentTitles) + "\n\n【上一版超长，压到1200字以内：保留三件事的「验证点」行和「其他值得留意」，只压缩措辞、不删结构】", 12000, { minChars: 300, reasoningEffort: "none" });
+      if (visibleLen(shorter) < visibleLen(out)) { out = shorter; console.log(`压缩后可见 ${visibleLen(out)} 字`); }
     } catch (e) { console.warn("压缩重写失败，保留首版:", e.message); }
   }
+  // 2026-10-20 媒体单源上限校验（放在压缩之后，防止压缩版把媒体条数又加回来）
+  const topMedia = mediaTopCount(out);
+  if (topMedia > 1) {
+    console.log(`「三件事」含 ${topMedia} 条媒体单源，超过上限 1，要求返工…`);
+    try {
+      const fixed = await callLLM(
+        dailyPrompt(slim(pool), trendHistory, recentTitles) + `\n\n【硬性返工】上一版「三件事」里有 ${topMedia} 条媒体单源，违反上限（最多1条）。请把多余条目移到「其他值得留意」或删掉；标题译成中文；宁可只写1-2条，也不许用媒体凑数。`,
+        12000, { minChars: 300, reasoningEffort: "none" }
+      );
+      if (mediaTopCount(fixed) < topMedia) { out = fixed; console.log(`返工后媒体单源 ${mediaTopCount(fixed)} 条`); }
+    } catch (e) { console.warn("返工失败，保留原版:", e.message); }
+  }
+  if (!/本期：抓取候选/.test(out)) out = out.trimEnd() + statsFooter(out, scrapedCount, pool.length);
   fs.writeFileSync(REPORT, out);
   console.log("已生成日报:", REPORT, `(${out.length} 字符)`);
   updateLibrary(out);
