@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // push.mjs — 双通道推送：Server酱微信 + Bark 手机（2026-09-04 加 Bark 通道）
 // 密钥：SERVERCHAN_SENDKEY（微信，必填）/ BARK_DEVICE_KEY（手机，可选——缺则静默跳过）
+// 2026-09-05 加：BARK_DEVICE_KEY_DAILY（仅收日报、绝不收爆炸的"小钥匙"；不设=完全同旧行为）
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -12,10 +13,13 @@ const KEY = process.env.SERVERCHAN_SENDKEY;
 if (!KEY) { console.error("缺少 SERVERCHAN_SENDKEY 环境变量"); process.exit(1); }
 
 const BARK_KEY = process.env.BARK_DEVICE_KEY || "";
+const BARK_KEY_DAILY = process.env.BARK_DEVICE_KEY_DAILY || "";
+const DRY = process.env.PUSH_DRY === "1";
 const mode = process.argv[2] || "daily";
 const api = `https://sctapi.ftqq.com/${KEY}.send`;
 
 async function send(title, desp) {
+  if (DRY) { console.log(`[DRY] 微信推送: ${title}`); return { data: { dry: 1 } }; }
   const r = await fetch(api, {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -27,13 +31,15 @@ async function send(title, desp) {
 }
 
 // ===== Bark 通道（可选；失败只告警，不阻断主链路）=====
-async function barkSend(title, body, group, extra = {}) {
-  if (!BARK_KEY) { console.log("无 BARK_DEVICE_KEY，跳过 Bark 推送"); return; }
+async function barkSend(title, body, group, extra = {}, deviceKey) {
+  const key = deviceKey || BARK_KEY;
+  if (!key) { console.log("无 BARK_DEVICE_KEY，跳过 Bark 推送"); return; }
+  if (DRY) { console.log(`[DRY] Bark → ${key.slice(0, 6)}*** group=${group} title=${title}`); return; }
   try {
     const r = await fetch("https://api.day.app/push", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ device_key: BARK_KEY, title, body, group, ...extra }),
+      body: JSON.stringify({ device_key: key, title, body, group, ...extra }),
     });
     const j = await r.json();
     if (j.code !== 200) throw new Error(JSON.stringify(j));
@@ -74,24 +80,41 @@ function chunkMarkdown(md, max) {
   return out;
 }
 
+// 2026-10-20：日报推送从「按节拆 5-7 条」改成「一条」——一句话 + 三条标题 + 点开看全文
+function summaryForPush(md) {
+  const lines = md.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const i = lines.findIndex(l => l.startsWith("## 一句话"));
+  const one = i >= 0 ? (lines[i + 1] || "") : "";
+  const titles = [];
+  let inThree = false;
+  for (const l of lines) {
+    if (l.startsWith("## ")) { inThree = l.includes("三件事"); continue; }
+    if (!inThree) continue;
+    const m = l.match(/^\*\*\d+\.\s*\[([^\]]+)\]/);
+    if (m) titles.push(m[1]);
+  }
+  return [one, ...titles.map((t, k) => `${k + 1}. ${t}`)].filter(Boolean).join("\n");
+}
+
 async function daily() {
   const report = fs.readFileSync(path.join(DATA_DIR, "report.md"), "utf8");
   // 北京时间日期（UTC 日期在凌晨会错一天）
   const date = new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
-  const title = `📰 AI 日报 ${date}`;
-  // 微信推送用 markdown；标题取报告第一行（上限放宽到 6000 字符，支持加长版日报）
+  const portal = process.env.PORTAL_URL || "http://100.67.66.124:3088/lan-gate/report";
+  // 微信：60 秒版全文（已缩短）+ 门户链接
   const short = report.replace(/#+ /g, "").slice(0, 6000);
-  const ok = await send(title, short);
+  const ok = await send(`📰 AI 日报 ${date} · 60 秒版`, `${short}\n\n---\n[打开门户看历史与全文](${portal})`);
   console.log("日报已推送微信:", JSON.stringify(ok).slice(0, 200));
 
-  // Bark：按节拆条（≤1000 字/条），归档进「AI日报」组
-  if (BARK_KEY) {
-    const chunks = chunkMarkdown(report, 1000);
-    if (chunks.length === 0) chunks.push({ title: "", body: report.replace(/#+ /g, "").slice(0, 1000) });
-    for (const c of chunks) {
-      await barkSend(`📰 AI 日报 ${date} · ${c.title}`, c.body, "AI日报", { sound: "glass", isArchive: "1" });
+  // Bark：只发一条（一句话 + 三条标题），点通知直接打开门户全文
+  // 主 key（全量）+ 每日 key（仅日报、不推爆炸），两者互不影响
+  const dailyKeys = [BARK_KEY, BARK_KEY_DAILY].filter(Boolean);
+  if (dailyKeys.length) {
+    const body = summaryForPush(report) || short.slice(0, 800);
+    for (const k of dailyKeys) {
+      await barkSend(`📰 AI 日报 ${date} · 三件事`, `${body}\n\n点开看全文与近 30 天存档`, "AI日报", { sound: "glass", isArchive: "1", url: portal }, k);
     }
-    console.log(`Bark 日报已推 ${chunks.length} 条`);
+    console.log(`Bark 日报已推 1 条 × ${dailyKeys.length} 个钥匙`);
   }
 }
 

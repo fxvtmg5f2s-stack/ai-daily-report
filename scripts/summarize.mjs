@@ -36,32 +36,44 @@ function bjTime(s) {
 }
 const bjToday = () => new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
 
-const dailyPrompt = (items, trendHistory) => `你是AI资讯编辑，读者是[A]的人工智能小白用户。请对下面 ${items.length} 条中文资讯JSON做：①同一事件多源→合并标注「多源交叉」；②丢弃无关/重复/软文/超过48小时的旧闻；③每条配≤40字「💡科普」（术语用生活类比）；④客观不夸大；⑤禁止编造背景或历史（不确定就不写）；⑥**信息源分级**：官方一手（host=官方/GitHub发布）优先当主条目，媒体条目（量子位/TechCrunch 等）只用于交叉验证和补充中文视角，不要把媒体单源爆料当主条；⑦**时间戳纪律**：每条新闻必须带「来源·MM-DD HH:mm」（北京时间，从数据 time 字段复制），无时间戳写「未知」，时间是你判断「读者是否已看过」的关键。
+const dailyPrompt = (items, trendHistory) => `你是AI资讯主编。读者每天只有60秒，只想弄清"今天有没有值得我管的事"。下面 ${items.length} 条候选资讯JSON（title/source/host/time/summary/url）。
 
-输出Markdown（严格模板，总长1500~2000字，日期统一 YYYY-MM-DD，板块标题与内容之间空一行。所有链接一律内嵌在标题里，格式为 **[标题](url)**，禁止单独输出链接行；无 url 的条目标题不带链接）：
-# 📰 AI 今日动态 — ${bjToday()}
-## 📝 今日看点
-（3-5条客观趋势归纳，每条一行，不要链接）
-## 🏆 今日必读
-（3条；至少1条来源不是OpenAI；优先「多源交叉」；每条三行：
-**📌 [标题](url)**（来源·MM-DD HH:mm）
-> 摘要
-💡 科普：…）
-## 🏢 公司动态
-### 公司名
-- **[标题](url)**：《一句摘要》（💡科普·MM-DD HH:mm）
-（每家最多3条，无内容的公司不出现）
-## ⚡ 快讯速览
-（8-10条，每条一行：- [标题](url)（MM-DD HH:mm），不要摘要不要科普）
-## 📈 趋势追踪
-（3-4条值得跟踪的信号，每条两行：
-- **信号名**【状态：🆕新出现 / 🔥发酵中 / ✅已证实 / ❌已证伪 / 💤沉寂】（依据一句话）
-第二行：「为什么值得跟踪」一句话。
-状态对照下面给的「往期趋势追踪记录」判断：上期提过的信号必须给出状态，新信号标🆕）
+先在心里给每条打「重要度」1-5 分：
+5=改变行业能力/价格/规则，且有一手来源可验证（头部公司发新模型、重大政策、行业级突破）
+4=头部公司重要发布或重大事件，或≥2家不同来源同报一件事
+3=值得知道，但不改变判断
+2=边缘、软文、猜测、纯标题
+1=与AI无关或旧闻，直接丢
+
+然后输出 Markdown，总长硬性 ≤1000 字（超了会被退回重写）：
+# 📰 AI 日报 — ${bjToday()}
+
+## 一句话
+（≤50字，给出今天的主线判断；不要罗列条目，不要写"今天有以下"）
+
+## 三件事
+
+**1. [标题](url)**（来源·MM-DD HH:mm）
+> 发生了什么：≤45字 ｜ 为什么重要：≤35字，说人话
+
+（共3条，按重要度从高到低；只有重要度≥4才能进；够格不足3条就给2条，不许凑数）
+
+## 其他值得留意
+
+- **[标题](url)**（来源·MM-DD HH:mm）——≤25字说明
+（3条，重要度=3；没有就整节省略）
+
+## 趋势
+
+- **信号名**【🆕新出现/🔥发酵中/✅已证实/❌已证伪/💤沉寂】依据一句话
+  「为什么值得跟踪」一句话
+（2-3条；对照下面的往期记录，上期出现过的必须给状态，新信号标🆕）
+
+铁律：①同一事件只出现一次，"一句话"和正文不得重复；②每条必须带来源与北京时间（从 time 字段复制；未知的条目不进"三件事"）；③不编造背景；④媒体单源爆料不得当主条，除非官方确认或两家以上交叉；⑤不写"科普"小节，把术语直接换成日常说法；⑥宁少勿凑。
 
 ${trendHistory}
 
-【数据（title/source/host/time/summary/url；host=官方/GitHub发布为一手源，媒体为辅助；time=未知表示无时间戳，谨慎使用）】
+【数据（host=官方/GitHub发布为一手源，媒体为辅助；time=未知表示无时间戳）】
 ${JSON.stringify(items)}`;
 
 const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary/time）。
@@ -130,6 +142,8 @@ const LIB_DIR = path.join(DATA_DIR, "library");
 const LIB_FILE = path.join(LIB_DIR, "index.json");
 
 // 读历史日报的「趋势雷达/趋势追踪」节，注入 prompt 实现连载式追踪
+// 2026-10-20 修：旧正则用 (?=\n## |\n$) 收尾，遇「趋势是最后一节且文件末尾无换行」永远匹配不到
+//   → 趋势历史长期为空、状态全是🆕。改成按行找节标题，兼容新版「## 趋势」。
 function loadTrendHistory(days = 7) {
   const histDir = path.join(DATA_DIR, "history");
   const blocks = [];
@@ -137,12 +151,38 @@ function loadTrendHistory(days = 7) {
     const files = fs.readdirSync(histDir).filter(f => /^\d{4}-\d{2}-\d{2}\.md$/.test(f)).sort().slice(-days);
     for (const f of files) {
       const md = fs.readFileSync(path.join(histDir, f), "utf8");
-      const m = md.match(/## 📈 趋势(?:雷达|追踪)[\s\S]*?(?=\n## |\n$)/);
-      if (m) blocks.push(`【${f.replace(".md", "")}】${m[0].replace(/^## 📈 趋势(?:雷达|追踪)/, "").trim().slice(0, 400)}`);
+      const lines = md.split(/\r?\n/);
+      const start = lines.findIndex(l => /^##\s.*趋势/.test(l));
+      if (start < 0) continue;
+      const buf = [];
+      for (let i = start + 1; i < lines.length; i++) {
+        if (/^##\s/.test(lines[i])) break;
+        buf.push(lines[i]);
+      }
+      const body = buf.join("\n").trim();
+      if (body) blocks.push(`【${f.replace(".md", "")}】${body.slice(0, 400)}`);
     }
   } catch { /* 无历史则跳过 */ }
   if (!blocks.length) return "";
   return "【往期趋势追踪记录（按日期升序，用于判断本期信号状态）】\n" + blocks.join("\n\n") + "\n";
+}
+
+// 2026-10-20 加：HN 首页混进非 AI 条目（Go 证书链/XSLT/JDK/ESP32…），先按标题闸门过滤
+const AI_TITLE_RE = /\b(ai|a\.i\.|llm|llms|gpt|chatgpt|claude|gemini|deepseek|openai|anthropic|llama|qwen|mistral|kimi|glm|agent|agents|agentic|chatbot|copilot|diffusion|midjourney|sora|veo|neural|transformer|inference|fine-?tun\w*|machine learning|language model|multimodal|rag|embedding|gpu|nvidia|tpu)\b/i;
+
+// 2026-10-20 加：近 2 天已报过的 URL 不再进候选（防旧闻重播；不含当天，允许重跑当天）
+function recentUrls(days = 2) {
+  try {
+    const lib = JSON.parse(fs.readFileSync(LIB_FILE, "utf8"));
+    const today = bjToday();
+    const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+    const seen = new Set();
+    for (const d of lib) {
+      if (d.date === today || d.date < cutoff) continue;
+      for (const it of d.items || []) if (it.url) seen.add(it.url);
+    }
+    return seen;
+  } catch { return new Set(); }
 }
 
 // 从日报提取条目（标题+链接+公司+时间）追加进内容库索引
@@ -161,10 +201,10 @@ function updateLibrary(reportMd) {
       if (h2) { section = h2[1]; continue; }
       const h3 = t.match(/^### (\S+)/);
       if (h3) { company = h3[1]; continue; }
-      if (!/^[-*]|^📌|^🔥|^🔔/.test(t)) continue; // 只看条目行
+      if (!/^\*\*\d+\.|^[-*]|^📌|^🔥|^🔔/.test(t)) continue; // 2026-10-20 兼容新版 **1. [标题](url)**
       const link = t.match(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/);
       if (!link) continue;
-      const tm = (t.match(/（([^（）]*)）\s*$/) || [])[1] || "";
+      const tm = (t.match(/（([^（）]*·[^（）]*)）/) || [])[1] || "";
       items.push({
         title: link[1].replace(/^📌\s*/, "").slice(0, 120),
         url: link[2],
@@ -190,6 +230,12 @@ function updateLibrary(reportMd) {
 async function main() {
   const raw = JSON.parse(fs.readFileSync(RAW, "utf8"));
   let items = raw.items || [];
+
+  // 2026-10-20：HN 非 AI 噪音 + 近 2 天已报过的 URL 先剔除，再进预筛
+  const recent = recentUrls(2);
+  const before = items.length;
+  items = items.filter(i => !(i.source_id === "hn" && !AI_TITLE_RE.test(i.title || "")) && !recent.has(i.url));
+  console.log(`候选过滤：${before} → ${items.length}（剔除 HN 非AI / 近2天已报 ${before - items.length} 条）`);
 
   // 预筛：官方一手每源保留最近 5 条（防止一手挤满额度）；媒体限额 20 条（辅助角色）；其余按量截断
   const official = items.filter(i => COMPANY_SOURCE_IDS.has(i.source_id));
@@ -260,7 +306,16 @@ async function main() {
   console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length} / 趋势追踪历史 ${trendHistory ? "有" : "无"}）送入 DeepSeek(${MODEL}) 汇总…`);
   // 日报：2026-09-18 实测 V4.1 Flash 在真实数据下 reasoning 两次都烧穿（8191 tokens、content 空）
   //   ⇒ 首枪起就关思考（"none"），只把「放大预算」留作降级；正文长度闸门 400 字符防存根。
-  const out = await withRetry((i) => callLLM(dailyPrompt(slim(pool), trendHistory), i === 0 ? 8192 : 12000, { minChars: 400, reasoningEffort: "none" }));
+  let out = await withRetry((i) => callLLM(dailyPrompt(slim(pool), trendHistory), i === 0 ? 8192 : 12000, { minChars: 400, reasoningEffort: "none" }));
+  // 2026-10-20 加：60 秒版长度闸门。按「去掉 URL 后可见字数」算（链接本身占几百字符，不该算阅读量）
+  const visibleLen = (s) => s.replace(/\((https?:\/\/[^)\s]+)\)/g, "").length;
+  if (visibleLen(out) > 1200) {
+    console.log(`首版可见 ${visibleLen(out)} 字超长，要求重写压缩…`);
+    try {
+      const shorter = await callLLM(dailyPrompt(slim(pool), trendHistory) + "\n\n【上一版超长，必须压到1000字以内：只留3条主事件+2条趋势，删掉所有重复表述】", 12000, { minChars: 300, reasoningEffort: "none" });
+      if (shorter.length < out.length) { out = shorter; console.log(`压缩版 ${out.length} 字符`); }
+    } catch (e) { console.warn("压缩重写失败，保留首版:", e.message); }
+  }
   fs.writeFileSync(REPORT, out);
   console.log("已生成日报:", REPORT, `(${out.length} 字符)`);
   updateLibrary(out);

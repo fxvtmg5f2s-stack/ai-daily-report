@@ -2,9 +2,9 @@ name: Daily AI Report
 
 on:
   schedule:
-    # UTC 0:00 = 北京时间 8:00
-    - cron: "0 0 * * *"
-  workflow_dispatch: {} # 支持手动触发
+    # UTC 1:00 = 北京时间 9:00。比本机 08:05 晚，先看本机心跳：本机已出就不重复推。
+    - cron: "0 1 * * *"
+  workflow_dispatch: {} # 支持手动触发（同样先查心跳）
 
 permissions:
   contents: read
@@ -16,14 +16,32 @@ jobs:
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
+
+      - name: 检查本机心跳（今日存档是否已由本机推送）
+        id: beat
+        run: |
+          D=$(TZ=Asia/Shanghai date +%F)
+          if [ -f "data/history/$D.md" ]; then
+            echo "skip=1" >> "$GITHUB_OUTPUT"
+            echo "本机已生成 $D 日报，云端跳过（避免一天两份）"
+          else
+            echo "skip=0" >> "$GITHUB_OUTPUT"
+            echo "未发现 $D 心跳，云端补跑"
+          fi
+
       - name: 抓取信息源
+        if: steps.beat.outputs.skip != '1'
         run: node scripts/fetch-sources.mjs
-      - name: DeepSeek 汇总（去重/过滤/科普）
+
+      - name: DeepSeek 汇总（60 秒版）
+        if: steps.beat.outputs.skip != '1'
         run: node scripts/summarize.mjs
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           DAILY_MODEL: ${{ vars.DAILY_MODEL || 'deepseek-flash' }}
-      - name: 推送日报（微信 + Bark）
+
+      - name: 推送日报（微信 + Bark 单条）
+        if: steps.beat.outputs.skip != '1'
         run: node scripts/push.mjs daily
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}

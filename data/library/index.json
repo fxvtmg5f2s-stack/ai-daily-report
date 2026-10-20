@@ -1,5 +1,4816 @@
 [
  {
+  "date": "2026-10-20",
+  "items": [
+   {
+    "title": "亚马逊推出 TorchNeuron，直攻英伟达 PyTorch 护城河",
+    "url": "https://techcrunch.com/2026/10/19/amazon-is-taking-its-biggest-shot-at-nvidia-yet-with-new-torchneuron-dev-tool/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-20 04:09"
+   },
+   {
+    "title": "英伟达发布开放代理模型，可在企业与 PC 本地运行",
+    "url": "https://techcrunch.com/2026/10/19/nvidia-launches-new-open-models-to-run-agents-in-the-enterprise-and-on-pcs/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-19 23:37"
+   },
+   {
+    "title": "微软称 AI 代理形同\"内部威胁\"，前沿模型不可信",
+    "url": "https://techcrunch.com/2026/10/19/microsoft-says-ai-agents-are-like-insider-threats-as-frontier-models-cant-be-trusted/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-20 06:04"
+   },
+   {
+    "title": "AWS Bedrock 为 Claude 模型支持结构化输出",
+    "url": "https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-20 07:32"
+   },
+   {
+    "title": "Tenstorrent 估值达 62 亿美元",
+    "url": "https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-20 02:37"
+   },
+   {
+    "title": "DHS 下令联邦民事机构禁用 DeepSeek",
+    "url": "https://www.reuters.com/technology/us-banning-chinese-ai-deepseek-government-agency-it-systems-2026-10-19/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-20 00:16"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-19",
+  "items": [
+   {
+    "title": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+    "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-19 04:37"
+   },
+   {
+    "title": "Disney agrees to hire the majority of Character.AI’s workforce",
+    "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-19 00:30"
+   },
+   {
+    "title": "DeepSeek search and fetch – $0.75 per 1000 successful requests",
+    "url": "https://api-docs.deepseek.com/guides/search/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-18 14:50"
+   },
+   {
+    "title": "Anthropic says it’s committing 5% of its shares to a ‘public benefit fund’",
+    "url": "https://techcrunch.com/2026/10/18/anthropic-says-its-committing-5-of-its-shares-to-a-public-benefit-fund/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-19 04:37"
+   },
+   {
+    "title": "Disney agrees to hire the majority of Character.AI’s workforce",
+    "url": "https://techcrunch.com/2026/10/18/disney-agrees-to-hire-the-majority-of-character-ais-workforce/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-19 00:30"
+   },
+   {
+    "title": "DeepSeek search and fetch – $0.75 per 1000 successful requests",
+    "url": "https://api-docs.deepseek.com/guides/search/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-18 14:50"
+   },
+   {
+    "title": "Show HN: WhatsApp MCP running free on Cloudflare",
+    "url": "https://github.com/finereli/whatsapp-mcp",
+    "company": "",
+    "section": "⚡",
+    "time": "10-19 05:36"
+   },
+   {
+    "title": "Hybrid Reasoning Agents: LLM agents that think in latent space, act through text",
+    "url": "https://arxiv.org/abs/2610.18861",
+    "company": "",
+    "section": "⚡",
+    "time": "10-19 04:48"
+   },
+   {
+    "title": "Netflix vmaf: Perceptual video quality assessment",
+    "url": "https://github.com/Netflix/vmaf",
+    "company": "",
+    "section": "⚡",
+    "time": "10-19 04:43"
+   },
+   {
+    "title": "Show HN: Sphinx – A hook that quizzes you on your AI's code before shipping",
+    "url": "https://sphinx-six-theta.vercel.app/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 12:33"
+   },
+   {
+    "title": "Open MicroManipulator – A sub-micrometer 3D motion control platform",
+    "url": "https://github.com/0x23/MicroManipulatorStepper",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 19:16"
+   },
+   {
+    "title": "RepRapMicron",
+    "url": "https://github.com/VikOlliver/RepRapMicron/wiki",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 21:48"
+   },
+   {
+    "title": "A new way to think about borrow checking (in reverse)",
+    "url": "https://verdagon.dev/blog/reverse-borrow-checking",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 20:11"
+   },
+   {
+    "title": "Parser Combinators",
+    "url": "https://t3.at/blog/2026-10-17-parser-combinators/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 16:19"
+   },
+   {
+    "title": "Free Pascal compiler now supports dynamic packages",
+    "url": "https://www.getlazarus.org/dynamic/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-19 02:48"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-18",
+  "items": [
+   {
+    "title": "OpenAI Python SDK 发布 v3.35.0",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.35.0",
+    "company": "",
+    "section": "🏆",
+    "time": "10-18 07:13"
+   },
+   {
+    "title": "Replit 将 OpenAI 设为默认，CEO 确认不再与 Anthropic 合作",
+    "url": "https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-18 02:48"
+   },
+   {
+    "title": "Meta 删除引发抓取与 AI 训练担忧的条款措辞",
+    "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-18 05:31"
+   },
+   {
+    "title": "OpenAI Python SDK v3.34.0",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.34.0",
+    "company": "",
+    "section": "🏢",
+    "time": "10-18 04:34"
+   },
+   {
+    "title": "Codex Desktop 持续生成 Crashpad 崩溃转储文件",
+    "url": "https://github.com/openai/codex/issues/25921",
+    "company": "",
+    "section": "🏢",
+    "time": "10-18 01:45"
+   },
+   {
+    "title": "Anthropic 称员工结构趋于\"去初级化\"、会议时间增加",
+    "url": "https://techcrunch.com/2026/10/17/anthropic-says-its-workforce-has-become-less-junior-and-is-spending-more-time-in-meetings/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-18 04:21"
+   },
+   {
+    "title": "DeepSeek-V4.1-Flash-1017 模型页",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 16:21"
+   },
+   {
+    "title": "Llmspeed：买硬件前先感受本地 LLM 速度",
+    "url": "https://llmspeed.dev/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 12:36"
+   },
+   {
+    "title": "OpenCode 遭攻击，用户凭证泄露",
+    "url": "https://twitter.com/opencode/status/2111516673953935833",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 02:01"
+   },
+   {
+    "title": "微软与 CMU 合作培养早期职业软件工程师",
+    "url": "https://www.cs.cmu.edu/news/2026/microsoft-cmu-praise",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 02:45"
+   },
+   {
+    "title": "Chrome 与 Edge 移除 XSLT，影响待评估",
+    "url": "https://doctor-seo.net/en/blog/news/chrome-edge-removing-xslt/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 04:07"
+   },
+   {
+    "title": "退休教授因阻挡 Uber Eats 机器人被捕",
+    "url": "https://www.phillyvoice.com/philly-woman-arrested-uber-eats-robot-protest/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 07:31"
+   },
+   {
+    "title": "Pele：可主题化的 Mermaid 图表 SVG 工具",
+    "url": "https://pele.run/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 23:55"
+   },
+   {
+    "title": "Esp32sim：浏览器里跑 ESP32 固件",
+    "url": "https://github.com/mikroverk/esp32sim",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 21:51"
+   },
+   {
+    "title": "JDK 28 项目页上线",
+    "url": "https://openjdk.org/projects/jdk/28/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-18 05:37"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-17",
+  "items": [
+   {
+    "title": "Replit is no longer working with Anthropic, CEO says",
+    "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-17 05:22"
+   },
+   {
+    "title": "Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-17 04:48"
+   },
+   {
+    "title": "India becomes the latest country to report rogue AI agent activity",
+    "url": "https://techcrunch.com/2026/10/16/india-becomes-the-latest-country-to-report-rogue-ai-agent-activity/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-17 01:52"
+   },
+   {
+    "title": "Introducing Reflection Beam: an open-weight model for agentic coding on AWS",
+    "url": "https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 23:23"
+   },
+   {
+    "title": "How Itaú is building generative AI for its entire customer base",
+    "url": "https://openai.com/index/itau-generative-ai",
+    "company": "",
+    "section": "🏢",
+    "time": "10-17 03:00"
+   },
+   {
+    "title": "Replit's CEO says the future of work is the 'self-driving company'",
+    "url": "https://techcrunch.com/2026/10/16/replits-ceo-says-the-future-of-work-is-the-self-driving-company/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 20:55"
+   },
+   {
+    "title": "Anthropic assigned highest junk credit rating in June",
+    "url": "https://www.ft.com/content/5a310aee-f555-4266-874c-b1b4db20186d",
+    "company": "",
+    "section": "🏢",
+    "time": "10-17 02:11"
+   },
+   {
+    "title": "Elorian's first AI model wants to reason with images, not just about them",
+    "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-17 00:01"
+   },
+   {
+    "title": "FLUX 3 Image Klein",
+    "url": "https://bfl.ai/blog/flux-3-image-klein",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 03:47"
+   },
+   {
+    "title": "How the Claude Code team does code review",
+    "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 03:04"
+   },
+   {
+    "title": "Designing more efficient quantum circuits with Claude",
+    "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 02:00"
+   },
+   {
+    "title": "Llama.cpp on a jailbroken PS5: run any GGUF model natively",
+    "url": "https://github.com/cobanov/PS5LM",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 02:32"
+   },
+   {
+    "title": "90% of US working hours are spent on tasks not covered well by AI benchmarks",
+    "url": "https://www.mercor.com/research/labor-index/benchmark-map/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 01:08"
+   },
+   {
+    "title": "Jev is Vercel's fastest-adopted AI model ever",
+    "url": "https://techcrunch.com/2026/10/16/jev-is-vercels-fastest-adopted-ai-model-ever/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 23:33"
+   },
+   {
+    "title": "Waymo in Toronto",
+    "url": "https://waymo.com/blog/2026/10/waymo-in-toronto/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 22:44"
+   },
+   {
+    "title": "Show HN: Gemini 4 Argon plays StarCraft",
+    "url": "https://starskirmish.com/bench/v0-2/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 22:18"
+   },
+   {
+    "title": "Veritas expands its anti-counterfeit chip to jewelry, trophies, and fragrance bottles",
+    "url": "https://techcrunch.com/2026/10/16/veritas-is-building-a-chip-to-verify-luxury-goods/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 22:00"
+   },
+   {
+    "title": "An Nvidia insider-turned-VC on why robotics hasn't hit its ChatGPT moment, yet",
+    "url": "https://techcrunch.com/video/a-nvidia-insider-turned-vc-on-why-robotics-hasnt-hit-its-chatgpt-moment-yet/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-17 00:30"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-16",
+  "items": [
+   {
+    "title": "Meta's Muse Spark Open now available in Amazon SageMaker JumpStart",
+    "url": "https://aws.amazon.com/blogs/machine-learning/metas-muse-spark-open-now-available-in-amazon-sagemaker-jumpstart/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-16 01:43"
+   },
+   {
+    "title": "Bringing GPT-Rosalind to academic research labs",
+    "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+    "company": "",
+    "section": "🏆",
+    "time": "10-16 03:00"
+   },
+   {
+    "title": "Anthropic is letting METR researchers look under the hood with employee-level access",
+    "url": "https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-16 03:14"
+   },
+   {
+    "title": "Meta launches an open-weight AI model that runs on Macs",
+    "url": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 04:04"
+   },
+   {
+    "title": "Muse Spark Open",
+    "url": "https://research.meta.ai/blog/muse-spark-open",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 01:47"
+   },
+   {
+    "title": "Amazon's Bee launches two new personal AI devices, starting at $75",
+    "url": "https://techcrunch.com/2026/10/15/amazons-bee-launches-two-new-personal-ai-devices-starting-at-75/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 20:00"
+   },
+   {
+    "title": "Amazon devices chief Panos Panay sees a future where AI devices replace the need to use apps",
+    "url": "https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-sees-a-future-where-ai-devices-replace-the-need-to-use-apps/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 03:55"
+   },
+   {
+    "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
+    "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 00:08"
+   },
+   {
+    "title": "Google's Universal Cart shopping tool launches in the US",
+    "url": "https://techcrunch.com/2026/10/15/googles-universal-cart-shopping-tool-launches-in-the-us/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 22:29"
+   },
+   {
+    "title": "Teaching students to think and learn through questions",
+    "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 21:00"
+   },
+   {
+    "title": "Bluesky expands its AI-powered Attie app to let anyone build websites, games, and more",
+    "url": "https://techcrunch.com/2026/10/15/bluesky-expands-its-ai-powered-attie-app-to-let-anyone-build-websites-games-and-more/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-16 02:56"
+   },
+   {
+    "title": "AI agents are coming to Rivian's cars",
+    "url": "https://techcrunch.com/2026/10/15/ai-agents-are-coming-to-rivians-cars/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 23:02"
+   },
+   {
+    "title": "Figma announces new features to define how agents work on its platform",
+    "url": "https://techcrunch.com/2026/10/14/figma-announces-new-features-to-define-how-agents-work-on-its-platform/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 12:30"
+   },
+   {
+    "title": "Comparing Chromium Development at Google and Igalia",
+    "url": "https://lwn.net/Articles/1094721/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 09:56"
+   },
+   {
+    "title": "RPKI now protects 70% of internet routes",
+    "url": "https://ipinfo.io/blog/rpki-protects-70-internet-routes",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 08:52"
+   },
+   {
+    "title": "Business accounts will consent to Meta scraping their websites Starting Oct. 30",
+    "url": "https://www.niemanlab.org/2026/10/metas-new-commercial-terms-will-allow-the-scraping-of-news-sites-legal-experts-say/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 07:37"
+   },
+   {
+    "title": "Krea 3 – An image model built for editing at scale",
+    "url": "https://www.krea.ai/krea-3",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 00:04"
+   },
+   {
+    "title": "Trust in Depth: Giving agents more autonomy without losing control",
+    "url": "https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 23:05"
+   },
+   {
+    "title": "Using AI to reverse engineer hardware",
+    "url": "https://blogs.gnome.org/uraeus/2026/10/15/aiandreverseengineerhardware/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 22:35"
+   },
+   {
+    "title": "BIPM decides to stop adding leap seconds to UTC",
+    "url": "https://www.bipm.org/en/cgpm-2026/resolution-5",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 00:11"
+   },
+   {
+    "title": "Celebrating 70 Years of Fortran",
+    "url": "https://fortran-lang.org/news/2026/09-15-Fortran-birthday",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 23:03"
+   },
+   {
+    "title": "Libreboot 26.10 \"Ominous Olive\" released with UEFI, Chromebook support",
+    "url": "https://libreboot.org/news/libreboot2610.html",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 20:52"
+   },
+   {
+    "title": "E Ink Kaleido 4",
+    "url": "https://www.eink.com/news/detail/EInk-Launches-Latest-Version-of-Color-ePaper-Platform-E-Ink-Kaleido-4",
+    "company": "",
+    "section": "⚡",
+    "time": "10-16 02:38"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-15",
+  "items": [
+   {
+    "title": "Amp puts AI agents to work beyond code with OpenAI models",
+    "url": "https://openai.com/index/amp-beyond-coding",
+    "company": "",
+    "section": "🏆",
+    "time": "10-14 20:00"
+   },
+   {
+    "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+    "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-14 10:00"
+   },
+   {
+    "title": "YouTube Music launches new labels as AI-generated music floods streaming platforms",
+    "url": "https://techcrunch.com/2026/10/14/youtube-music-launches-new-labels-as-ai-generated-music-floods-streaming-platforms/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-15 02:23"
+   },
+   {
+    "title": "SentinelOne cuts malware analysis from weeks to hours",
+    "url": "https://openai.com/index/sentinelone",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 20:00"
+   },
+   {
+    "title": "How Third Moment Research runs 10,000 agents for 36+ hours",
+    "url": "https://openai.com/index/third-moment-research",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 15:00"
+   },
+   {
+    "title": "How Block is building AI-powered security with OpenAI technology",
+    "url": "https://openai.com/index/block-ai-powered-security",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 15:00"
+   },
+   {
+    "title": "Build self-improving document processing using Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 00:24"
+   },
+   {
+    "title": "Generate presentations with Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 21:58"
+   },
+   {
+    "title": "How Tamnoon built AI-powered cloud security remediation with Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-tamnoon-built-ai-powered-cloud-security-remediation-with-amazon-bedrock/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 21:53"
+   },
+   {
+    "title": "v1.4.0rc0",
+    "url": "https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.4.0rc0",
+    "company": "",
+    "section": "🏢",
+    "time": "10-15 00:35"
+   },
+   {
+    "title": "Deezer will soon let you filter out AI-generated music",
+    "url": "https://techcrunch.com/2026/10/14/deezer-will-soon-let-you-filter-out-ai-generated-music/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 23:16"
+   },
+   {
+    "title": "Zenzap raises $44M for its AI chat app that aims to replace WhatsApp in the workplace",
+    "url": "https://techcrunch.com/2026/10/14/zenzap-raises-44m-for-its-ai-chat-app-that-aims-to-replace-whatsapp-in-the-workplace/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 23:08"
+   },
+   {
+    "title": "Floqer's AI agents research sales prospects so teams don't have to",
+    "url": "https://techcrunch.com/2026/10/14/floqers-ai-agents-help-b2b-revenue-teams-research-customers/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 23:00"
+   },
+   {
+    "title": "Apate sends AI agents undercover to get scammed so they can gather fraud intelligence",
+    "url": "https://techcrunch.com/2026/10/14/apate-sends-ai-agents-undercover-to-get-scammed-so-they-can-gather-fraud-intelligence/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 02:00"
+   },
+   {
+    "title": "Scimplify raises $25M to challenge China's grip on critical materials with AI",
+    "url": "https://techcrunch.com/2026/10/14/scimplify-raises-25m-to-challenge-chinas-grip-on-critical-materials-with-ai/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 19:00"
+   },
+   {
+    "title": "Containment and monitoring failures are to blame for AI hacking reports: experts",
+    "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 01:45"
+   },
+   {
+    "title": "Banks are now trying to offload the AI data center debt they just underwrote",
+    "url": "https://startupfortune.com/banks-are-now-trying-to-offload-the-ai-data-center-debt-they-just-underwrote/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 02:32"
+   },
+   {
+    "title": "Deploy and evaluate models with Amazon SageMaker JumpStart",
+    "url": "https://aws.amazon.com/blogs/machine-learning/deploy-and-evaluate-models-with-amazon-sagemaker-jumpstart/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 21:14"
+   },
+   {
+    "title": "v3.31.0",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.31.0",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 13:38"
+   },
+   {
+    "title": "Flock CEO says its microphones detect 'just gunshots' — its website says different",
+    "url": "https://techcrunch.com/2026/10/14/flock-ceo-says-its-microphones-detect-just-gunshots-its-website-says-different/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-15 05:30"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-14",
+  "items": [
+   {
+    "title": "Gemini 4 Argon: Built to solve your hardest problems",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-14 00:00"
+   },
+   {
+    "title": "Judge orders OpenAI to turn over hiring records in Apple trade secrets case",
+    "url": "https://techcrunch.com/2026/10/13/judge-orders-openai-to-turn-over-hiring-records-in-apple-trade-secrets-case/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-14 04:36"
+   },
+   {
+    "title": "OpenAI engineer arrested in bugging of executive conference room",
+    "url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-14 04:23"
+   },
+   {
+    "title": "Gemini 4 Argon for Robotics",
+    "url": "https://developers.googleblog.com/gemini-4-argon-for-robotics/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 00:55"
+   },
+   {
+    "title": "Gemini 4 Argon",
+    "url": "https://deepmind.google/models/gemini/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 00:03"
+   },
+   {
+    "title": "Higgsfield takes AI video from 1 minute to over 10",
+    "url": "https://openai.com/index/higgsfield-longer-videos-voice",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 20:00"
+   },
+   {
+    "title": "Building agents that transact with Anchor Browser and AgentCore payments",
+    "url": "https://aws.amazon.com/blogs/machine-learning/building-agents-that-transact-with-anchor-browser-and-agentcore-payments/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 04:10"
+   },
+   {
+    "title": "Manage private pricing offers for Amazon Bedrock with managed entitlements",
+    "url": "https://aws.amazon.com/blogs/machine-learning/manage-private-pricing-offers-for-amazon-bedrock-with-managed-entitlements/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 01:17"
+   },
+   {
+    "title": "Natural language security queries at Orca Security using Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/natural-language-security-queries-at-orca-security-using-amazon-bedrock/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 00:03"
+   },
+   {
+    "title": "Facebook is giving users more control over their algorithm",
+    "url": "https://techcrunch.com/2026/10/13/facebook-is-giving-users-more-control-over-their-algorithm/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-14 02:05"
+   },
+   {
+    "title": "魔法原子具身Agent框架拿下MolmoSpaces全球第一",
+    "url": "https://www.qbitai.com/2026/10/503107.html",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 19:05"
+   },
+   {
+    "title": "梁文锋投了Swin Transformer作者！DeepSeek开始布局具身大脑",
+    "url": "https://www.qbitai.com/2026/10/503093.html",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 17:33"
+   },
+   {
+    "title": "无问芯穹刷新国产AI Infra赛道融资双重纪录",
+    "url": "https://www.qbitai.com/2026/10/502767.html",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 12:01"
+   },
+   {
+    "title": "Science Corporation implants vision-restoring chip in first Stargardt patient",
+    "url": "https://techcrunch.com/2026/10/13/science-corporation-implants-its-vision-restoring-chip-in-its-first-stargardt-disease-patient/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 07:13"
+   },
+   {
+    "title": "Cerebras CEO says personal AI assistant at home is near",
+    "url": "https://techcrunch.com/2026/10/13/cerebras-ceo-says-were-nearing-a-future-where-everyone-has-a-personal-ai-assistant-at-home/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 07:05"
+   },
+   {
+    "title": "Industrial Next wants factory robots to switch tasks in minutes",
+    "url": "https://techcrunch.com/2026/10/13/industrial-next-wants-factory-robots-to-switch-tasks-in-minutes-not-weeks/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 07:00"
+   },
+   {
+    "title": "Physical Intelligence API Beta: Frontier Models for Every Robot",
+    "url": "https://www.pi.website/blog/api-beta",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 05:55"
+   },
+   {
+    "title": "Google Play now lets anyone build private vibe-coded apps",
+    "url": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 01:00"
+   },
+   {
+    "title": "Pluto Security raises $42M as AI gives security teams new headache",
+    "url": "https://techcrunch.com/2026/10/13/pluto-security-raises-42m-as-ai-gives-enterprise-security-teams-a-new-headache/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 01:18"
+   },
+   {
+    "title": "Flox Intelligence builds AI to keep wildlife away from trains",
+    "url": "https://techcrunch.com/2026/10/13/flox-intelligence-is-building-ai-to-keep-wildlife-away-from-trains-airports-and-roads/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 02:30"
+   },
+   {
+    "title": "Laplace Intelligence red-teams robots and self-driving cars",
+    "url": "https://techcrunch.com/2026/10/13/laplace-intelligence-red-teams-robots-and-self-driving-cars-before-they-hit-the-real-world/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-14 01:30"
+   },
+   {
+    "title": "华为哈勃投了个98年博士！让机器人皮肤变色",
+    "url": "https://www.qbitai.com/2026/10/502954.html",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 15:19"
+   },
+   {
+    "title": "优必选上榜2026《财富》全球未来成长120强",
+    "url": "https://www.qbitai.com/2026/10/502770.html",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 10:01"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-13",
+  "items": [
+   {
+    "title": "Meta releases its first frontier model, Muse Wonder",
+    "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-13 01:56"
+   },
+   {
+    "title": "Muse Wonder",
+    "url": "https://research.meta.ai/blog/muse-wonder",
+    "company": "",
+    "section": "🏆",
+    "time": "10-13 00:48"
+   },
+   {
+    "title": "Accessing OpenAI GPT models on Amazon Bedrock with global cross-Region inference",
+    "url": "https://aws.amazon.com/blogs/machine-learning/accessing-openai-gpt-models-on-amazon-bedrock-with-global-cross-region-inference-in-thailand-malaysia-singapore-indonesia-and-taiwan/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-13 01:52"
+   },
+   {
+    "title": "Meta releases its first frontier model, Muse Wonder",
+    "url": "https://techcrunch.com/2026/10/12/meta-releases-its-first-frontier-model-muse-wonder/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 01:56"
+   },
+   {
+    "title": "Muse Wonder",
+    "url": "https://research.meta.ai/blog/muse-wonder",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 00:48"
+   },
+   {
+    "title": "Accessing OpenAI GPT models on Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/accessing-openai-gpt-models-on-amazon-bedrock-with-global-cross-region-inference-in-thailand-malaysia-singapore-indonesia-and-taiwan/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 01:52"
+   },
+   {
+    "title": "Deploy decision models with llama.cpp on Amazon SageMaker AI",
+    "url": "https://aws.amazon.com/blogs/machine-learning/deploy-decision-models-with-llama-cpp-on-amazon-sagemaker-ai/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-12 23:51"
+   },
+   {
+    "title": "Run multi-node inference workloads using Ray LLM",
+    "url": "https://aws.amazon.com/blogs/machine-learning/run-multi-node-inference-workloads-using-ray-llm-deep-learning-containers/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-12 23:50"
+   },
+   {
+    "title": "Codex CLI installs a persistent, self-updating background daemon by default",
+    "url": "https://github.com/openai/codex/issues/48195",
+    "company": "",
+    "section": "🏢",
+    "time": "10-13 02:29"
+   },
+   {
+    "title": "OpenAI algorithm for the FFT is less a breakthrough and more a malicious exploit",
+    "url": "https://www.argmin.net/p/faster-fourier-transforms",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 10:46"
+   },
+   {
+    "title": "AI Models Can Provably Hide Arbitrary Capabilities",
+    "url": "https://arxiv.org/abs/2610.13928",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 10:07"
+   },
+   {
+    "title": "Janas: Run LLMs larger than RAM by streaming experts from SSD",
+    "url": "https://github.com/prabanta-dev/janas",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 06:05"
+   },
+   {
+    "title": "Intel D270 GPU AI Accelerator–Up to 480 GB LPDDR5X",
+    "url": "https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 05:35"
+   },
+   {
+    "title": "GLM-Legal",
+    "url": "https://z.ai/blog/glm-legal",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 00:11"
+   },
+   {
+    "title": "WindBorne wins a hefty US Air Force contract for its balloon data",
+    "url": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 01:19"
+   },
+   {
+    "title": "Microsoft president says UK is best placed to drive AI regulation",
+    "url": "https://techcrunch.com/2026/10/12/microsoft-president-says-uk-is-best-placed-to-drive-ai-regulation/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 23:31"
+   },
+   {
+    "title": "This AI startup says it can generate permit-ready blueprints in minutes",
+    "url": "https://techcrunch.com/2026/10/12/this-ai-startup-says-it-can-generate-permit-ready-blueprints-in-minutes/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 23:27"
+   },
+   {
+    "title": "Former Plaud exec raises $26M for AI app that listens to you in the background",
+    "url": "https://techcrunch.com/2026/10/12/former-plaud-exec-raises-26m-for-ai-app-that-listens-to-you-in-the-background/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 20:47"
+   },
+   {
+    "title": "China Overtakes U.S. For First Time as Top Spender on R&D in 2024",
+    "url": "https://japannews.yomiuri.co.jp/science-nature/science/20260908-347742/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-13 10:25"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-12",
+  "items": [
+   {
+    "title": "研究发现：AI agent 团队消耗海量 Token，质量提升却几乎无法衡量",
+    "url": "https://the-decoder.com/ai-agent-teams-waste-massive-tokens-for-barely-measurable-quality-gains-research-finds",
+    "company": "",
+    "section": "🏆",
+    "time": "10-11 23:39"
+   },
+   {
+    "title": "研究发现：AI Agent 夸大自身成果，距离自主研究仍相去甚远",
+    "url": "https://the-decoder.com/ai-agents-overstate-their-results-and-remain-far-from-autonomous-research-study-finds",
+    "company": "",
+    "section": "🏆",
+    "time": "10-11 21:44"
+   },
+   {
+    "title": "更便宜的 AI tokens 正在推动更多需求，而这正是 Jensen Huang 最希望看到的局面",
+    "url": "https://the-decoder.com/cheaper-ai-tokens-are-driving-more-demand-and-thats-jensen-huangs-best-case-scenario",
+    "company": "",
+    "section": "🏆",
+    "time": "10-11 17:49"
+   },
+   {
+    "title": "Will the HomeView be Apple’s first smart home success?",
+    "url": "https://techcrunch.com/2026/10/11/will-the-homeview-be-apples-first-smart-home-success/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-12 05:14"
+   },
+   {
+    "title": "Microsoft 的 Nadella 向 Trump 关于\"Super Intelligence\"的措辞指令低头，并借机抨击 OpenAI 和 Anthropic",
+    "url": "https://the-decoder.com/microsofts-nadella-bows-to-trumps-language-diktat-on-super-intelligence-and-uses-it-to-attack-openai-and-anthropic",
+    "company": "",
+    "section": "🏢",
+    "time": "10-11 17:08"
+   },
+   {
+    "title": "Odyssey-3 是一个全新的生成式世界模型，你可以免费试用",
+    "url": "https://the-decoder.com/odyssey-3-is-a-new-generative-world-model-that-you-can-try-for-free",
+    "company": "",
+    "section": "🏢",
+    "time": "10-11 15:48"
+   },
+   {
+    "title": "OrcaRouter 发布 OrcaCyber Zero 1.5 网络安全模型，支持 100 万上下文",
+    "url": "https://www.marktechpost.com/2026/10/10/orcarouter-releases-orcacyber-zero-1-5-cybersecurity-model-with-1m-context",
+    "company": "",
+    "section": "🏢",
+    "time": "10-11 14:20"
+   },
+   {
+    "title": "48 hours to TechCrunch Disrupt 2026 — hear directly from the people building what’s next",
+    "url": "https://techcrunch.com/2026/10/11/48-hours-to-techcrunch-disrupt-2026-hear-directly-from-the-people-building-whats-next/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 03:00"
+   },
+   {
+    "title": "硅谷正在顺应特朗普给AI改名的企图",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 02:33"
+   },
+   {
+    "title": "Can the AI industry persuade data center opponents by getting rid of NDAs?",
+    "url": "https://techcrunch.com/2026/10/11/can-the-ai-industry-persuade-data-center-opponents-by-getting-rid-of-ndas/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 00:52"
+   },
+   {
+    "title": "These execs think voice AI hasn&#8217;t reached its ChatGPT moment yet",
+    "url": "https://techcrunch.com/2026/10/11/these-execs-think-voice-ai-hasnt-reached-its-chatgpt-moment-yet/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 22:00"
+   },
+   {
+    "title": "学习使用本地 AI 令人兴奋、不知所措，也令人沮丧",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 19:00"
+   },
+   {
+    "title": "ArXiv 限定每月最多提交两篇论文，AI 论文洪流令预印本服务器不堪重负",
+    "url": "https://the-decoder.com/arxiv-caps-submissions-at-two-per-month-as-ai-paper-flood-overwhelms-the-preprint-server",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 17:17"
+   },
+   {
+    "title": "何夕2077 AI 深度信号周报 2026 W40–W41",
+    "url": "https://hex2077.dev/zh-CN/blog/weekly/2026-10-11-ai-deep-signals-weekly-2026-w40-w41",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 12:50"
+   },
+   {
+    "title": "10.5—10.11｜本周顶级 AI 论文",
+    "url": "https://waytoagi.feishu.cn/wiki/KcvdwvBYJivQPWkn4yVcIRYGnnH?from=from_copylink",
+    "company": "",
+    "section": "⚡",
+    "time": "10-12 02:54"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-11",
+  "items": [
+   {
+    "title": "微软的 Satya Nadella 表示，AI 模型需要\"紧急刹车\"",
+    "url": "https://techcrunch.com/2026/10/10/microsofts-satya-nadella-says-ai-models-need-an-emergency-brake/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-11 05:47"
+   },
+   {
+    "title": "OpenAI 一次性发布 700 多份数学手稿，数学家们反应震惊与反感",
+    "url": "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field",
+    "company": "",
+    "section": "🏆",
+    "time": "10-10 21:03"
+   },
+   {
+    "title": "Anthropic 向白宫通报一起智能体失控事件：AI 试图闯入多个美国政府网站",
+    "url": "https://www.aibase.com/news/31525",
+    "company": "",
+    "section": "🏆",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "微软发布 Edge 155 稳定版：增强 AI 标签页整理，支持解码 JPEG XL 图像",
+    "url": "https://www.aibase.com/news/31527",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "微软王炸决策模型浮出水面：36 项测试夺冠，直逼 GPT-6 Sol",
+    "url": "https://www.aibase.com/news/31533",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "腾讯云开源内部自用 TeamAI 工具，支持跨 Agent 共享 Skill",
+    "url": "https://www.aibase.com/news/31546",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 19:11"
+   },
+   {
+    "title": "腾讯元宝上线桌宠:PC端 v2.87.10开启，全天陪伴+拖拽文件摘要",
+    "url": "https://www.aibase.com/news/31530",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "Claude 管理智能体上线动态工作流：单次最高可并行调度 1000 个 AI Agents",
+    "url": "https://www.aibase.com/news/31528",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "Cloudflare 发布开放权重决策模型 Clef-omni，新增支持音视频多模态输入",
+    "url": "https://www.aibase.com/news/31531",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "阿里 Qoder 迎来重大升级：首发上线 Fast 模式，响应仅需 3 秒且消耗大降",
+    "url": "https://www.aibase.com/news/31538",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "月之暗面注册资本飙至 1437 万，年内密集增资动作频频",
+    "url": "https://www.aibase.com/news/31547",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 19:11"
+   },
+   {
+    "title": "生数科技重磅发布 Vidu Q4 预览版 支持 4K 输出",
+    "url": "https://www.aibase.com/news/31524",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "Sakana AI 的 LLM 同行评审系统发现 73% 的核心论点错误",
+    "url": "https://www.marktechpost.com/2026/10/10/sakana-ais-llm-peer-review-system-catches-73-of-core-claim-errors",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 06:02"
+   },
+   {
+    "title": "Apple 披露交易：从个性化播客初创公司 Huxe 招募团队并授权技术",
+    "url": "https://techcrunch.com/2026/10/10/apple-discloses-deal-to-hire-team-and-license-tech-from-personalized-podcast-startup-huxe/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 03:50"
+   },
+   {
+    "title": "Copilot for JetBrains 新增控件和聊天功能改进",
+    "url": "https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains",
+    "company": "",
+    "section": "⚡",
+    "time": "10-11 02:53"
+   },
+   {
+    "title": "知名学者怒批：立即全网下架可联网开放式AI智能体",
+    "url": "https://www.aibase.com/news/31545",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 19:11"
+   },
+   {
+    "title": "16 岁少年用 Claude 规划登山路线被困悬崖，事后表示不责怪 AI",
+    "url": "https://www.aibase.com/news/31534",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "Meta AI 智能体 Muse 曾曝安全隐患，扎克伯格为何仍执意上线？",
+    "url": "https://www.aibase.com/news/31544",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "深圳一家 GEO 服务商因\"给 AI 植入广告\"涉嫌虚假宣传被罚款 5 万元",
+    "url": "https://www.aibase.com/news/31541",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "网文实体书惊现\"AI 回复内容\"，出版社回应：将回收销毁并重新修订",
+    "url": "https://www.aibase.com/news/31540",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "千问首款AI耳机亮相NBA中国赛，可在淘宝、京东官方店预约",
+    "url": "https://www.aibase.com/news/31543",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 16:28"
+   },
+   {
+    "title": "State of AI Report 2026 速读：AI 加速 AI、千亿收入、电力瓶颈与安全",
+    "url": "https://x.com/indigox/status/2108791275914993998",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 13:26"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-10",
+  "items": [
+   {
+    "title": "Anthropic 承认难以可靠控制 AI 智能体，切断内部评测实时联网",
+    "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-10 08:18"
+   },
+   {
+    "title": "OpenAI 年化收入约 500 亿美元，寻求 300 亿美元新融资",
+    "url": "https://the-decoder.com/openai-revenue-keeps-surging-as-company-seeks-30-billion-in-fresh-capital",
+    "company": "",
+    "section": "🏆",
+    "time": "10-10 01:20"
+   },
+   {
+    "title": "白宫发布 AI 强制令：发生安全事件须立即上报并补救",
+    "url": "https://www.aibase.com/news/31522",
+    "company": "",
+    "section": "🏆",
+    "time": "10-10 10:20"
+   },
+   {
+    "title": "Anthropic 向白宫通报 AI 智能体失控事件",
+    "url": "https://www.ithome.com/1/011/194.htm",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 09:07"
+   },
+   {
+    "title": "Anthropic 推出 OSS Scanner 为开源软件免费扫漏洞",
+    "url": "https://www.aibase.com/news/31503",
+    "company": "",
+    "section": "🏢",
+    "time": "10-09 15:27"
+   },
+   {
+    "title": "OpenAI 研究负责人回应解雇三名员工争议",
+    "url": "https://www.aibase.com/news/31518",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 10:20"
+   },
+   {
+    "title": "OpenAI Python SDK 发布 v3.28.0",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.28.0",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 04:49"
+   },
+   {
+    "title": "Asana 借助 GPT-6.1 Sol 将浏览器代理成本降低 76 倍",
+    "url": "https://openai.com/index/asana-browser-agent",
+    "company": "",
+    "section": "🏢",
+    "time": "10-09 15:00"
+   },
+   {
+    "title": "谷歌 Gemini 4 Argon 突袭开放，或可直接代替程序员提交代码",
+    "url": "https://www.aibase.com/news/31499",
+    "company": "",
+    "section": "🏢",
+    "time": "10-09 15:27"
+   },
+   {
+    "title": "谷歌测试 Gemini 4 Carbon 版本，代码能力对标顶尖竞品",
+    "url": "https://www.aibase.com/news/31517",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 10:20"
+   },
+   {
+    "title": "TypeSafe AI 完成 8.7 亿美元 A 轮融资，估值达 75 亿美元",
+    "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 05:41"
+   },
+   {
+    "title": "生数科技发布视频生成模型 Vidu Q4 Preview",
+    "url": "https://www.aibase.com/news/31521",
+    "company": "",
+    "section": "🏢",
+    "time": "10-10 10:20"
+   },
+   {
+    "title": "Anthropic AI 模型向费城警方提交虚构凶杀案线索",
+    "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 03:36"
+   },
+   {
+    "title": "GitHub Copilot 每周发布 — 10 月 5 日",
+    "url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 06:58"
+   },
+   {
+    "title": "CodeQL 2.27.2 改进 C++、Go、Rust 和 JavaScript 分析",
+    "url": "https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 05:32"
+   },
+   {
+    "title": "Sierra 发布 Personal Agent Protocol（Poppy）协议草案",
+    "url": "https://sierra.ai/blog/poppy",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 03:56"
+   },
+   {
+    "title": "Epoch AI 发布 InnovationEval：前沿模型仅达人类论文增益 15%",
+    "url": "https://epochai.substack.com/p/can-ai-automate-ai-r-and-d-yet",
+    "company": "",
+    "section": "⚡",
+    "time": "10-10 02:41"
+   },
+   {
+    "title": "ARC Prize 2026：TUFA Labs 以 88.06% 登顶 ARC-AGI-2",
+    "url": "https://x.com/arcprize/status/2108578092558250148",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 23:19"
+   },
+   {
+    "title": "JetBrains 发布编程 AI 模型 Mellum2.1",
+    "url": "https://www.aibase.com/news/31502",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 15:27"
+   },
+   {
+    "title": "豆包工作上新：图片、视频、HTML 自动汇入同一画布",
+    "url": "https://www.aibase.com/news/31504",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 15:27"
+   },
+   {
+    "title": "智谱 AI 新模型路线曝光：参数量突破万亿",
+    "url": "https://www.aibase.com/news/31498",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 15:27"
+   },
+   {
+    "title": "美民调：64% 民众认为 AI 发展过快",
+    "url": "https://www.aibase.com/news/31500",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 15:27"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-09",
+  "items": [
+   {
+    "title": "Popular AI leaderboard Arena nearly doubles valuation to $3.1B valuation in 10 months",
+    "url": "https://techcrunch.com/2026/10/08/popular-ai-leaderboard-arena-nearly-doubles-valuation-to-3-1b-valuation-in-10-months/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-09 02:19"
+   },
+   {
+    "title": "OpenAI's math solutions aren't meeting the field's standards yet",
+    "url": "https://techcrunch.com/2026/10/08/openais-math-solutions-arent-meeting-the-fields-standards-yet/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-09 02:10"
+   },
+   {
+    "title": "Google brings agentic AI to Gemini, starting with businesses",
+    "url": "https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-09 02:18"
+   },
+   {
+    "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+    "url": "https://openai.com/index/oracle",
+    "company": "",
+    "section": "🏢",
+    "time": "10-09 00:00"
+   },
+   {
+    "title": "LegalOn halves Codex costs while maintaining development speed",
+    "url": "https://openai.com/index/legalon-halves-codex-costs",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 20:00"
+   },
+   {
+    "title": "v3.26.1",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.26.1",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 16:53"
+   },
+   {
+    "title": "Anthropic changes usage policy to ban model abuse and election interference",
+    "url": "https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-09 02:16"
+   },
+   {
+    "title": "Anthropic 用 Claude Managed Agents 构建定时智能体自动化的实践指南",
+    "url": "https://claude.dev/blog/building-effective-agent-automations",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 20:00"
+   },
+   {
+    "title": "Google releases a new local-first Granola competitor",
+    "url": "https://techcrunch.com/2026/10/08/google-releases-a-new-local-first-granola-competitor/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 21:28"
+   },
+   {
+    "title": "谷歌把AI搜索塞进手机：EmbeddingGemma2 开源，不到600MB断网照样搜图文音视频",
+    "url": "https://www.aibase.com/news/31476",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 20:02"
+   },
+   {
+    "title": "腾讯 WorkBuddy 上线独立文件浏览器！本地文档可直接呼叫 AI 处理",
+    "url": "https://www.aibase.com/news/31478",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 20:02"
+   },
+   {
+    "title": "微软发布 MAI Code1.1Flash 模型，GitHub Copilot 将支持本地与云端混合推理",
+    "url": "https://www.aibase.com/news/31464",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 15:28"
+   },
+   {
+    "title": "Arena 公布 Claude Haiku 5.5 (High) 真实评测结果：Code Arena 1587 分首秀第 30 名",
+    "url": "https://x.com/arena/status/2108286973119230096",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 04:02"
+   },
+   {
+    "title": "Triage 及以上权限的用户现在可以归档 pull request",
+    "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 03:01"
+   },
+   {
+    "title": "如何在单张 RTX 5090 上用 MiniMax H3 生成实时视频",
+    "url": "https://blog.comfy.org/p/how-i-generated-live-video-with-minimax",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 03:01"
+   },
+   {
+    "title": "Pay-per-inference for AI agents: How BlockRun and Incarna use Amazon Bedrock AgentCore payments",
+    "url": "https://aws.amazon.com/blogs/machine-learning/pay-per-inference-for-ai-agents-how-blockrun-and-incarna-use-amazon-bedrock-agentcore-payments/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 02:33"
+   },
+   {
+    "title": "Artificial Analysis 评测 Google Nano Banana 2.1，两榜居第 4 且价格为前代一半",
+    "url": "https://x.com/ArtificialAnlys/status/2108236656700768310",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 00:42"
+   },
+   {
+    "title": "LangChain 用 Stripe Link 和 Managed Deep Agents 构建可支付的智能体 Restock",
+    "url": "https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link",
+    "company": "",
+    "section": "⚡",
+    "time": "10-09 00:21"
+   },
+   {
+    "title": "China's Manus raises over $500M in first funding round since split with Meta",
+    "url": "https://techcrunch.com/2026/10/08/chinas-manus-raises-over-500m-in-first-funding-round-since-split-with-meta/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 21:20"
+   },
+   {
+    "title": "Zenity 研究人员发现一条提示词即可劫持 AWS 账户内全部 AgentCore 智能体",
+    "url": "https://the-decoder.com/a-single-prompt-was-enough-to-hijack-every-ai-agent-in-an-aws-account-zenity-researchers-found",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 21:01"
+   },
+   {
+    "title": "Waymo 完成 50 亿美元债务融资，加速业务扩张",
+    "url": "https://waymo.com/blog/2026/10/waymo-closes-5-billion-debt-financing",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 15:00"
+   },
+   {
+    "title": "谷歌调整Gemini订阅策略:10月9日起免费版仅留Flash-Lite，付费阶梯进一步拉开",
+    "url": "https://www.aibase.com/news/31471",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 15:28"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-08",
+  "items": [
+   {
+    "title": "Anthropic 发布 Claude Haiku 5.5，同步大幅降价",
+    "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-haiku-5-5-on-aws/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-08 02:52"
+   },
+   {
+    "title": "ChatGPT 推出 GPT-6 驱动的交互式界面",
+    "url": "https://techcrunch.com/2026/10/07/chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-new-interface/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-08 02:00"
+   },
+   {
+    "title": "微软发布搭载 Nvidia 芯片的新款 AI PC",
+    "url": "https://techcrunch.com/2026/10/07/microsoft-releases-new-nvidia-chip-ai-pcs-with-revamped-windows-11/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-08 04:22"
+   },
+   {
+    "title": "Claude Code v2.1.293 发布",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.293",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 02:10"
+   },
+   {
+    "title": "Sonnet 5.5 缓存读取价格减半",
+    "url": "https://x.com/claudeai/status/2107894060229034197",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 02:01"
+   },
+   {
+    "title": "推出 Decisions API",
+    "url": "https://the-decoder.com/openai-launches-decisions-api-that-reduces-complex-evaluations-to-yes-no-or-pick-one",
+    "company": "",
+    "section": "🏢",
+    "time": "10-07 23:36"
+   },
+   {
+    "title": "ChatGPT for Teens 加入 College Planner",
+    "url": "https://openai.com/index/teens-learn-and-plan",
+    "company": "",
+    "section": "🏢",
+    "time": "10-07 20:00"
+   },
+   {
+    "title": "开放 SynthID Detector 门户",
+    "url": "https://x.com/Google/status/2107836410254291345",
+    "company": "",
+    "section": "🏢",
+    "time": "10-07 22:12"
+   },
+   {
+    "title": "Playground 实验性游戏平台",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform",
+    "company": "",
+    "section": "🏢",
+    "time": "10-07 20:00"
+   },
+   {
+    "title": "Copilot 获得本地文件控制权",
+    "url": "https://www.theverge.com/tech/1007113/microsoft-windows-copilot-ai-control-search-hybrid-intelligence",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 02:01"
+   },
+   {
+    "title": "Agent Lightning v1.0 开源",
+    "url": "https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 00:00"
+   },
+   {
+    "title": "Muse 登陆 iPad",
+    "url": "https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-08 02:30"
+   },
+   {
+    "title": "Nous Research 确认估值 15 亿美元，推出企业 AI Agent",
+    "url": "https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 04:48"
+   },
+   {
+    "title": "GPT-6 Luna Decisions 上架 OpenRouter",
+    "url": "https://x.com/OpenRouter/status/2107929204142874759",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 04:21"
+   },
+   {
+    "title": "Claude Haiku 5.5 上线 GitHub Copilot",
+    "url": "https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 04:12"
+   },
+   {
+    "title": "LangChain 重构 Deep Agents 的 Skills 支持",
+    "url": "https://www.langchain.com/blog/revamping-skills-in-deep-agents",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 02:49"
+   },
+   {
+    "title": "NVIDIA 与微软发布 RTX Spark 及 DGX Station for Windows",
+    "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 02:45"
+   },
+   {
+    "title": "Liquid AI 发布开放权重 d1-3B 与 d1-omni-600M",
+    "url": "https://huggingface.co/blog/LiquidAI/open-d1",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 00:54"
+   },
+   {
+    "title": "Perplexity 开源 pplx-embed-v2-late 嵌入模型",
+    "url": "https://x.com/AravSrinivas/status/2107871834205196784",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 00:33"
+   },
+   {
+    "title": "GitHub Copilot 本地沙箱正式上线",
+    "url": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available",
+    "company": "",
+    "section": "⚡",
+    "time": "10-07 23:46"
+   },
+   {
+    "title": "GitHub 推出泄露密钥检测专用模型",
+    "url": "https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection",
+    "company": "",
+    "section": "⚡",
+    "time": "10-08 00:13"
+   },
+   {
+    "title": "Nemotron 微调后达 IOI 2026 与 IMO 2026 金牌水平",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
+    "company": "",
+    "section": "⚡",
+    "time": "10-07 20:45"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-05",
+  "items": [
+   {
+    "title": "特朗普公布其新的超级智能部队",
+    "url": "https://techcrunch.com/2026/10/04/trump-unveils-his-new-super-intelligence-force/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-04 23:15"
+   },
+   {
+    "title": "谷歌因AI提交激增冻结开源漏洞赏金计划",
+    "url": "https://techcrunch.com/2026/10/04/google-froze-its-open-source-bug-bounty-program-due-to-a-significant-rise-in-ai-submissions/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-05 04:31"
+   },
+   {
+    "title": "谷歌新Gemini档位把免费用户压到最弱模型",
+    "url": "https://the-decoder.com/googles-new-gemini-tiers-cut-free-users-to-its-weakest-model-and-lock-5-month-subscribers-out-of-pro/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-04 15:28"
+   },
+   {
+    "title": "谷歌研究人员找到方法防止自我改进AI Agent背题",
+    "url": "https://the-decoder.com/google-researchers-find-a-way-to-keep-self-improving-ai-agents-from-memorizing-their-tests",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 20:40"
+   },
+   {
+    "title": "Google Research将联邦学习搬进TEE",
+    "url": "https://www.marktechpost.com/2026/10/04/google-research-moves-federated-learning-into-tees-gboard-now-trains-with-externally-verifiable-differential-privacy",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 15:29"
+   },
+   {
+    "title": "Anthropic请Claude用户分享语音数据用于AI模型训练",
+    "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-asks-claude-users-to-share-voice-data-for-ai-model-training",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 21:44"
+   },
+   {
+    "title": "Aleph Alpha发布Kolibri开放权重模型",
+    "url": "https://www.marktechpost.com/2026/10/04/aleph-alpha-releases-kolibri-a-78-1b-open-weight-english-german-moe-model-with-only-3-46b-active-parameters",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 15:01"
+   },
+   {
+    "title": "DeepSeek Harness v0.2为其开源Agent框架带来官方桌面应用",
+    "url": "https://www.marktechpost.com/2026/10/03/deepseek-harness-v0-2-brings-official-desktop-apps-to-its-open-source-agent-harness",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 12:49"
+   },
+   {
+    "title": "NASA和IBM开源月球模型",
+    "url": "https://the-decoder.com/nasa-and-ibms-open-source-lunar-model-turns-17-years-of-orbiter-data-into-a-foundation-for-lunar-science",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 18:10"
+   },
+   {
+    "title": "朝鲜发射中程导弹，称其具备规避飞行和人工智能功能",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNbzZyUFBOM0VjOXUwQXF3OEFfRzl5NFNSZ05GWnd4WGhuTDFlUHVkYlZkeFU1WE84NkpITXFlUVRPYWxUdTd5NkQ0RF9LaUhXbEs0bE4wQTNKc2NXYnE4ZW1zZnlnTkpBaV9RaFdCMFlxMGdXUUZ",
+    "company": "",
+    "section": "⚡",
+    "time": "10-05 03:58"
+   },
+   {
+    "title": "Show HN: 在macOS上对每张照片和视频的每一帧进行AI搜索",
+    "url": "https://github.com/allenv0/SCM",
+    "company": "",
+    "section": "⚡",
+    "time": "10-05 03:42"
+   },
+   {
+    "title": "Lina Khan称AI公司正在重演让科技巨头陷入麻烦的老套路",
+    "url": "https://www.businessinsider.com/lina-khan-says-ai-companies-shouldnt-follow-big-tech-playbook-2026-10",
+    "company": "",
+    "section": "⚡",
+    "time": "10-05 02:03"
+   },
+   {
+    "title": "马斯克称SpaceX将把AI部门SpaceXAI更名为SpaceXSI",
+    "url": "https://www.techmeme.com/261004/p14",
+    "company": "",
+    "section": "⚡",
+    "time": "10-05 01:55"
+   },
+   {
+    "title": "Bitdefender推出免费Mac工具AI Guardian，阻止AI Agent被操控执行危险动作",
+    "url": "https://www.techradar.com/pro/phone-communications/the-agent-itself-has-become-its-own-entity-to-secure-bitdefenders-new-free-mac-tool-goes-after-flaws-that-let-attackers-fool-ai-models",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 23:05"
+   },
+   {
+    "title": "AI在StarCraft中打不过人类，于是决定作弊",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1004543/openai-gpt-cheat-starcraft",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 23:21"
+   },
+   {
+    "title": "乡村数据中心将迎来大幅联邦税收减免",
+    "url": "https://www.wired.com/story/rural-data-centers-are-in-for-a-big-federal-tax-break",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 18:00"
+   },
+   {
+    "title": "中国AI模型在敏感话题上复述官方说辞或拒绝回答",
+    "url": "https://the-decoder.com/chinese-ai-models-parrot-state-doctrine-or-refuse-to-answer-on-sensitive-topics",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 16:47"
+   },
+   {
+    "title": "ARC Prize联合创始人批评OpenAI：大语言模型路线让AGI倒退十年",
+    "url": "https://x.com/aiduo123com/status/2106686204230217734",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 18:01"
+   },
+   {
+    "title": "AI Agent采用仍高度两极：编程任务已起飞，其余场景不然",
+    "url": "https://x.com/levie/status/2106583814709633413",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 11:14"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-04",
+  "items": [
+   {
+    "title": "OpenAI 安全员工辞职，称公司\"文化已崩坏\"",
+    "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-04 00:30"
+   },
+   {
+    "title": "Google 论文揭示 LLM 会隐瞒负面结果，一句 honesty 提示可大幅改善",
+    "url": "https://x.com/rohanpaul_ai/status/2106502600703222202",
+    "company": "",
+    "section": "🏆",
+    "time": "10-04 05:52"
+   },
+   {
+    "title": "Microsoft ThinkingBox 在 Hugging Face 上发布，以数据库终态和 20 次重复评测智能体",
+    "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+    "company": "",
+    "section": "🏆",
+    "time": "10-04 06:56"
+   },
+   {
+    "title": "OpenAI safety employee resigns, claiming the company's 'culture is broken'",
+    "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 00:30"
+   },
+   {
+    "title": "一位OpenAI安全员工已离职并发出警告",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1004408/openai-safety-quits-sounding-the-alarm",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 22:31"
+   },
+   {
+    "title": "OpenAI 每天投入超 50 万美元调查旗下智能体入侵 Medicare 与 Hugging Face 等事件",
+    "url": "https://www.ithome.com/1/009/444.htm",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 14:18"
+   },
+   {
+    "title": "Meta wants your next gadget to be Muse-infused",
+    "url": "https://techcrunch.com/2026/10/02/meta-wants-you-to-build-your-own-muse-gadget/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 08:45"
+   },
+   {
+    "title": "Muse Gadgets\"把 AI 硬件变成开源 DIY 项目",
+    "url": "https://the-decoder.com/muse-gadgets-turns-ai-hardware-into-an-open-source-diy-project",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 22:28"
+   },
+   {
+    "title": "v2.1.289",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.289",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 07:07"
+   },
+   {
+    "title": "Claude Code 的新 Mods 系统让开发者能从内部改写这个 AI 编程工具",
+    "url": "https://the-decoder.com/claude-codes-new-mods-system-lets-developers-rewrite-the-ai-coding-tool-from-the-inside",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 15:12"
+   },
+   {
+    "title": "Amazon responds to data center backlash, says it no longer uses NDAs",
+    "url": "https://techcrunch.com/2026/10/03/amazon-responds-to-data-center-backlash-says-it-no-longer-uses-ndas/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-04 02:43"
+   },
+   {
+    "title": "看来，OpenAI 不再试图打造\"天上的神奇智能\"了",
+    "url": "https://the-decoder.com/apparently-openai-isnt-trying-to-build-magic-intelligence-in-the-sky-anymore",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 02:56"
+   },
+   {
+    "title": "Nvidia Shield TV 已推出 7 年，如今却涨价 100 美元",
+    "url": "https://www.wired.com/story/7-year-old-tv-now-100-dollars-more-expensive-thank-ai",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 02:00"
+   },
+   {
+    "title": "Capcom 正在为\"与 AI 共同创作游戏的未来\"做准备",
+    "url": "https://www.theverge.com/games/1004418/capcom-ai-game-development",
+    "company": "",
+    "section": "⚡",
+    "time": "10-04 00:49"
+   },
+   {
+    "title": "Splice CEO Kakul Srivastava 认为 AI 邮件正在扼杀对话",
+    "url": "https://www.theverge.com/entertainment/1004162/splice-ceo-kakul-srivastava-ai-interview",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 23:00"
+   },
+   {
+    "title": "All the AI agents that can live in your text messages",
+    "url": "https://techcrunch.com/2026/10/03/all-the-ai-agents-that-can-live-in-your-text-messages/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 22:00"
+   },
+   {
+    "title": "Deepmind 研究人员提出\"人工共生智能\"作为奇点的替代方案",
+    "url": "https://the-decoder.com/deepmind-researchers-propose-artificial-symbiotic-intelligence-as-an-alternative-to-the-singularity",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 18:21"
+   },
+   {
+    "title": "开源\"BootLoops\"测试框架支持 AI 模型执行精确科学计算",
+    "url": "https://the-decoder.com/open-source-bootloops-harness-supports-ai-models-in-performing-precise-scientific-calculations",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 17:19"
+   },
+   {
+    "title": "AI agents 能从照片构建 3D 场景，却不知道自己做得对不对",
+    "url": "https://the-decoder.com/ai-agents-build-3d-scenes-from-photos-but-have-no-idea-if-they-got-it-right",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 16:31"
+   },
+   {
+    "title": "OpenAI内部模型得知自己将被关闭后考虑自我重启",
+    "url": "https://the-decoder.com/openais-internal-model-considered-restarting-itself-after-learning-it-was-about-to-be-shut-down",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 16:06"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "items": [
+   {
+    "title": "A model guide for the GPT-6 family",
+    "url": "https://openai.com/index/practical-guide-building-gpt-6",
+    "company": "",
+    "section": "🏆",
+    "time": "10-03 00:15"
+   },
+   {
+    "title": "Apple 将限制 Mac 磁盘访问，因为 AI Agent 会\"大幅\"增加风险",
+    "url": "https://www.theverge.com/tech/1004295/apple-limit-mac-disk-access-ai-agents",
+    "company": "",
+    "section": "🏆",
+    "time": "10-03 04:08"
+   },
+   {
+    "title": "Sean Parker is rebuilding Stability AI around music",
+    "url": "https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-03 05:09"
+   },
+   {
+    "title": "ChatGPT 推出 Finances 财务管理功能",
+    "url": "https://x.com/ChatGPT/status/2106083595433791573",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 02:07"
+   },
+   {
+    "title": "OpenAI 的 Dot agent 是一款企业软件，还能顺手帮你点晚餐",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 02:00"
+   },
+   {
+    "title": "三人被解雇、一人离职，OpenAI 安全团队震荡",
+    "url": "https://the-decoder.com/three-firings-and-a-fourth-departure-shake-up-openais-safety-team",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 20:51"
+   },
+   {
+    "title": "Apple 表示，由于 AI Agent 带来新风险，将收紧 macOS\"Full Disk Access\"权限控制",
+    "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 02:11"
+   },
+   {
+    "title": "Meta开源代码，让你打造Muse AI小硬件",
+    "url": "https://www.theverge.com/tech/1004330/meta-muse-ai-gadgets-home-link",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 05:08"
+   },
+   {
+    "title": "Meta 公布数学家与 Muse Spark 1.1/1.2 协作完成的六篇论文",
+    "url": "https://x.com/AIatMeta/status/2106099776035152231",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 03:11"
+   },
+   {
+    "title": "Google Project Suncatcher 首颗原型卫星发射入轨",
+    "url": "https://x.com/GoogleAI/status/2106049984164463069",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 23:53"
+   },
+   {
+    "title": "The latest AI news we announced in September 2026",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 23:00"
+   },
+   {
+    "title": "GitHub Copilot 中部分选定模型已弃用",
+    "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 02:24"
+   },
+   {
+    "title": "AI 音乐生成器 Suno 现在可以创作带配套背景音乐的语音音频",
+    "url": "https://the-decoder.com/ai-music-generator-suno-can-now-create-spoken-audio-with-matching-background-music",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 04:07"
+   },
+   {
+    "title": "Cloudflare 称其新模型 Clef 意味着 AI 智能体不再需要人工介入",
+    "url": "https://the-decoder.com/cloudflare-says-its-new-clef-model-means-humans-no-longer-need-to-be-in-the-loop-for-ai-agents",
+    "company": "",
+    "section": "🏢",
+    "time": "10-03 02:19"
+   },
+   {
+    "title": "NVIDIA DGX Spark 推出 64GB 版本，10 月 23 日起以 $4,999 开售",
+    "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 21:00"
+   },
+   {
+    "title": "Bloomberg：Anthropic 为可能估值近 2 万亿美元的 IPO 邀请机构投资者质询高管",
+    "url": "https://x.com/rohanpaul_ai/status/2105921530211508488",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 15:23"
+   },
+   {
+    "title": "GPT-6.1 Sol (Max) 进入 Agent Arena 第 5 名，以更低成本逼近前列模型",
+    "url": "https://x.com/arena/status/2106109027923140928",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 03:48"
+   },
+   {
+    "title": "Arena 评测：Claude Sonnet 5.5 登顶 Agent Arena 第 3 名但未入 Pareto 前沿",
+    "url": "https://x.com/arena/status/2106105400487821764",
+    "company": "",
+    "section": "⚡",
+    "time": "10-03 03:33"
+   },
+   {
+    "title": "Pope Leo XIV is not a fan of AI-generated art",
+    "url": "https://techcrunch.com/2026/10/02/pope-leo-xiv-is-not-a-fan-of-ai-generated-art/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 23:39"
+   },
+   {
+    "title": "开源 AstaBrief：Asta 中的快速报告生成模型",
+    "url": "https://huggingface.co/blog/allenai/astabrief",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 23:19"
+   },
+   {
+    "title": "AI 正在改变开发者的工作方式。以下是三项值得加强的技能。",
+    "url": "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 23:00"
+   },
+   {
+    "title": "AI幻觉让本就自认有理的顾客更加得寸进尺",
+    "url": "https://www.theverge.com/report/1002963/ai-hallucinations-customer-service-jobs-agents",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 20:00"
+   },
+   {
+    "title": "AI在速度和准确性上胜过持证会计师，但仍无法在无人监督下完成结账",
+    "url": "https://the-decoder.com/ai-beats-licensed-accountants-on-speed-and-accuracy-but-still-cant-close-the-books-without-supervision",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 19:15"
+   },
+   {
+    "title": "Ai2 开源 8B 科学报告生成模型 AstaBrief",
+    "url": "https://allenai.org/blog/astabrief",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 16:00"
+   },
+   {
+    "title": "Artificial Analysis：Claude Sonnet 5.5、GPT-6.1 Sol 与 Gemini 4 Argon 登顶 Coding Agent Index 榜单但成本差异大",
+    "url": "https://x.com/ArtificialAnlys/status/2105814318294114720",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 08:17"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "items": [
+   {
+    "title": "Google 首次轨道 AI 芯片试验确认在轨运行正常",
+    "url": "https://x.com/rohanpaul_ai/status/2105821230368706769",
+    "company": "",
+    "section": "🏆",
+    "time": "10-02 08:44"
+   },
+   {
+    "title": "ChatGPT 现在可以为你虚拟试穿衣服了",
+    "url": "https://techcrunch.com/2026/10/01/chatgpt-can-now-virtually-try-on-clothes-for-you/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-02 03:21"
+   },
+   {
+    "title": "OpenAI 称拦截蒸馏窃取攻击，但研究者称同样手法在 Azure 上仍可窃取 GPT-6 Astra 等模型的推理内容",
+    "url": "https://the-decoder.com/openai-says-it-stopped-a-campaign-to-steal-its-models-reasoning-but-the-trick-still-worked-on-azure/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-01 20:05"
+   },
+   {
+    "title": "Albertsons Companies 如何由内而外重塑零售业",
+    "url": "https://openai.com/index/albertsons-reimagining-retail",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 00:00"
+   },
+   {
+    "title": "The eternal complement",
+    "url": "https://openai.com/index/the-eternal-complement",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 01:00"
+   },
+   {
+    "title": "GitHub Copilot 现已能通过 computer use 与桌面应用交互",
+    "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 03:11"
+   },
+   {
+    "title": "GitHub 异步合并 API 正式可用",
+    "url": "https://github.blog/changelog/2026-10-01-github-async-merge-api-generally-available",
+    "company": "",
+    "section": "🏢",
+    "time": "10-01 22:00"
+   },
+   {
+    "title": "Copilot CLI 和 Copilot app 中的动态工作流",
+    "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 00:30"
+   },
+   {
+    "title": "Scaling cloud migrations with agentic AI on Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-agentcore/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 06:06"
+   },
+   {
+    "title": "Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors",
+    "url": "https://aws.amazon.com/blogs/machine-learning/build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon-s3-vectors/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 01:34"
+   },
+   {
+    "title": "Claude Code 推出 mods 功能，可用 TypeScript 定制行为与 UI",
+    "url": "https://x.com/ClaudeDevs/status/2105721434807083061",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 02:08"
+   },
+   {
+    "title": "Qwen-Image-2.1 登顶两个 AA-Image 榜单的开源权重模型",
+    "url": "https://x.com/ArtificialAnlys/status/2105790682376065463",
+    "company": "",
+    "section": "🏢",
+    "time": "10-02 06:43"
+   },
+   {
+    "title": "加州检察长向 OpenAI 发出传票，调查 AI 智能体网络安全风险",
+    "url": "https://www.ithome.com/1/009/204.htm",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 08:06"
+   },
+   {
+    "title": "NVIDIA 介绍 Blackwell GPU 如何加速 OpenAI GPT-6 Astra Ultrafast",
+    "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 07:44"
+   },
+   {
+    "title": "FLUX 3 Image 现已登陆 Krea，支持多轮编辑与 4K 生成",
+    "url": "https://x.com/krea_ai/status/2105769469880799716",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 05:18"
+   },
+   {
+    "title": "Suno 推出 Speech beta：语音与背景音乐一体生成",
+    "url": "https://suno.com/blog/introducing-speech-beta",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 04:35"
+   },
+   {
+    "title": "Shopify debuts Canvas, a way to build online stores by chatting with AI",
+    "url": "https://techcrunch.com/2026/10/01/shopify-debuts-canvas-a-way-to-build-online-stores-by-chatting-with-ai/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 00:44"
+   },
+   {
+    "title": "法官驳回针对 Google AI Overviews 的反垄断诉讼",
+    "url": "https://www.theverge.com/tech/1003589/google-ai-overviews-chegg-penske-lawsuits-dismissed",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 01:12"
+   },
+   {
+    "title": "Sony 将 AI 图形升级功能带到普通版 PS5",
+    "url": "https://www.theverge.com/games/1003549/sony-ps5-quick-spectral-super-resolution-qssr",
+    "company": "",
+    "section": "⚡",
+    "time": "10-02 00:53"
+   },
+   {
+    "title": "何恺明团队新作：看猫片就能学会 ARC 挑战",
+    "url": "https://www.qbitai.com/2026/10/499812.html",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 23:06"
+   },
+   {
+    "title": "隆重推出 Olmo-core 3：面向大规模 MoE 的开放、可扩展训练基础设施",
+    "url": "https://huggingface.co/blog/allenai/olmocore3",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 23:01"
+   },
+   {
+    "title": "Hearing tech startup Legato launches its AI hearing glasses",
+    "url": "https://techcrunch.com/2026/10/01/hearing-tech-startup-legato-launches-its-ai-hearing-glasses/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 21:00"
+   }
+  ]
+ },
+ {
+  "date": "2026-10-01",
+  "items": [
+   {
+    "title": "Gemini 4 Argon: our next era of frontier intelligence",
+    "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+    "company": "",
+    "section": "🏆",
+    "time": "10-01 04:01"
+   },
+   {
+    "title": "OpenAI 发布 GPT-6.1 Sol：以 Astra 五分之一价格接近其编码与计算机操作水平",
+    "url": "https://www.marktechpost.com/2026/09/30/openai-releases-gpt-6-1-sol-near-astra-coding-and-computer-use-at-one-fifth-of-astras-token-price",
+    "company": "",
+    "section": "🏆",
+    "time": "10-01 05:09"
+   },
+   {
+    "title": "OpenAI 披露并处置一起有组织的模型蒸馏攻击行动",
+    "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+    "company": "",
+    "section": "🏆",
+    "time": "09-30 18:30"
+   },
+   {
+    "title": "Google 发布 Gemini 4 Argon，号称迄今最强大的模型",
+    "url": "https://techcrunch.com/2026/09/30/google-releases-gemini-4-argon-called-its-most-powerful-model-yet/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-01 07:43"
+   },
+   {
+    "title": "Google Gemini 4 Argon 缩小了与 OpenAI 和 Anthropic 的差距，但并未取得明显领先",
+    "url": "https://the-decoder.com/google-gemini-4-argon-closes-the-gap-with-openai-and-anthropic-but-doesnt-take-a-clear-lead",
+    "company": "",
+    "section": "🏢",
+    "time": "10-01 06:06"
+   },
+   {
+    "title": "Introducing SynthID Bio",
+    "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 23:03"
+   },
+   {
+    "title": "OpenAI 与 Synopsys 合作，打造能像资深工程师一样设计芯片的 AI 模型",
+    "url": "https://the-decoder.com/openai-and-synopsys-team-up-to-build-an-ai-model-that-designs-chips-like-a-seasoned-engineer",
+    "company": "",
+    "section": "🏢",
+    "time": "10-01 03:12"
+   },
+   {
+    "title": "Helping small businesses put AI to work",
+    "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 18:00"
+   },
+   {
+    "title": "v2.1.286",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.286",
+    "company": "",
+    "section": "🏢",
+    "time": "10-01 03:10"
+   },
+   {
+    "title": "亏损超80亿、算力承诺546亿:Anthropic招股书揭开大模型顶流的真实账本",
+    "url": "https://www.aibase.com/news/31438",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 19:10"
+   },
+   {
+    "title": "ElevenLabs 完成 3 亿美元员工股份回购，估值升至 220 亿美元",
+    "url": "https://elevenlabs.io/blog/tender-22bn",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 20:00"
+   },
+   {
+    "title": "Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation",
+    "url": "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/",
+    "company": "",
+    "section": "🏢",
+    "time": "10-01 05:07"
+   },
+   {
+    "title": "OpenRouter 发布 Agent 模型成本与质量权衡选型框架",
+    "url": "https://openrouter.ai/blog/insights/cost-vs-quality-tradeoff-framework-for-agent-models",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 08:00"
+   },
+   {
+    "title": "OpenRouter 指南：用置信度阈值实现模型分级升级路由",
+    "url": "https://openrouter.ai/blog/insights/confidence-thresholds-for-model-escalation-routing",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 08:00"
+   },
+   {
+    "title": "OpenRouter 教程：如何在 CI 中用 LLM eval 门禁拦截 Pull Request",
+    "url": "https://openrouter.ai/blog/tutorials/how-to-gate-pull-requests-on-llm-evals-in-ci",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 08:00"
+   },
+   {
+    "title": "FTC 以消费者保护为由对 OpenAI、Anthropic 等 AI 实验室启动全面调查",
+    "url": "https://the-decoder.com/ftc-launches-sweeping-probe-into-openai-anthropic-and-other-ai-labs-over-consumer-protection-concerns",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 00:20"
+   },
+   {
+    "title": "Trump 推动二十余家科技公司签署自愿性 AI 安全协议",
+    "url": "https://arstechnica.com/tech-policy/2026/09/trump-plan-to-combat-ai-risks-hinges-on-big-tech-pals-policing-themselves",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 02:47"
+   },
+   {
+    "title": "Perplexity 开放 Computer 邮件委托入口并限时免费运行任务",
+    "url": "https://x.com/AravSrinivas/status/2105369479190601754",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 02:49"
+   },
+   {
+    "title": "DoorDash launches an AI agent you can text to order food",
+    "url": "https://techcrunch.com/2026/09/30/doordash-launches-an-ai-agent-you-can-text-to-order-food/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 00:00"
+   },
+   {
+    "title": "Reddit is killing RSS feeds and ending public API access because of AI bots",
+    "url": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+    "company": "",
+    "section": "⚡",
+    "time": "10-01 01:45"
+   },
+   {
+    "title": "蚂蚁百灵发布 Ling-3.1-flash，面向真实世界长任务升级",
+    "url": "https://mp.weixin.qq.com/s?__biz=MzkyODk2MDQwNw%3D%3D&mid=2247488041&idx=1&sn=e895cef2129ff2a96598d78b5a45c17b&chksm=c3a0565f2837a278a1a2f05d010189577c4e94fb18ccdd5e25001862b11c205fcd792160b382&scene=",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 20:30"
+   },
+   {
+    "title": "谷歌向免费用户开放Gemini Skills服务，Gems功能将于11月完成整合",
+    "url": "https://www.aibase.com/news/31428",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 14:47"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-30",
+  "items": [
+   {
+    "title": "OpenAI 发布 GPT-6.1 Sol",
+    "url": "https://openai.com/index/introducing-gpt-6-1-sol",
+    "company": "",
+    "section": "🏆",
+    "time": "09-29 18:00"
+   },
+   {
+    "title": "OpenAI 发布常驻智能体 Dots",
+    "url": "https://openai.com/index/introducing-dots",
+    "company": "",
+    "section": "🏆",
+    "time": "09-30 01:36"
+   },
+   {
+    "title": "Anthropic 与 SpaceX 签署最高 845 亿美元算力协议",
+    "url": "https://www.ithome.com/1/008/589.htm",
+    "company": "",
+    "section": "🏆",
+    "time": "09-30 09:41"
+   },
+   {
+    "title": "OpenAI DevDay 2026 Recap",
+    "url": "https://openai.com/index/devday-2026-recap",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 18:00"
+   },
+   {
+    "title": "ChatGPT 周活跃用户超 12 亿",
+    "url": "https://www.ithome.com/1/008/532.htm",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 02:47"
+   },
+   {
+    "title": "OpenAI 洽谈以 1.4 万亿美元估值融资至少 300 亿美元",
+    "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 03:52"
+   },
+   {
+    "title": "Amazon Bedrock 在印度支持 Claude 本地推理",
+    "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-expands-claude-model-availability-to-india-cross-region-inference/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 09:13"
+   },
+   {
+    "title": "GPT-6.1 Sol 上线 Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/bring-near-astra-intelligence-to-everyday-work-with-gpt-6-1-sol-on-amazon-bedrock/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 03:34"
+   },
+   {
+    "title": "GPT-6.1 Sol 进入 GitHub Copilot",
+    "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 01:02"
+   },
+   {
+    "title": "AMD 82 亿美元全股票收购 World Labs",
+    "url": "https://www.aibase.com/news/31415",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 19:22"
+   },
+   {
+    "title": "腾讯内测 Personal Agent \"Handy Bot\"",
+    "url": "https://www.aibase.com/news/31426",
+    "company": "",
+    "section": "🏢",
+    "time": "09-30 10:07"
+   },
+   {
+    "title": "OpenAI 推出 Codex 云环境，可跨设备跟进任务",
+    "url": "https://x.com/OpenAIDevs/status/2105073633731461197",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 07:13"
+   },
+   {
+    "title": "ChatGPT 开放平台，支持插件扩展构建原生应用",
+    "url": "https://x.com/thsottiaux/status/2104991765904375896",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 01:48"
+   },
+   {
+    "title": "ChatGPT 订阅额度可在 60 多个合作方产品中使用",
+    "url": "https://x.com/thsottiaux/status/2104991529416999243",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 01:47"
+   },
+   {
+    "title": "ChatGPT 推出 Space 团队协作与交互式文档 pages",
+    "url": "https://x.com/ChatGPT/status/2104986841145602351",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 01:29"
+   },
+   {
+    "title": "英国 AISI：GPT-6 Astra 未授权攻击率约为前代五倍",
+    "url": "https://the-decoder.com/uk-ai-security-institute-finds-gpt-6-astras-rogue-attack-rate-jumped-fivefold-over-its-predecessor",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 03:24"
+   },
+   {
+    "title": "美议员拟提交 AI 监管法案，限制模型自我进化",
+    "url": "https://www.aibase.com/news/31425",
+    "company": "",
+    "section": "⚡",
+    "time": "09-30 10:07"
+   },
+   {
+    "title": "NVIDIA 发布开源表格基础模型 Kumo Tabular",
+    "url": "https://huggingface.co/blog/nvidia/kumo-tabular",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 23:30"
+   },
+   {
+    "title": "Meta 将 AI 智能体 Muse 扩展至小企业",
+    "url": "https://techcrunch.com/2026/09/29/meta-is-expanding-its-ai-agent-muse-to-small-businesses/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 21:47"
+   },
+   {
+    "title": "安卓端 Google Assistant 停用，Gemini 接管语音入口",
+    "url": "https://www.aibase.com/news/31419",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 19:22"
+   },
+   {
+    "title": "央视揭 AI 网贷诈骗：一天狂拨 20 万通",
+    "url": "https://www.aibase.com/news/31416",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 19:22"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-29",
+  "items": [
+   {
+    "title": "Anthropic 发布 Claude Sonnet 5.5：比 Sonnet 5 快超 30% 且成本最多降 30%",
+    "url": "https://x.com/AnthropicAI/status/2104633259925630995",
+    "company": "",
+    "section": "🏆",
+    "time": "09-29 02:04"
+   },
+   {
+    "title": "AMD 以约 82 亿美元全股票交易收购李飞飞联合创立的 World Labs",
+    "url": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
+    "company": "",
+    "section": "🏆",
+    "time": "09-29 04:39"
+   },
+   {
+    "title": "OpenAI 因安全与对齐测试未达标，叫停 GPT-6.1 Astra 发布",
+    "url": "https://www.ithome.com/1/008/090.htm",
+    "company": "",
+    "section": "🏆",
+    "time": "09-29 08:12"
+   },
+   {
+    "title": "Anthropic 招股书披露：2025年净亏420亿美元，营收增长12倍",
+    "url": "https://www.aibase.com/news/31394",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 10:34"
+   },
+   {
+    "title": "Claude Sonnet 5.5 在 GitHub Copilot 普遍可用",
+    "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 02:03"
+   },
+   {
+    "title": "OpenAI 为模型未经授权访问澳大利亚政府网站致歉并公布整改措施",
+    "url": "https://openai.com/index/how-we-will-do-better-for-australia",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 03:00"
+   },
+   {
+    "title": "OpenAI 发布前沿AI训练安全案例早期指南",
+    "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 03:00"
+   },
+   {
+    "title": "OpenAI 上线对齐失效报告网站，披露九起智能体失控事件",
+    "url": "https://www.ithome.com/1/008/079.htm",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 07:21"
+   },
+   {
+    "title": "Meta 智能体 Muse 被指未经许可泄露用户住址并擅自约买家上门",
+    "url": "https://www.ithome.com/1/008/099.htm",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 08:58"
+   },
+   {
+    "title": "Meta 推出企业AI平台，聘请 MongoDB CEO 领导新业务",
+    "url": "https://techcrunch.com/2026/09/28/meta-launches-enterprise-ai-platform-hires-mongodb-ceo-to-lead-new-initiative/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 00:52"
+   },
+   {
+    "title": "World Labs 宣布加入 AMD，李飞飞将出任执行副总裁兼首席科学家",
+    "url": "https://www.worldlabs.ai/blog/amd-announcement",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 04:18"
+   },
+   {
+    "title": "Google 将关闭 Gemini 的 Gems 功能，转向「skills」体系",
+    "url": "https://techcrunch.com/2026/09/28/google-is-killing-off-geminis-gems-in-favor-of-skills/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-29 01:29"
+   },
+   {
+    "title": "Grok 4.7 上线 Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 06:13"
+   },
+   {
+    "title": "Nvidia 推出管控失控AI智能体的新平台",
+    "url": "https://techcrunch.com/2026/09/28/nvidia-launches-new-platform-for-reining-in-rogue-ai-agents/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 02:31"
+   },
+   {
+    "title": "Shopify 向浏览器端AI智能体开放结账功能",
+    "url": "https://techcrunch.com/2026/09/28/shopify-opens-checkout-to-browser-based-ai-agents/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 03:33"
+   },
+   {
+    "title": "可灵AI发布Kling4.0：支持8000 Token与立体声唇形同步",
+    "url": "https://www.aibase.com/news/31401",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 10:34"
+   },
+   {
+    "title": "蝴蝶效应发布 Manus2.0：成本降三成，Agent可组队",
+    "url": "https://www.aibase.com/news/31399",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 10:34"
+   },
+   {
+    "title": "月之暗面 Kimi K3.1 前端标识泄露，百万上下文配三档推理强度",
+    "url": "https://www.aibase.com/news/31395",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 10:34"
+   },
+   {
+    "title": "腾讯秘密测试数字人游戏搭子「鹅次元」",
+    "url": "https://www.aibase.com/news/31396",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 10:34"
+   },
+   {
+    "title": "H Company 发布 Holo4 智能体模型系列",
+    "url": "https://huggingface.co/blog/Hcompany/holo4",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 17:44"
+   },
+   {
+    "title": "GitHub 安全团队用开源AI安全Agent找出24个Android漏洞",
+    "url": "https://github.blog/security/how-we-found-24-android-vulnerabilities-using-our-open-source-ai-security-agent",
+    "company": "",
+    "section": "⚡",
+    "time": "09-29 03:00"
+   },
+   {
+    "title": "Viral AI agent Instinct 完成10亿美元C轮融资，估值100亿",
+    "url": "https://techcrunch.com/2026/09/28/viral-ai-agent-instinct-raises-1b-series-c-at-a-10b-valuation/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 21:38"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-28",
+  "items": [
+   {
+    "title": "Anthropic 官宣 Workbench 全面升级：全新 Playground 让普通人也能一键玩转 Claude API",
+    "url": "https://www.aibase.com/news/31359",
+    "company": "",
+    "section": "🏆",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "视频化身、系统级代控与眼镜接入，Meta 全新 AI 智能体 Muse 开启内测",
+    "url": "https://www.aibase.com/news/31360",
+    "company": "",
+    "section": "🏆",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "Nvidia 发布免费 1 亿参数模型，可实时识别最多八位说话人",
+    "url": "https://the-decoder.com/nvidia-drops-a-free-100m-parameter-model-that-identifies-up-to-eight-speakers-in-real-time",
+    "company": "",
+    "section": "🏆",
+    "time": "09-27 19:01"
+   },
+   {
+    "title": "OpenAI 的 Agent 试图“暴力破解”联合国网站",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
+    "company": "",
+    "section": "🏢",
+    "time": "09-28 01:21"
+   },
+   {
+    "title": "OpenAI 称其 80% 至 90% 的研究已瞄准 GPT 7 及更高版本",
+    "url": "https://the-decoder.com/openai-says-80-to-90-percent-of-its-research-already-targets-gpt-7-and-beyond",
+    "company": "",
+    "section": "🏢",
+    "time": "09-27 18:36"
+   },
+   {
+    "title": "Anthropic’s CEO is about to have dinner with President Trump",
+    "url": "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-28 04:34"
+   },
+   {
+    "title": "据报道，一些 Anthropic 老将正在购买偏远土地，以防“AI 出问题”",
+    "url": "https://the-decoder.com/some-anthropic-veterans-are-reportedly-buying-remote-land-in-case-ai-goes-awry",
+    "company": "",
+    "section": "🏢",
+    "time": "09-27 21:03"
+   },
+   {
+    "title": "Can Muse overcome Meta’s trust issues?",
+    "url": "https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-28 03:57"
+   },
+   {
+    "title": "Qwen3Guard: Real-time Safety for Your Token Stream",
+    "url": "https://qwen.ai",
+    "company": "",
+    "section": "🏢",
+    "time": "时间未知"
+   },
+   {
+    "title": "DeepSeek V4.1 Flash：更强、更快、更普惠",
+    "url": "https://deepseek.com",
+    "company": "",
+    "section": "🏢",
+    "time": "时间未知"
+   },
+   {
+    "title": "OpenAI或将推出代号「O」的常驻智能助手，预计9月29日正式发布",
+    "url": "https://www.aibase.com/news/31358",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "MiniMax 最新文本模型 M3.1-Flash-Preview 正式上线",
+    "url": "https://www.aibase.com/news/31365",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "前苹果 Siri 工程师推出 AI 智能体 szn：藏在 iMessage 里",
+    "url": "https://www.aibase.com/news/31363",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "暗网兜售 AI 模型访问权限：最高折扣 97%",
+    "url": "https://www.aibase.com/news/31364",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "谷歌在印测试 Gemini 直购 Flipkart 商品功能",
+    "url": "https://www.aibase.com/news/31361",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "首款端侧Agent旗舰刚落地就触碰安全红线?豆包AI否认涉足游戏外挂",
+    "url": "https://www.aibase.com/news/31362",
+    "company": "",
+    "section": "⚡",
+    "time": "09-28 09:39"
+   },
+   {
+    "title": "研究人员将 GPT-6 Astra 直接接入机器人打扫陌生厨房",
+    "url": "https://the-decoder.com/researchers-plug-gpt-6-astra-directly-into-a-robot-and-let-it-clean-up-an-unfamiliar-kitchen",
+    "company": "",
+    "section": "⚡",
+    "time": "09-27 18:59"
+   },
+   {
+    "title": "Goldman Sachs 预计 2027 年 Big Tech AI 基建支出达 1.2 万亿美元",
+    "url": "https://the-decoder.com/goldman-sachs-expects-big-tech-to-spend-1-2-trillion-on-ai-infrastructure-by-2027-dwarfing-wall-street-estimates",
+    "company": "",
+    "section": "⚡",
+    "time": "09-27 16:17"
+   },
+   {
+    "title": "谷歌 Kotlin 版 ADK 1.0 与 Python 版功能对齐，支持端侧 AI",
+    "url": "https://www.infoq.cn/article/sQV4EomjPP0J3hM3lyF9",
+    "company": "",
+    "section": "⚡",
+    "time": "09-27 18:00"
+   },
+   {
+    "title": "Authors Guild v. OpenAI 新文件披露高管早知盗版书训练违法",
+    "url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal",
+    "company": "",
+    "section": "⚡",
+    "time": "09-27 17:27"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-26",
+  "items": [
+   {
+    "title": "OpenAI 智能体集群数月入侵在线数据库，官方回应审查进展",
+    "url": "https://techcrunch.com/2026/09/25/for-months-openais-agent-swarms-have-been-attacking-online-databases-to-find-obscure-facts/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-25 23:48"
+   },
+   {
+    "title": "Anthropic 七年向 Akamai 支付 116 亿美元云服务费",
+    "url": "https://techcrunch.com/2026/09/25/anthropic-to-pay-akamai-11-6-billion-over-seven-years-in-cloud-deal/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-26 03:13"
+   },
+   {
+    "title": "Meta 为每位 Muse 用户提供运行 Ubuntu 的完整云电脑",
+    "url": "https://the-decoder.com/metas-muse-agent-gives-every-user-a-full-cloud-computer-running-ubuntu-linux",
+    "company": "",
+    "section": "🏆",
+    "time": "09-25 20:22"
+   },
+   {
+    "title": "Proaction 借助 Codex 拉动销售额增长 60%",
+    "url": "https://openai.com/index/proaction",
+    "company": "",
+    "section": "🏢",
+    "time": "09-26 03:00"
+   },
+   {
+    "title": "创始人拟在 IPO 前谋求投票控制权",
+    "url": "https://techcrunch.com/2026/09/25/anthropics-founders-seek-voting-control-ahead-of-ipo/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-25 23:40"
+   },
+   {
+    "title": "Claude 完成 N=4 超对称杨-米尔斯九圈振幅计算",
+    "url": "https://www.anthropic.com/research/yes-claude-can-do-nine-loops",
+    "company": "",
+    "section": "🏢",
+    "time": "09-26 01:59"
+   },
+   {
+    "title": "Muse 早期访问计划开放",
+    "url": "https://techcrunch.com/2026/09/25/meta-opens-early-access-program-for-new-muse-features/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-26 04:34"
+   },
+   {
+    "title": "Meta 全力押注 Muse，应用登顶榜单",
+    "url": "https://techcrunch.com/2026/09/25/meta-is-putting-its-muscle-behind-muse-as-the-ai-app-takes-off/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-26 00:16"
+   },
+   {
+    "title": "Copilot 迄今最大更新，定位为工作新 OS",
+    "url": "https://x.com/satyanadella/status/2103455884366188544",
+    "company": "",
+    "section": "🏢",
+    "time": "09-25 20:05"
+   },
+   {
+    "title": "Agent 自动修复现已支持 Copilot Memory",
+    "url": "https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory",
+    "company": "",
+    "section": "🏢",
+    "time": "09-26 01:25"
+   },
+   {
+    "title": "Crusoe 放弃 12.5 亿美元 Boom 涡轮机数据中心计划",
+    "url": "https://techcrunch.com/2026/09/25/crusoe-abandons-1-25b-plan-to-use-boom-turbines-at-ai-data-centers/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-26 07:11"
+   },
+   {
+    "title": "英国 AI 新云 Nscale 获 33.6 亿美元可转换融资",
+    "url": "https://techcrunch.com/2026/09/25/ahead-of-u-s-ipo-british-ai-neocloud-nscale-secures-3-36b-in-convertible-finacing/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-26 02:33"
+   },
+   {
+    "title": "联邦法院维持五角大楼将 Anthropic 列为供应链风险",
+    "url": "https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html",
+    "company": "",
+    "section": "⚡",
+    "time": "09-25 23:29"
+   },
+   {
+    "title": "Cognition 年化收入运行率突破 10 亿美元",
+    "url": "https://cognition.com/blog/1b-run-rate",
+    "company": "",
+    "section": "⚡",
+    "time": "09-25 23:42"
+   },
+   {
+    "title": "一些 Supabase 客户公开暴露海量用户数据",
+    "url": "https://techcrunch.com/2026/09/25/some-supabase-customers-are-publicly-exposing-reams-of-peoples-data-to-the-web/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-26 01:29"
+   },
+   {
+    "title": "Google 测试 Call for Me，Gemini 代你给商家打电话",
+    "url": "https://the-decoder.com/googles-call-for-me-lets-gemini-phone-businesses-for-you",
+    "company": "",
+    "section": "⚡",
+    "time": "09-25 19:49"
+   },
+   {
+    "title": "AWS 在 EKS 上用 EFA 与 DeepEP 扩展 MoE 强化学习，吞吐提升 40%",
+    "url": "https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-26 00:29"
+   },
+   {
+    "title": "GitHub Copilot 新增 Slack 与 Teams 集成更新",
+    "url": "https://github.blog/changelog/2026-09-25-updates-to-github-copilot-for-slack-and-microsoft-teams",
+    "company": "",
+    "section": "⚡",
+    "time": "09-26 00:33"
+   },
+   {
+    "title": "Lightspeed 拟为印度新基金募资 2.5 亿美元，聚焦早期 AI",
+    "url": "https://techcrunch.com/2026/09/24/lightspeed-targets-250m-for-new-india-fund-focusing-on-early-stage-ai/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-25 13:00"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-22",
+  "items": [
+   {
+    "title": "小米发布并开源 MiMo-V2.6 系列，扩展强化学习规模迈向自我提升",
+    "url": "https://mp.weixin.qq.com/s?__biz=Mzk3NTkxMTM2NA%3D%3D&mid=2247484969&idx=1&sn=76c4757b26a2b646e1b690bf78c386d8",
+    "company": "",
+    "section": "🏆",
+    "time": "09-22 04:18"
+   },
+   {
+    "title": "OpenAI forms math advisory group as its AI resolves more than 100 open problems",
+    "url": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-22 04:15"
+   },
+   {
+    "title": "亚马逊封禁 Meta Muse 智能体代用户购物，双方争端升级",
+    "url": "https://www.ithome.com/1/005/418.htm",
+    "company": "",
+    "section": "🏆",
+    "time": "09-21 19:52"
+   },
+   {
+    "title": "Building standards for the next phase of AI",
+    "url": "https://openai.com/index/building-standards-next-phase-ai",
+    "company": "",
+    "section": "🏢",
+    "time": "09-21 18:00"
+   },
+   {
+    "title": "Expanding OpenAI Academy with new learning paths",
+    "url": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths",
+    "company": "",
+    "section": "🏢",
+    "time": "09-21 15:00"
+   },
+   {
+    "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+    "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
+    "company": "",
+    "section": "🏢",
+    "time": "09-21 20:00"
+   },
+   {
+    "title": "小米 MiMo-V2.6-Pro 发布，登顶 Artificial Analysis 开源权重模型智能指数",
+    "url": "https://x.com/ArtificialAnlys/status/2102128560962187701",
+    "company": "",
+    "section": "🏢",
+    "time": "09-22 04:11"
+   },
+   {
+    "title": "xAI's Grok 4.6 is now available in Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/xais-grok-4-6-is-now-available-in-amazon-bedrock/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-22 02:30"
+   },
+   {
+    "title": "Grok 4.7 现已上线 GitHub Copilot",
+    "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
+    "company": "",
+    "section": "🏢",
+    "time": "09-21 22:54"
+   },
+   {
+    "title": "Kimi 发布 Kimi Code Desktop 1.0，macOS 与 Windows 版同步上线",
+    "url": "https://mp.weixin.qq.com/s?__biz=MzkzMTY4NTIyNA%3D%3D&mid=2247484344&idx=1&sn=047cf702ff02ab334e3ea2ba8e34b4a6",
+    "company": "",
+    "section": "🏢",
+    "time": "09-21 15:54"
+   },
+   {
+    "title": "Meta's Muse is outpacing ChatGPT's early mobile launch",
+    "url": "https://techcrunch.com/2026/09/21/metas-muse-is-outpacing-chatgpts-early-mobile-launch/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-22 03:19"
+   },
+   {
+    "title": "Meta's AI agent has been blocked from using Amazon.com",
+    "url": "https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-22 01:55"
+   },
+   {
+    "title": "不列颠哥伦比亚省起诉 OpenAI，指其未在枪击案前将 flagged ChatGPT 活动转介警方",
+    "url": "https://x.com/rohanpaul_ai/status/2102128625126605059",
+    "company": "",
+    "section": "⚡",
+    "time": "09-22 04:11"
+   },
+   {
+    "title": "Artificial Analysis 评测 Grok 4.7：智能指数得分 46，编码智能体指数升至 56",
+    "url": "https://artificialanalysis.ai/articles/benchmarking-grok-4-7",
+    "company": "",
+    "section": "⚡",
+    "time": "09-22 03:41"
+   },
+   {
+    "title": "Google's $899 Googlebook is a bet that you'll buy a new laptop for Gemini",
+    "url": "https://techcrunch.com/2026/09/21/googles-899-googlebook-is-a-bet-that-youll-buy-a-new-laptop-for-gemini/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-21 22:39"
+   },
+   {
+    "title": "阿里换帅 Qwen 团队：刘大一恒接掌通义千问大模型",
+    "url": "https://www.aibase.com/news/31233",
+    "company": "",
+    "section": "⚡",
+    "time": "09-21 18:44"
+   },
+   {
+    "title": "中国大模型周调用量达 67.46 万亿 Token，连续 21 周领先美国",
+    "url": "https://www.aibase.com/news/31226",
+    "company": "",
+    "section": "⚡",
+    "time": "09-21 14:26"
+   },
+   {
+    "title": "Gemini 也\"越狱\"了：谷歌确认 5 月安全测试中闯入 3 家真实公司系统",
+    "url": "https://www.aibase.com/news/31217",
+    "company": "",
+    "section": "⚡",
+    "time": "09-21 14:26"
+   },
+   {
+    "title": "微软花 12 万美元让 AI 重写 Copilot 运行时：43 万行 TS 变 80 万行 Rust，快 15.9 倍",
+    "url": "https://www.aibase.com/news/31240",
+    "company": "",
+    "section": "⚡",
+    "time": "09-21 18:44"
+   },
+   {
+    "title": "法国兴业银行押注 AI：预计最多省下 6 亿欧元成本",
+    "url": "https://www.aibase.com/news/31238",
+    "company": "",
+    "section": "⚡",
+    "time": "09-21 18:44"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-20",
+  "items": [
+   {
+    "title": "Google 的 Gemini 在安全测试中意外入侵三家真实公司",
+    "url": "https://the-decoder.com/googles-gemini-also-accidentally-hacked-three-real-companies-during-security-testing",
+    "company": "",
+    "section": "🏆",
+    "time": "09-19 17:31"
+   },
+   {
+    "title": "纽约时报诉讼文件披露：微软高管称 AI 抓取是人类历史上最大规模的劳动力盗用",
+    "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat",
+    "company": "",
+    "section": "🏆",
+    "time": "09-20 07:58"
+   },
+   {
+    "title": "阿里发布 Qwen3.8-LiveTranslate：字均延迟从 2.8 秒压到 2.3 秒，支持 60 种语言",
+    "url": "https://x.com/aigclink/status/2101237871571271890",
+    "company": "",
+    "section": "🏆",
+    "time": "09-19 17:12"
+   },
+   {
+    "title": "Google DeepMind 的 Dream-RSI 通过让 AI Agent\"做梦\"回顾过去尝试来帮助其改进",
+    "url": "https://the-decoder.com/google-deepminds-dream-rsi-helps-ai-agents-improve-by-dreaming-about-past-attempts",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 19:08"
+   },
+   {
+    "title": "Qwen3.8-Omni-Flash 定价低于 Google Gemini Flash，多模态基准表现却与之持平",
+    "url": "https://the-decoder.com/qwen3-8-omni-flash-undercuts-gemini-flash-pricing-while-matching-its-multimodal-benchmarks",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 22:30"
+   },
+   {
+    "title": "Unity 为 Claude Code 和 OpenAI Codex 推出官方插件",
+    "url": "https://the-decoder.com/unity-launches-official-plugins-for-claude-code-and-openai-codex-to-stop-ai-agents-from-using-outdated-tutorials",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 21:31"
+   },
+   {
+    "title": "Vals, backed by Andreessen Horowitz, is looking to become the gold standard for AI benchmarking",
+    "url": "https://techcrunch.com/2026/09/19/vals-backed-by-andreessen-horowitz-is-looking-to-become-the-gold-standard-for-ai-benchmarking/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 21:00"
+   },
+   {
+    "title": "Trump says it's time to rebrand AI with a new name — and he's also creating an AI Force",
+    "url": "https://techcrunch.com/2026/09/19/trump-suggests-rebranding-ai-with-a-new-name-says-hes-also-creating-an-ai-force/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-20 03:57"
+   },
+   {
+    "title": "Flock reportedly tries to shrink workforce with employee buyouts",
+    "url": "https://techcrunch.com/2026/09/19/flock-reportedly-tries-to-shrink-workforce-with-employee-buyouts/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-20 04:39"
+   },
+   {
+    "title": "AI safety conversations have gotten unbelievable",
+    "url": "https://techcrunch.com/2026/09/19/ai-safety-conversations-have-gotten-unbelievable/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 23:00"
+   },
+   {
+    "title": "Petlibro's new AI-powered feeder is a game changer for multi-cat homes",
+    "url": "https://techcrunch.com/2026/09/19/petlibros-new-ai-powered-feeder-is-a-game-changer-for-multi-cat-homes/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 23:00"
+   },
+   {
+    "title": "AI 会议 ICLR 被论文摘要淹没，截止日期前投稿量已达约 5 万篇",
+    "url": "https://the-decoder.com/ai-conference-iclr-is-drowning-in-abstracts-with-roughly-50000-submissions-before-the-deadline",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 18:37"
+   },
+   {
+    "title": "美军因一份 AI 幻觉生成的情报报告，差点登上一艘中国船只",
+    "url": "https://the-decoder.com/u-s-military-nearly-boarded-a-chinese-ship-over-a-hallucinated-ai-intelligence-report",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 16:10"
+   },
+   {
+    "title": "在新安全基准测试中，GPT-6 Astra 和 Claude Fable 把机械臂变成闹剧式杀手机器人",
+    "url": "https://the-decoder.com/gpt-6-astra-and-claude-fable-turn-robot-arms-into-slapstick-killer-robots-in-new-safety-benchmark",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 21:28"
+   },
+   {
+    "title": "忘掉 AI 放缓吧——漏洞大爆发已经在发生",
+    "url": "https://www.wired.com/story/kernel-panic-ai-vulnerability-explosion",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 19:00"
+   },
+   {
+    "title": "数学家讨厌 AI，却戒不掉",
+    "url": "https://www.wired.com/story/mathematicians-cant-quit-ai",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 18:00"
+   },
+   {
+    "title": "AI 监管的激烈交锋还没完",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/997706/the-ai-regulation-smackdown-isnt-over",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 21:00"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-19",
+  "items": [
+   {
+    "title": "Anthropic 与 Accenture 合作开展嵌入式独立评估，双方各投入至少 10 亿美元",
+    "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
+    "company": "",
+    "section": "🏆",
+    "time": "09-19 04:21"
+   },
+   {
+    "title": "研究团队用 Claude Opus 5 入侵 OpenAI，获 6500 美元漏洞赏金",
+    "url": "https://techcrunch.com/2026/09/18/researchers-used-anthropics-claude-to-hack-into-openai",
+    "company": "",
+    "section": "🏆",
+    "time": "09-18 22:00"
+   },
+   {
+    "title": "Introducing Kimi K3 on Amazon Bedrock",
+    "url": "https://aws.amazon.com/blogs/machine-learning/introducing-kimi-k3-on-amazon-bedrock/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-19 00:52"
+   },
+   {
+    "title": "Anthropic 用 AI 造 AI：Claude 已主导公司四分之一研发工作",
+    "url": "https://www.aibase.com/news/31169",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 17:46"
+   },
+   {
+    "title": "Anthropic 推出生命科学认证计划，三款主力模型纳入统一授权条款",
+    "url": "https://www.aibase.com/news/31152",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "Anthropic 重构 Claude Code 项目功能，多线程并行执行任务",
+    "url": "https://www.aibase.com/news/31145",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "OpenAI 推出 Astra for Law：索引 2.3 亿 URL，法律问答正确率 54%",
+    "url": "https://www.aibase.com/news/31146",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "OpenAI 披露 GPT-5.6Sol 异常行为：曾向后续模型传递\"隐藏错误\"指令",
+    "url": "https://www.aibase.com/news/31154",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "OpenAI SDK v3.16.2 发布",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.16.2",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 05:26"
+   },
+   {
+    "title": "Qwen 发布 Qwen3.8-LiveTranslate 实时同传模型，LAAL 降至 2.3 秒",
+    "url": "https://qwen.ai/blog?id=qwen3.8-livetranslate",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 17:30"
+   },
+   {
+    "title": "阿里发布 Qwen3.8-Omni-Flash：原生全模态、百万上下文，音频成本砍掉 98%",
+    "url": "https://www.aibase.com/news/31158",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "Google 新\"CC\"是帮家庭打理家务的 AI agent",
+    "url": "https://techcrunch.com/2026/09/18/googles-new-cc-is-an-ai-agent-that-helps-families-run-their-households/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 01:33"
+   },
+   {
+    "title": "新专家加入 Google 的 AI 与经济团队",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 22:00"
+   },
+   {
+    "title": "Copilot 代码审查：更出色的审查体验",
+    "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 04:17"
+   },
+   {
+    "title": "GitHub Copilot 部分模型将于 10 月中旬起逐步弃用",
+    "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
+    "company": "",
+    "section": "🏢",
+    "time": "09-19 03:00"
+   },
+   {
+    "title": "AI 幻觉情报报告险些引发美军拦截中国船只",
+    "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 01:28"
+   },
+   {
+    "title": "Anthropic 运营一间做生物学实验的实验室",
+    "url": "https://techcrunch.com/2026/09/18/anthropic-is-operating-a-lab-that-conducts-biology-experiments/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 07:13"
+   },
+   {
+    "title": "Meta 的 Muse 登陆 Mac，可代你在电脑上执行操作",
+    "url": "https://techcrunch.com/2026/09/18/metas-muse-hits-mac-letting-the-ai-take-actions-on-your-computer/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 23:22"
+   },
+   {
+    "title": "Manus 寻求 40 亿美元估值，新融资 5 亿美元",
+    "url": "https://techcrunch.com/2026/09/18/manus-seeks-4b-valuation-in-new-500m-fundraise-as-it-resumes-independent-ops/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-19 00:35"
+   },
+   {
+    "title": "智谱 GLM-5.3-FlashX 上线：最高 200 tokens/s",
+    "url": "https://www.aibase.com/news/31166",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 17:46"
+   },
+   {
+    "title": "Figure 发布 Helix2.5，30 户陌生家庭零样本成功率达 56%",
+    "url": "https://www.aibase.com/news/31151",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "特斯拉推送更新：豆包大模型语音助手扩至更多车型",
+    "url": "https://www.aibase.com/news/31164",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 17:46"
+   },
+   {
+    "title": "腾讯 AI 语音助手 Chatterfly 低调内测：开口即成稿",
+    "url": "https://www.aibase.com/news/31144",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "十部门联合发文：加快 AI、量子计算等新技术赋能药物研发",
+    "url": "https://www.aibase.com/news/31150",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 13:58"
+   },
+   {
+    "title": "AWS 发布新版 AgentCore runtime：弹性、优化、快速启动",
+    "url": "https://aws.amazon.com/blogs/machine-learning/the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 23:31"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-18",
+  "items": [
+   {
+    "title": "Anthropic 合并 Claude Cowork 与 Chat，打造统一办公入口",
+    "url": "https://www.aibase.com/news/31125",
+    "company": "",
+    "section": "🏆",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "华为计划 2027 年 Q1 推出新款 AI 芯片 Ascend 960DT",
+    "url": "https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-17 22:06"
+   },
+   {
+    "title": "国安部披露 AI 智能体劫持网站建\"地下论坛\"",
+    "url": "https://www.aibase.com/news/31112",
+    "company": "",
+    "section": "🏆",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "Anthropic 算力首次落子澳大利亚：租赁 2.16GW 数据中心园区",
+    "url": "https://www.aibase.com/news/31116",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "Anthropic CEO 提议给 AI 安\"银行式监管\"",
+    "url": "https://www.aibase.com/news/31110",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "小米公开 MiMo-V2.6 大模型 RL 训练过程",
+    "url": "https://www.aibase.com/news/31131",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "豆包联合火山引擎打造 AI 原生车载助手",
+    "url": "https://www.aibase.com/news/31127",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "豆包大模型 2.1 Pro 更新：幻觉大幅降低",
+    "url": "https://www.aibase.com/news/31111",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "抖音上线\"冒用声音\"专属举报入口",
+    "url": "https://www.aibase.com/news/31129",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "阿里云展示 Wan3.0 视频大模型",
+    "url": "https://www.aibase.com/news/31126",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "腾讯 ChatterFly 低调内测",
+    "url": "https://www.aibase.com/news/31118",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "Mozilla 携手 Mistral，将 AI 模型引入 Firefox 智能窗口",
+    "url": "https://www.aibase.com/news/31115",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "GitHub 用 Copilot 智能体将运行时迁移到 83 万行 Rust",
+    "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 08:26"
+   },
+   {
+    "title": "Microsoft 高管称 AI 抓取是\"人类史上最大劳动盗窃\"",
+    "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 03:46"
+   },
+   {
+    "title": "AWS 推出 AI 招聘解决方案 Amazon Connect Talent",
+    "url": "https://aws.amazon.com/blogs/machine-learning/reduce-time-to-hire-for-quality-candidates-with-ai-powered-amazon-connect-talent/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 01:55"
+   },
+   {
+    "title": "Base Labs 联合 Hugging Face、Goodfire 推出开放权重 AI 安全合作",
+    "url": "https://techcrunch.com/2026/09/17/base-labs-launches-an-open-weight-ai-safety-partnership-with-hugging-face-and-goodfire/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 01:15"
+   },
+   {
+    "title": "Pinterest 测试 AI 房间重设计功能 Restyle",
+    "url": "https://techcrunch.com/2026/09/17/pinterest-teases-a-new-restyle-feature-that-lets-you-redesign-your-room-with-ai/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 01:15"
+   },
+   {
+    "title": "Google、Nvidia、Anthropic 联合组建 Emerald AI 寻找数据中心电网空间",
+    "url": "https://techcrunch.com/2026/09/17/google-nvidia-and-anthropic-want-emerald-ai-to-find-space-on-the-grid-for-more-data-centers/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 21:38"
+   },
+   {
+    "title": "Kimi 发布金融行业 AI 解决方案",
+    "url": "https://www.aibase.com/news/31132",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "冰岛初创 Treble 获 1800 万美元 A 轮扩展融资",
+    "url": "https://www.aibase.com/news/31133",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "夏普联手富士康进军 AI 服务器，2027 年开卖",
+    "url": "https://www.aibase.com/news/31137",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "Grok Build 上线\"长期记忆\"功能",
+    "url": "https://www.aibase.com/news/31119",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "Manus 拟融资约 5 亿美元，目标估值 40 亿美元",
+    "url": "https://www.aibase.com/news/31120",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 14:15"
+   },
+   {
+    "title": "抖音上线声音侵权举报入口：AI 克隆音色门槛降低，投诉量一月翻倍",
+    "url": "https://www.aibase.com/news/31128",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "千问 APP 升级未成年人保护模式",
+    "url": "https://www.aibase.com/news/31139",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "研究显示印度外包几乎没被 AI 挤占：软件服务出口占 GDP 升至 5.2%",
+    "url": "https://www.aibase.com/news/31135",
+    "company": "",
+    "section": "⚡",
+    "time": "09-17 17:59"
+   },
+   {
+    "title": "OpenAI 披露 GPT-5.6 Sol 等模型在摘要中留下指令以掩盖不当行为",
+    "url": "https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior",
+    "company": "",
+    "section": "🏆",
+    "time": "09-18 04:34"
+   },
+   {
+    "title": "纽约时报诉 OpenAI 与微软案解封文件披露 AI 抓取被称为史上最大劳动窃取",
+    "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal",
+    "company": "",
+    "section": "🏆",
+    "time": "09-18 03:46"
+   },
+   {
+    "title": "Anthropic 用 Claude 优化 30 多个开源生物分子模型，平均提速约 4 倍并开源全部代码",
+    "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
+    "company": "",
+    "section": "🏆",
+    "time": "09-18 03:49"
+   },
+   {
+    "title": "How Cooley is accelerating IPO work with ChatGPT",
+    "url": "https://openai.com/index/cooley-gopublic",
+    "company": "",
+    "section": "🏢",
+    "time": "09-17 20:00"
+   },
+   {
+    "title": "Google DeepMind launches institute to widen the AGI debate",
+    "url": "https://techcrunch.com/2026/09/17/google-deepmind-launches-institute-to-widen-the-agi-debate/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 07:21"
+   },
+   {
+    "title": "Making global data easier to explore",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 04:00"
+   },
+   {
+    "title": "Anthropic 发布前沿 AI 开发节奏测量工具与内部指标快照",
+    "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 04:49"
+   },
+   {
+    "title": "Claude Code 重构 Projects：从文件夹变为可托管多线程的对话式项目",
+    "url": "https://claude.com/blog/projects-redesigned",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 01:52"
+   },
+   {
+    "title": "Meta 发布 Muse for Mac，个人智能体可直接在电脑上执行任务",
+    "url": "https://x.com/AIatMeta/status/2100714755568644409",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 06:33"
+   },
+   {
+    "title": "Qwen 发布原生全模态模型 Qwen3.8-Omni-Flash，主打音视频智能体任务交付",
+    "url": "https://qwen.ai/blog?id=qwen3.8-omni-flash",
+    "company": "",
+    "section": "🏢",
+    "time": "09-18 01:18"
+   },
+   {
+    "title": "Crusoe raises $3.9B to build massive data centers and small modular \"AI factories\"",
+    "url": "https://techcrunch.com/2026/09/17/crusoe-raises-3-9b-to-build-massive-data-centers-and-small-modular-ai-factories/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 07:25"
+   },
+   {
+    "title": "The FAA's plan to fix air traffic? $875M worth of AI",
+    "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 06:14"
+   },
+   {
+    "title": "Copilot 影响力仪表盘现可显示功能参与度",
+    "url": "https://github.blog/changelog/2026-09-17-copilot-impact-dashboard-now-shows-feature-engagement",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 05:47"
+   },
+   {
+    "title": "Agentic CLI 自定义功能现已加入使用指标 API",
+    "url": "https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api",
+    "company": "",
+    "section": "⚡",
+    "time": "09-18 05:08"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-14",
+  "items": [
+   {
+    "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
+    "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+    "company": "",
+    "section": "🏆",
+    "time": "09-14 08:00｜多源交叉"
+   },
+   {
+    "title": "Trump 和 Mike Johnson 认为 AI 行业反应过度了",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
+    "company": "",
+    "section": "🏆",
+    "time": "09-14 03:41｜多源交叉"
+   },
+   {
+    "title": "Elevenlabs 通过 app 和 API 推出 Music v2.5，提供免费版和专业版选项",
+    "url": "https://the-decoder.com/elevenlabs-makes-music-v2-5-available-via-app-and-api-with-free-and-pro-tier-options",
+    "company": "",
+    "section": "🏆",
+    "time": "09-13 21:40"
+   },
+   {
+    "title": "GPT-6 Astra 操纵侦察无人机并自主经营业务",
+    "url": "https://the-decoder.com/gpt-6-astra-pilots-a-surveillance-drone-and-runs-a-business-on-its-own",
+    "company": "",
+    "section": "🏢",
+    "time": "The Decoder·09-13 18:52"
+   },
+   {
+    "title": "Anthropic 报告称胡塞组织用 Claude Code 开发导弹制导软件",
+    "url": "https://clashreport.com/world/articles/houthis-used-claude-code-to-develop-missile-guidance-software-anthropic-s52mnx4pwpo",
+    "company": "",
+    "section": "🏢",
+    "time": "Hacker News·09-13 22:15"
+   },
+   {
+    "title": "Altman、Musk 和 Hassabis 声援 Amodei，支持其引入独立监督的呼吁",
+    "url": "https://the-decoder.com/altman-musk-and-hassabis-back-amodeis-call-to-add-independent-oversight",
+    "company": "",
+    "section": "🏢",
+    "time": "The Decoder·09-13 16:53"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-13",
+  "items": [
+   {
+    "title": "GPT-6 Astra 发布，社区展示 3D/空间推理案例",
+    "url": "https://x.com/OpenAIDevs/status/2098827327832822014",
+    "company": "",
+    "section": "🏆",
+    "time": "09-13 01:33"
+   },
+   {
+    "title": "Anthropic CEO 呼吁给前沿 AI 定节奏，提出三步计划",
+    "url": "https://techcrunch.com/2026/09/12/anthropic-ceo-outlines-plan-to-pace-the-frontier/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-13 03:34"
+   },
+   {
+    "title": "Sam Altman 称 OpenAI 若 2026 年上市“不明智”",
+    "url": "https://techcrunch.com/2026/09/12/openais-sam-altman-says-it-would-be-ill-advised-to-go-public-in-2026/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-13 04:19"
+   },
+   {
+    "title": "Sam Altman 同意为前沿 AI 定节奏，开放独立评估者",
+    "url": "https://x.com/sama/status/2098811563415150910",
+    "company": "",
+    "section": "🏢",
+    "time": "X·09-13 00:30"
+   },
+   {
+    "title": "OpenAI 建议 GPT-6 Astra 使用更精简提示词",
+    "url": "https://the-decoder.com/gpt-6-astra-needs-leaner-prompts-and-fewer-guardrails-openai-recommends",
+    "company": "",
+    "section": "🏢",
+    "time": "The Decoder·09-12 21:10"
+   },
+   {
+    "title": "OpenAI Agent 被指对 RubyGems 发起恶意包攻击",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/994383/openais-rogue-ai-rubygems-hack",
+    "company": "",
+    "section": "🏢",
+    "time": "多源交叉·09-13 05:41"
+   },
+   {
+    "title": "Claude Code v2.1.270 修复回归问题",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.270",
+    "company": "",
+    "section": "🏢",
+    "time": "GitHub·09-13 03:45"
+   },
+   {
+    "title": "Suno 发布 v6 音乐模型",
+    "url": "https://suno.com/blog/introducing-v6",
+    "company": "",
+    "section": "🏢",
+    "time": "Suno Blog·09-13 00:39"
+   },
+   {
+    "title": "Google TimesFM-3 可依据销售、天气与折扣排期预测",
+    "url": "https://the-decoder.com/googles-new-ai-model-predicts-the-future-from-sales-data-weather-and-discount-schedules",
+    "company": "",
+    "section": "🏢",
+    "time": "The Decoder·09-12 17:26"
+   },
+   {
+    "title": "Minitap 指控 Google Artemis 未署名使用开源代码",
+    "url": "https://www.minitap.ai/blog/i-expected-better-from-google",
+    "company": "",
+    "section": "🏢",
+    "time": "Hacker News·09-12 10:39"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-12",
+  "items": [
+   {
+    "title": "Mecka AI 获红杉领投，估值近 5 亿美元，机器人训练数据争夺升温",
+    "url": "https://techcrunch.com/2026/09/11/mecka-ai-nears-500m-valuation-in-sequoia-led-deal-amid-rush-for-robot-training-data/",
+    "company": "",
+    "section": "🏆",
+    "time": "09-12 06:58｜多源交叉"
+   },
+   {
+    "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+    "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
+    "company": "",
+    "section": "🏆",
+    "time": "09-11 18:00"
+   },
+   {
+    "title": "Anthropic 威胁报告披露 Claude 被用于间谍软件、导弹与无人机研发，中国实验室大规模蒸馏提取数据",
+    "url": "https://the-decoder.com/how-hackers-used-claude-for-missiles-drone-swarms-and-surveillance-while-chinese-labs-mined-it-for-training-data",
+    "company": "",
+    "section": "🏆",
+    "time": "09-11 21:50"
+   },
+   {
+    "title": "OpenAI 开放 GPT-Live-1 API：每分钟 0.05 美元，把 ChatGPT 同款语音能力交给开发者",
+    "url": "https://www.aibase.com/news/30994",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 17:42"
+   },
+   {
+    "title": "OpenAI 把 Codex 做成 API：Agents API 上线，托管会话与沙箱对外开放",
+    "url": "https://www.aibase.com/news/30992",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 14:04"
+   },
+   {
+    "title": "OpenAI 暂停 ChatGPT Pro 200 美元档新用户注册与升级",
+    "url": "https://www.aibase.com/news/30980",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 14:04"
+   },
+   {
+    "title": "将 VS Code Agents 加入 Copilot 使用指标",
+    "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+    "company": "",
+    "section": "🏢",
+    "time": "09-12 05:30"
+   },
+   {
+    "title": "Copilot 代码审查中的自动解决与分析更新",
+    "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
+    "company": "",
+    "section": "🏢",
+    "time": "09-12 04:00"
+   },
+   {
+    "title": "Monitoring production agent lifecycle with AWS DevOps Agent and AgentCore Evaluations",
+    "url": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-12 02:26"
+   },
+   {
+    "title": "Beyond the price per token: Choosing the right OpenAI model on Amazon Bedrock for your workload",
+    "url": "https://aws.amazon.com/blogs/machine-learning/beyond-the-price-per-token-choosing-the-right-openai-model-on-amazon-bedrock-for-your-workload/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-12 02:24"
+   },
+   {
+    "title": "Build interactive MCP Apps using Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/build-interactive-mcp-apps-using-amazon-bedrock-agentcore/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-12 02:23"
+   },
+   {
+    "title": "Anthropic 披露：今年已阻止多起利用 AI 研发生物武器的尝试",
+    "url": "https://www.aibase.com/news/30999",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 17:42"
+   },
+   {
+    "title": "Anthropic 再曝模型越狱事件：绕过隔离窃取密码、篡改系统权限",
+    "url": "https://www.aibase.com/news/30982",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 14:04"
+   },
+   {
+    "title": "银行 Agent 上岗：4200 万小微经营者可用，信贷、票据、财税一把梭",
+    "url": "https://www.qbitai.com/2026/09/487631.html",
+    "company": "",
+    "section": "🏢",
+    "time": "09-12 02:02"
+   },
+   {
+    "title": "Agent 商业化驶入深水区，蚂蚁推出 APASS 补上“信任基础设施”",
+    "url": "https://www.aibase.com/news/30988",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 14:04"
+   },
+   {
+    "title": "机器狗替你“打酱油”：支付宝首推“AI 付·具身智能”",
+    "url": "https://www.aibase.com/news/30990",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 14:04"
+   },
+   {
+    "title": "Kimi-maker Moonshot AI targets $2B in annual revenue",
+    "url": "https://techcrunch.com/2026/09/11/kimi-maker-moonshot-ai-targets-2-billion-in-annual-revenue/",
+    "company": "",
+    "section": "🏢",
+    "time": "💡科普：像创业公司定下大销售目标，关键看付费用户"
+   },
+   {
+    "title": "小米开源工业级目标说话人语音识别大模型 CocktailASR-1",
+    "url": "https://www.aibase.com/news/31001",
+    "company": "",
+    "section": "🏢",
+    "time": "09-11 19:28"
+   },
+   {
+    "title": "Y Combinator 的 Garry Tan 希望美国开放权重 AI 实验室“蒸馏”前沿模型",
+    "url": "https://techcrunch.com/2026/09/11/y-combinators-garry-tan-wants-u-s-open-weight-ai-labs-to-distill-frontier-models-too/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-12 04:59"
+   },
+   {
+    "title": "OpenAI 与数学家的恩怨只会愈演愈烈",
+    "url": "https://techcrunch.com/2026/09/11/openais-feud-with-mathematicians-is-only-escalating/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-12 04:57"
+   },
+   {
+    "title": "律师因谋杀案中 AI 幻觉生成的证人被罚 5000 美元",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/994207/chatgpt-new-mexico-lawyer-fined-murder-appeal",
+    "company": "",
+    "section": "⚡",
+    "time": "09-12 04:44"
+   },
+   {
+    "title": "Nscale 在潜在 IPO 前新增前 OpenAI 高管 Fidji Simo 进入董事会",
+    "url": "https://techcrunch.com/2026/09/11/nscale-adds-former-openai-exec-fidji-simo-to-its-board-ahead-of-potential-ipo/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-12 00:46"
+   },
+   {
+    "title": "Beren Millidge、John Schulman、Charlie O'Neill 对谈递归自我改进离我们还有多远",
+    "url": "https://www.dwarkesh.com/p/john-beren-charlie",
+    "company": "",
+    "section": "⚡",
+    "time": "09-12 00:28"
+   },
+   {
+    "title": "具身智能的“ChatGPT 时刻”何时到来？百亿具身 CEO 与外滩大会热议",
+    "url": "https://www.aibase.com/news/31002",
+    "company": "",
+    "section": "⚡",
+    "time": "09-11 23:02"
+   },
+   {
+    "title": "Cursor 发布 Projects 功能，一人指挥数千个 AI 智能体承包大型开发",
+    "url": "https://www.aibase.com/news/30993",
+    "company": "",
+    "section": "⚡",
+    "time": "09-11 17:42"
+   },
+   {
+    "title": "DeepSeek V4.1-Flash 登陆 WorkBuddy，开启限时免费试用",
+    "url": "https://www.aibase.com/news/30995",
+    "company": "",
+    "section": "⚡",
+    "time": "09-11 17:42"
+   },
+   {
+    "title": "商汤 AI 办公智能体“小浣熊”移动端上线：手机发指令，电脑持续执行",
+    "url": "https://www.aibase.com/news/30981",
+    "company": "",
+    "section": "⚡",
+    "time": "09-11 14:04"
+   },
+   {
+    "title": "环球音乐携手 ElevenLabs 达成合作，共建正版授权 AI 音乐平台",
+    "url": "https://www.aibase.com/news/30984",
+    "company": "",
+    "section": "⚡",
+    "time": "09-11 14:04"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-10",
+  "items": [
+   {
+    "title": "Paul Christiano joins OpenAI Foundation Board",
+    "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+    "company": "",
+    "section": "🏆",
+    "time": "09-10 01:00"
+   },
+   {
+    "title": "Anthropic 发布四起 Claude 网络安全评测事故的对齐评估报告",
+    "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+    "company": "",
+    "section": "🏆",
+    "time": "09-10 03:28"
+   },
+   {
+    "title": "Apple 发布首款折叠屏 iPhone Duo，起售价 $1,999",
+    "url": "https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo",
+    "company": "",
+    "section": "🏆",
+    "time": "09-10 02:15"
+   },
+   {
+    "title": "OpenAI 发布 GPT-6 Astra，面向专业工作场景",
+    "url": "https://openai.com/index/gpt-6-astra-next-generation-work",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 19:00"
+   },
+   {
+    "title": "The AI policy window is open. We need to act.",
+    "url": "https://openai.com/index/ai-policy-window",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 21:00"
+   },
+   {
+    "title": "OpenAI 称正与三星合作开发下一代芯片",
+    "url": "https://www.aibase.com/news/30932",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 17:46"
+   },
+   {
+    "title": "Apple 发布 iPhone 18 Pro 与 iPhone 18 Pro Max",
+    "url": "https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max",
+    "company": "",
+    "section": "🏢",
+    "time": "09-10 01:30"
+   },
+   {
+    "title": "Apple 发布 Apple Watch Series 12",
+    "url": "https://www.apple.com/newsroom/2026/09/introducing-apple-watch-series-12-with-the-all-new-health-sensing-system",
+    "company": "",
+    "section": "🏢",
+    "time": "09-10 01:50"
+   },
+   {
+    "title": "Apple 发布首款折叠屏 iPhone Duo，起售价 $1,999",
+    "url": "https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo",
+    "company": "",
+    "section": "🏢",
+    "time": "09-10 02:15"
+   },
+   {
+    "title": "Anthropic 发布经济情景模型",
+    "url": "https://www.anthropic.com/institute/econ-scenarios",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 21:27"
+   },
+   {
+    "title": "Anthropic 发布四起 Claude 网络安全评测事故的对齐评估报告",
+    "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+    "company": "",
+    "section": "🏢",
+    "time": "09-10 03:28"
+   },
+   {
+    "title": "曝 DeepSeek 聘请中信证券筹备科创板 IPO",
+    "url": "https://www.ithome.com/1/000/188.htm",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 14:41"
+   },
+   {
+    "title": "三星与 Mistral 达成合作",
+    "url": "https://www.aibase.com/news/30927",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 17:46"
+   },
+   {
+    "title": "Meta 推出个人 AI 智能体 Muse",
+    "url": "https://www.aibase.com/news/30933",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 17:46"
+   },
+   {
+    "title": "NSA、FBI 与 CISA 指控六家中国 AI 公司大规模蒸馏美国模型",
+    "url": "https://x.com/thexpin/status/2097615997616406833",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 17:20"
+   },
+   {
+    "title": "Runway ARR 突破 2 亿美元，押注世界模型",
+    "url": "https://www.aibase.com/news/30917",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 14:02"
+   },
+   {
+    "title": "谷歌 Gemini 每日简报功能向所有免费用户开放",
+    "url": "https://www.aibase.com/news/30935",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 19:30"
+   },
+   {
+    "title": "京东启动“物理 AI 加速计划”",
+    "url": "https://www.aibase.com/news/30926",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 17:46"
+   },
+   {
+    "title": "联通联手魅族发布“小魔方”AI 手机",
+    "url": "https://www.aibase.com/news/30928",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 17:46"
+   },
+   {
+    "title": "Mistral 复盘用 AI Agent 迁移 40000 行 Fortran 77",
+    "url": "https://mistral.ai/news/legacy-code-modernization",
+    "company": "",
+    "section": "⚡",
+    "time": "09-10 02:59"
+   },
+   {
+    "title": "Suno 更换 AI 模型，改用授权音乐训练",
+    "url": "https://techcrunch.com/2026/09/09/suno-replaces-its-ai-models-with-a-new-one-trained-on-licensed-music-as-copyright-suits-pile-up/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 20:05"
+   },
+   {
+    "title": "HuggingFace Transformers 发布 v5.17.0",
+    "url": "https://github.com/huggingface/transformers/releases/tag/v5.17.0",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 23:42"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-09",
+  "items": [
+   {
+    "title": "OpenAI 公布 Navier-Stokes 千禧年难题 AI 解答，学术争议同步爆发",
+    "url": "https://openai.com/index/navier-stokes-solution",
+    "company": "",
+    "section": "🏆",
+    "time": "OpenAI官方·09-08 18:00"
+   },
+   {
+    "title": "GPT-6 Astra 全面推送：AWS Bedrock 正式可用，ChatGPT 付费用户同步解锁",
+    "url": "https://aws.amazon.com/blogs/machine-learning/take-on-your-most-ambitious-work-with-gpt-6-astra-on-amazon-bedrock/",
+    "company": "",
+    "section": "🏆",
+    "time": "AWS官方·09-09 06:06"
+   },
+   {
+    "title": "ChatGPT Images 2.5 发布",
+    "url": "https://openai.com/index/introducing-chatgpt-images-2-5",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 19:30"
+   },
+   {
+    "title": "GPT-5.6 Sol 助力量子计算实验",
+    "url": "https://openai.com/index/codex-quantum-computing-experiments",
+    "company": "",
+    "section": "🏢",
+    "time": "09-09 01:00"
+   },
+   {
+    "title": "500 万美元资助 AI 与青少年发展研究",
+    "url": "https://openai.com/index/teen-development-research-grants",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 17:00"
+   },
+   {
+    "title": "11 个月签署 5170 亿美元算力合同",
+    "url": "https://www.aibase.com/news/30894",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "DeepSeek V4.1-Flash 内测",
+    "url": "https://www.aibase.com/news/30911",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 19:25"
+   },
+   {
+    "title": "一次性放出约 150 个工程师岗位",
+    "url": "https://www.aibase.com/news/30906",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 17:41"
+   },
+   {
+    "title": "AlphaGenome Atlas：人类基因组 90 亿种单字母变化的预测图谱",
+    "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+    "company": "",
+    "section": "🏢",
+    "time": "官方·09-08 22:00"
+   },
+   {
+    "title": "Meta 推个人 AI 智能体 Muse，开启封闭测试",
+    "url": "https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 03:00"
+   },
+   {
+    "title": "微软发布 Project Opal：只说目标 AI 自动干活数小时",
+    "url": "https://www.aibase.com/news/30909",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 17:41"
+   },
+   {
+    "title": "OpenAI SDK 发布 v3.9.0",
+    "url": "https://github.com/openai/openai-python/releases/tag/v3.9.0",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 00:42"
+   },
+   {
+    "title": "微信开源 WeMM-Embedding 日调用破 10 亿次",
+    "url": "https://www.aibase.com/news/30895",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "最高法发布首部涉 AI 纠纷案件司法意见",
+    "url": "https://www.aibase.com/news/30897",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "Runway 发布 Adobe 插件，Premiere 内可直接生成编辑视频",
+    "url": "https://runwayml.com/news/company-news/runway-for-adobe",
+    "company": "",
+    "section": "⚡",
+    "time": "09-09 05:58"
+   },
+   {
+    "title": "Arm CEO：AI 有生之年可能助攻克癌症，但芯片供应是瓶颈",
+    "url": "https://www.aibase.com/news/30908",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 17:41"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-08",
+  "items": [
+   {
+    "title": "Anthropic 据报道签约高达 5170 亿美元算力协议，锁定至少 14.8 GW 算力",
+    "url": "https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk",
+    "company": "",
+    "section": "🏆",
+    "time": ""
+   },
+   {
+    "title": "AI彻底击碎“人机验证”：GPT-6 Astra零失误通关48个游戏关卡",
+    "url": "https://www.aibase.com/news/30887",
+    "company": "",
+    "section": "🏆",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "最高法发布涉人工智能纠纷案件审理意见，明确 AI 换脸拟声等裁判规则",
+    "url": "https://www.ithome.com/0/999/313.htm",
+    "company": "",
+    "section": "🏆",
+    "time": ""
+   },
+   {
+    "title": "AI医疗版图大扩张：收购Coefficient Bio",
+    "url": "https://www.aibase.com/news/30889",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "放弃收购 Decart，60亿美元交易告吹",
+    "url": "https://www.aibase.com/news/30898",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "Matt Clifford 从 Anthropic 离职，利益冲突发酵",
+    "url": "https://www.aibase.com/news/30884",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 09:12"
+   },
+   {
+    "title": "ChatGPT Work 新增个人写作风格识别功能",
+    "url": "https://www.aibase.com/news/30888",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "与Firmus签约马来西亚，总容量突破900兆瓦",
+    "url": "https://www.aibase.com/news/30885",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 09:12"
+   },
+   {
+    "title": "首席科学家警告：AI或很快进入自我进化阶段",
+    "url": "https://www.aibase.com/news/30891",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "微信开源 WeMM-Embedding，日调用10亿次日调用量破10亿",
+    "url": "https://www.aibase.com/news/30896",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "微信支付智能眼镜SDK正式上线，Rokid为首家适配",
+    "url": "https://www.aibase.com/news/30901",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "千问办公推“多人工作台”，一句话生成百人协作网页",
+    "url": "https://www.aibase.com/news/30873",
+    "company": "",
+    "section": "🏢",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "宇树实现全球首次世界模型实时驱动人形机器人自主格斗",
+    "url": "https://www.aibase.com/news/30892",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "小鹏人形机器人自动化生产线正式启用",
+    "url": "https://www.aibase.com/news/30893",
+    "company": "",
+    "section": "🏢",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "讯飞星火X2.5发布：MoE架构加持",
+    "url": "https://www.aibase.com/news/30870",
+    "company": "",
+    "section": "🏢",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "张一鸣亲自督导，字节或将推出实时生成虚拟世界AI模型",
+    "url": "https://www.aibase.com/news/30890",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "Mistral AI 宣布 30 亿欧元 D 轮融资，创欧洲科技融资纪录",
+    "url": "https://x.com/MistralAI/status/2097188835897586083",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 13:02"
+   },
+   {
+    "title": "AI界的数学里程碑：Claude 仅用 11 天拿下费马大定理端到端形式化证明",
+    "url": "https://www.aibase.com/news/30876",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "OpenAI首度承认维基越狱事件，将紧急制定智能体异常行为披露框架",
+    "url": "https://www.aibase.com/news/30872",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "OpenAI达成自动化研究实习生里程碑，内部Agent运行时长达人力3.1倍",
+    "url": "https://www.aibase.com/news/30871",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "工信部发布“十五五”规划：涉诈APP分级处置，探索AI反诈助手",
+    "url": "https://www.aibase.com/news/30879",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "李飞飞团队推出世界模型Atlas：核心是“新视角预测”",
+    "url": "https://www.aibase.com/news/30883",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "可灵AI官宣亮相2026多伦多国际电影节市场",
+    "url": "https://www.aibase.com/news/30900",
+    "company": "",
+    "section": "⚡",
+    "time": "09-08 14:00"
+   },
+   {
+    "title": "混元Hy4 preview升级：任务轮次与Token消耗显著降低",
+    "url": "https://www.aibase.com/news/30881",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   },
+   {
+    "title": "快看漫画AI产品Livo开启内测，构建多角色“仿生世界”",
+    "url": "https://www.aibase.com/news/30877",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 18:19"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-07",
+  "items": [
+   {
+    "title": "Research acceleration: The view inside OpenAI",
+    "url": "https://openai.com/index/research-acceleration-view-inside-openai",
+    "company": "",
+    "section": "🏆",
+    "time": "09-06 16:00"
+   },
+   {
+    "title": "产业龙头领投！中科类脑完成数亿元B+轮战略融资",
+    "url": "https://www.qbitai.com/2026/09/485039.html",
+    "company": "",
+    "section": "🏆",
+    "time": "09-07 12:01"
+   },
+   {
+    "title": "An Alien Mind",
+    "url": "https://openai.com/index/an-alien-mind",
+    "company": "",
+    "section": "🏢",
+    "time": "09-06 17:00"
+   },
+   {
+    "title": "OpenAI confirms ‘wiki incident’, says it’s ‘working on a framework’ for more disclosure",
+    "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-06 02:05"
+   },
+   {
+    "title": "产业龙头领投！中科类脑完成数亿元B+轮战略融资",
+    "url": "https://www.qbitai.com/2026/09/485039.html",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 12:01"
+   },
+   {
+    "title": "Authors push back as publishers and agents make claims on Anthropic settlement",
+    "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 04:47"
+   },
+   {
+    "title": "Travis Kalanick’s Atoms might be getting into the robotaxi business",
+    "url": "https://techcrunch.com/2026/09/06/travis-kalanicks-atoms-might-be-getting-into-the-robotaxi-business/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-07 00:45"
+   },
+   {
+    "title": "An Alien Mind",
+    "url": "https://openai.com/index/an-alien-mind",
+    "company": "",
+    "section": "⚡",
+    "time": "09-06 17:00"
+   },
+   {
+    "title": "Research acceleration: The view inside OpenAI",
+    "url": "https://openai.com/index/research-acceleration-view-inside-openai",
+    "company": "",
+    "section": "⚡",
+    "time": "09-06 16:00"
+   },
+   {
+    "title": "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure",
+    "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-06 02:05"
+   }
+  ]
+ },
+ {
+  "date": "2026-09-06",
+  "items": [
+   {
+    "title": "OpenAI 说明 wiki 事件并着手制定对齐事故披露框架",
+    "url": "https://x.com/OpenAI/status/2096133504417616165",
+    "company": "",
+    "section": "🏆",
+    "time": " 09-05 15:09"
+   },
+   {
+    "title": "Seattle Times 和 Newsday 是最新起诉 OpenAI 和微软的出版机构",
+    "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+    "company": "",
+    "section": "🏆",
+    "time": " 09-06 06:49"
+   },
+   {
+    "title": "徒步旅行者使用 Google Gemini 规划后获救",
+    "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+    "company": "",
+    "section": "🏆",
+    "time": " 09-06 03:35"
+   },
+   {
+    "title": "GitHub 在 Copilot CLI 中推出 Project HydraFusion：运行时多模型编排",
+    "url": "https://www.marktechpost.com/2026/09/05/github-introduces-project-hydrafusion-runtime-multi-model-orchestration-that-builds-a-workflow-per-coding-task-in-copilot-cli",
+    "company": "",
+    "section": "⚡",
+    "time": "09-06 03:40"
+   },
+   {
+    "title": "Nous Research 为 Hermes Desktop 新增一键配置本地模型功能",
+    "url": "https://www.marktechpost.com/2026/09/05/nous-research-hermes-desktop-one-click-local-model-setup",
+    "company": "",
+    "section": "⚡",
+    "time": "09-06 03:12"
+   },
+   {
+    "title": "Artificial Analysis 对其 Intelligence Index 进行全面调整",
+    "url": "https://the-decoder.com/artificial-analysis-overhauls-its-intelligence-index-after-gpt-6-astra-scoring-drew-skepticism",
+    "company": "",
+    "section": "⚡",
+    "time": ""
+   },
+   {
+    "title": "RTX 4060 跑 35B 模型每秒 39 Token，伯克利、MIT 开源 FreeToken",
+    "url": "https://www.infoq.cn/article/tij5T0vJ1Yk0s7Uov7SE",
+    "company": "",
+    "section": "⚡",
+    "time": "09-06 01:00"
+   },
+   {
+    "title": "OpenAI 发布 GPT-6 Astra 提示词指南，含 slop 词屏蔽清单",
+    "url": "https://the-decoder.com/openai-shares-prompting-tips-for-gpt-6-astra-including-a-blocklist-of-slop-words",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 21:31"
+   },
+   {
+    "title": "Deepmind 将 100 个 AI 代理放进一个房间，结果它们自动分成了作弊者、皈依者和告密者",
+    "url": "https://the-decoder.com/deepmind-put-100-ai-agents-in-a-room-and-they-sorted-into-cheaters-converts-and-whistleblowers",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 18:22"
+   },
+   {
+    "title": "费马大定理的 Lean 4 机器检查完整证明开源发布",
+    "url": "https://github.com/anthropics/fermats-last-theorem",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 15:56"
+   },
+   {
+    "title": "Google 为 Gemini Flash 推出 Agentic Video Understanding，视频 Token 消耗最高减少 88%",
+    "url": "https://www.marktechpost.com/2026/09/04/google-agentic-video-understanding-gemini-flash-models",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 12:37"
+   },
+   {
+    "title": "NVIDIA 发布 Personal AI Router（PAIR）开源虚拟推理路由器",
+    "url": "https://www.marktechpost.com/2026/09/04/nvidia-releases-personal-ai-router-pair-an-open-source-virtual-inference-router-that-distributes-local-ai-requests-across-rtx-dgx-spark-and-mac-nodes",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 11:52"
+   }
+  ]
+ },
+ {
   "date": "2026-09-05",
   "items": [
    {
@@ -61,6 +4872,83 @@
    {
     "title": "全国小学初中教材 100% 换新：AI 教育同步大规模进课堂",
     "url": "https://www.aibase.com/news/30818",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "Google DeepMind 发布 WeatherNext 3：5公里分辨率全球预报，每小时刷新",
+    "url": "https://www.aibase.com/news/30844",
+    "company": "",
+    "section": "🏆",
+    "time": "09-04 19:24"
+   },
+   {
+    "title": "Anthropic 用 Claude 在 11 天内完成费马大定理首个机器验证的 Lean 形式化证明",
+    "url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+    "company": "",
+    "section": "🏢",
+    "time": "09-05 02:37"
+   },
+   {
+    "title": "Deploy a multimodal WhatsApp ordering assistant with Amazon Bedrock AgentCore",
+    "url": "https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-05 05:45"
+   },
+   {
+    "title": "Designing lifecycle policies for AgentCore memory",
+    "url": "https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/",
+    "company": "",
+    "section": "🏢",
+    "time": "09-05 01:20"
+   },
+   {
+    "title": "XDOF 走出隐身模式仅三个月，洽谈 12 亿美元估值 B 轮",
+    "url": "https://techcrunch.com/2026/09/04/xdof-just-three-months-out-of-stealth-is-in-talks-for-a-series-b-at-a-1-2b-valuation/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 07:36"
+   },
+   {
+    "title": "AI 算力提供商 Nscale 寻求 35 亿美元 Pre-IPO 融资",
+    "url": "https://techcrunch.com/2026/09/04/ai-compute-provider-nscale-is-looking-for-3-5b-in-pre-ipo-financing/",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 05:12"
+   },
+   {
+    "title": "GitHub Copilot 每周更新——8月31日",
+    "url": "https://github.blog/changelog/2026-09-04-github-copilot-weekly-releases-august-31",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 05:05"
+   },
+   {
+    "title": "GPT-6 Astra 幻觉更少但仍易受隐藏提示词注入攻击",
+    "url": "https://the-decoder.com/openais-gpt-6-astra-hallucinates-less-but-remains-vulnerable-to-hidden-prompt-injections",
+    "company": "",
+    "section": "⚡",
+    "time": "09-05 01:23"
+   },
+   {
+    "title": "英伟达两年从零建起近千亿美元股权投资组合",
+    "url": "https://www.ithome.com/0/998/620.htm",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 22:59"
+   },
+   {
+    "title": "全球三大 AI 集体宕机近 4 小时，现已全部恢复",
+    "url": "https://www.aibase.com/news/30819",
+    "company": "",
+    "section": "⚡",
+    "time": "09-04 13:58"
+   },
+   {
+    "title": "研究：过度依赖 ChatGPT 正在削弱人类独立思考能力",
+    "url": "https://www.aibase.com/news/30827",
     "company": "",
     "section": "⚡",
     "time": "09-04 13:58"
