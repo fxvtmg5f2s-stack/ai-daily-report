@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-22",
+  "items": [
+   {
+    "title": "OpenAI 模型登陆 Google Cloud",
+    "url": "https://openai.com/index/openai-models-google-cloud",
+    "company": "",
+    "section": "三件事",
+    "time": "10-21 20:00"
+   },
+   {
+    "title": "ChatGPT 广告扩至 26 国，广告主超 10 万",
+    "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+    "company": "",
+    "section": "三件事",
+    "time": "10-21 21:00"
+   },
+   {
+    "title": "Walmart 向 AI 购物代理开放，亚马逊仍封堵",
+    "url": "https://techcrunch.com/2026/10/21/while-amazon-blocks-ai-agents-walmart-rolls-out-the-welcome-mat/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-22 03:30"
+   },
+   {
+    "title": "Recursive 发布笔记本端编码模型 Flint",
+    "url": "https://techcrunch.com/2026/10/21/recursive-launches-flint-a-laptop-coding-model-it-says-was-largely-built-by-ai/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-22 04:27"
+   },
+   {
+    "title": "OpenAI 与 Wiz 发现 PHP 古老漏洞",
+    "url": "https://techcrunch.com/2026/10/21/php-armageddon-openai-googles-wiz-find-ancient-holes-panicking-the-internet/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-22 01:59"
+   },
+   {
+    "title": "Blacksmith 获 Sequoia 领投 C 轮成独角兽",
+    "url": "https://techcrunch.com/2026/10/21/blacksmith-hits-unicorn-valuation-after-sequoia-leads-series-c/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-22 01:18"
+   }
+  ]
+ },
+ {
   "date": "2026-10-21",
   "items": [
    {
