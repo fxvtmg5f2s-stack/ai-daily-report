@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-24",
+  "items": [
+   {
+    "title": "OpenAI 停止用实时互联网训练模型，称存在\"重大风险\"",
+    "url": "https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-24 07:05"
+   },
+   {
+    "title": "OpenAI 详解前沿模型训练环境加固",
+    "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+    "company": "",
+    "section": "三件事",
+    "time": "10-23 18:00"
+   },
+   {
+    "title": "Kimi K3.1 Pro 及 Highspeed 版发布",
+    "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+    "company": "",
+    "section": "三件事",
+    "time": "10-24 00:59"
+   },
+   {
+    "title": "AWS 发布 SageMaker 多轮强化学习实操指南",
+    "url": "https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-24 01:48"
+   },
+   {
+    "title": "OpenAI 公开支撑 10 亿 ChatGPT 用户的存储扩容方案",
+    "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-24 01:00"
+   },
+   {
+    "title": "拜耳作物科学在 Bedrock AgentCore 上建 Agent 决策引擎",
+    "url": "https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-24 00:21"
+   }
+  ]
+ },
+ {
   "date": "2026-10-23",
   "items": [
    {
