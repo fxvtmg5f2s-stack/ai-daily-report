@@ -1,5 +1,45 @@
 [
  {
+  "date": "2026-10-25",
+  "items": [
+   {
+    "title": "Block 新语音模型可在 MacBook 本地运行，拟人度极高",
+    "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-25 00:00"
+   },
+   {
+    "title": "研究：被迫选边时 Grok 偏共和党、OpenAI 模型偏民主党",
+    "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-24 23:00"
+   },
+   {
+    "title": "AI 墓地：未做成的项目与创业公司清单",
+    "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-25 03:00"
+   },
+   {
+    "title": "媒体、影视与艺术业十年少 20 万岗位，AI 占多少？",
+    "url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-25 07:11"
+   },
+   {
+    "title": "Argus：开源 Agent 安全运营平台（MIT）",
+    "url": "https://thomasunise.com/argus",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-25 05:54"
+   }
+  ]
+ },
+ {
   "date": "2026-10-24",
   "items": [
    {
