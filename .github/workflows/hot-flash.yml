@@ -40,8 +40,8 @@ jobs:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
           BARK_DEVICE_KEY: ${{ secrets.BARK_DEVICE_KEY }}
 
-      - name: 保存推送去重状态（有变化才提交）
-        if: always()
+      - name: 保存推送去重状态（推送成功且有变化才提交）
+        if: success()
         run: |
           if [ ! -f state/pushed.json ]; then
             echo "没有 state/pushed.json（本次没有推送或判定失败），跳过"
