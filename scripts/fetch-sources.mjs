@@ -3,7 +3,7 @@
 // 零依赖：Node 18+ 内置 fetch。密钥环境变量：无（全部公开源）
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
@@ -95,36 +95,101 @@ function parseRss(xml, src) {
   return items.slice(0, 30);
 }
 
-// HTML 源：抓 h2/h3/h4 标题与链接；Anthropic/DeepSeek 等为卡片式
+// 从一段 HTML 文本里取日期：<time datetime> / 中文「2026 年 9 月 10 日」/ 英文「Oct 24, 2026」
+// 2026-10-25 加：DeepSeek/Anthropic 的新闻卡把日期放在标题同级，旧解析只认 h2 内的 a，日期和链接全丢。
+function parseDateText(text) {
+  if (!text) return "";
+  const s = stripHtml(String(text));
+  const tm = String(text).match(/<time[^>]*datetime=["']([^"']+)["']/i);
+  if (tm) return toBeijingISO(tm[1]);
+  // 中文日期：2026 年 9 月 10 日 / 2026-09-10 / 2026/9/10
+  let m = s.match(/(20\d{2})\s*[年\/.-]\s*(\d{1,2})\s*[月\/.-]\s*(\d{1,2})\s*日?/);
+  if (m) {
+    const iso = `${m[1]}-${String(m[2]).padStart(2, "0")}-${String(m[3]).padStart(2, "0")}T00:00:00+08:00`;
+    return toBeijingISO(iso);
+  }
+  // 英文日期：Oct 24, 2026 / 24 Oct 2026
+  const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+  m = s.match(/\b([A-Za-z]{3})[a-z]*\s+(\d{1,2}),?\s+(20\d{2})/);
+  if (!m) m = s.match(/\b(\d{1,2})\s+([A-Za-z]{3})[a-z]*\s+(20\d{2})/);
+  if (m) {
+    const firstIsMonth = /^[A-Za-z]{3}/.test(m[1]);
+    const mon = MONTHS[String(firstIsMonth ? m[1] : m[2]).toLowerCase()];
+    const day = Number(firstIsMonth ? m[2] : m[1]);
+    const year = Number(m[3]);
+    if (mon) {
+      const iso = `${year}-${String(mon).padStart(2, "0")}-${String(day).padStart(2, "0")}T00:00:00+08:00`;
+      return toBeijingISO(iso);
+    }
+  }
+  return "";
+}
+
+// HTML 源：抓标题与链接；2026-10-25 重写
+// 旧实现只认 <h2><a>，但 DeepSeek/Anthropic 是 <a ...><h2>…</h2>…</a>，结果标题进了候选、链接和日期全丢，
+// 变成「无时间、无链接」的永恒条目（V4.1 Flash 老公告因此反复进爆炸判定）。
+// 现在：①先扫 <a> 包裹标题的卡片（取 href + 卡内日期 + 摘要）；②再兼容 <h2> 内嵌 <a>；③不再收无链接标题。
 function parseHtml(html, src) {
   const items = [];
-  // 1) <h2..h4> 内含 <a> 的标题 + 链接
-  const reH = /<(h2|h3|h4)[^>]*>([\s\S]*?)<\/\1>/gi;
+  const push = (title, href, dateText, summaryText) => {
+    title = stripHtml(title || "").trim();
+    if (title.length <= 3) return;
+    if (/^(news|blog|ai|加载中|load|首页|新闻|博客|更多|查看|返回)/i.test(title)) return;
+    let url = "";
+    if (href) {
+      try { url = new URL(href, src.url).toString(); } catch { url = ""; }
+      if (!/^https?:/i.test(url)) url = "";
+    }
+    if (!url) return;
+    items.push({
+      source: src.name, source_id: src.id, kind: src.kind, priority: src.priority, host: src.host,
+      title, url, published_at: parseDateText(dateText || ""), summary: clamp(stripHtml(summaryText || ""), 300),
+    });
+  };
+
+  // 1) <article> 包裹的新闻卡：优先用文章块内的 <time> 补日期（Anthropic 的日期在标题外）
+  const reArticle = /<article\b[^>]*>([\s\S]*?)<\/article>/gi;
   let m;
+  while ((m = reArticle.exec(html)) !== null) {
+    const block = m[1];
+    const timeM = block.match(/<time[^>]*>([\s\S]*?)<\/time>/i);
+    const anchors = [...block.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)];
+    for (const a of anchors) {
+      const h = a[2].match(/<(h2|h3|h4)[^>]*>([\s\S]*?)<\/\1>/i);
+      if (!h) continue;
+      const href = (a[1].match(/href=["']([^"']+)["']/i) || [])[1] || "";
+      if (!href || /^(#|javascript:|mailto:)/i.test(href)) continue;
+      const ps = [...a[2].matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map(x => stripHtml(x[1])).filter(t => t.length > 4);
+      push(h[2], href, timeM ? timeM[1] : block, ps[0] || "");
+      break;
+    }
+  }
+
+  // 2) <a> 包裹 <h2..h4> 的新闻卡（DeepSeek / Anthropic 当前结构）
+  const reA = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+  while ((m = reA.exec(html)) !== null) {
+    const attrs = m[1], block = m[2];
+    const h = block.match(/<(h2|h3|h4)[^>]*>([\s\S]*?)<\/\1>/i);
+    if (!h) continue;
+    const href = (attrs.match(/href=["']([^"']+)["']/i) || [])[1] || "";
+    if (!href || /^(#|javascript:|mailto:)/i.test(href)) continue;
+    // 摘要：卡内第一个不像日期的 <p>
+    const ps = [...block.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map(x => stripHtml(x[1]))
+      .filter(t => t.length > 4 && !/20\d{2}\s*[年\/.-]\s*\d{1,2}/.test(t));
+    push(h[2], href, block, ps[0] || "");
+  }
+
+  // 3) <h2> 内嵌 <a> 的旧结构（兼容其他站点）
+  const reH = /<(h2|h3|h4)[^>]*>([\s\S]*?)<\/\1>/gi;
   while ((m = reH.exec(html)) !== null) {
-    const block = m[2];
-    const a = block.match(/<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+    const a = m[2].match(/<a[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/i);
     if (!a) continue;
-    const title = stripHtml(a[2] || "");
-    let href = a[1];
-    if (href.startsWith("/")) href = new URL(href, src.url).toString();
-    else if (href.startsWith("./")) href = new URL(href, src.url).toString();
-    else if (!href.startsWith("http")) continue;
-    if (title.length > 3 && !/^(news|blog|ai|加载中|load)/i.test(title)) {
-      items.push({ source: src.name, source_id: src.id, kind: src.kind, priority: src.priority, host: src.host, title, url: href, published_at: "", summary: "" });
-    }
+    const ctx = html.slice(Math.max(0, m.index - 280), m.index + m[0].length + 280);
+    push(a[2], a[1], ctx, "");
   }
-  // 2) 无 <a> 的 h2-h4 纯标题（保底，不放链接）
-  if (items.length < 5) {
-    const reH2 = /<(h2|h3|h4)[^>]*>([\s\S]*?)<\/\1>/gi;
-    while ((m = reH2.exec(html)) !== null) {
-      const title = stripHtml(m[2]);
-      if (title.length > 5 && !/^[A-Za-z\s·|]{0,12}$/.test(title) && !/^(首页|新闻|博客|更多)/.test(title)) {
-        items.push({ source: src.name, source_id: src.id, kind: src.kind, priority: src.priority, host: src.host, title, url: "", published_at: "", summary: "" });
-      }
-    }
-  }
-  // 去重 + 限 15 条
+
+  // 去重 + 限 15 条；无链接标题一律不收（2026-10-25 起）
   const seen = new Set();
   return items.filter(i => { const k = i.title.slice(0, 30); if (seen.has(k)) return false; seen.add(k); return true; }).slice(0, 15);
 }
@@ -208,4 +273,7 @@ async function main() {
   console.log(`写入 ${OUT}: ${deduped.length} 条（统计 ${stats.length} 源，失败 ${errors.length}）`);
   if (errors.length) console.log("失败源:", errors.join("; "));
 }
-main().catch(e => { console.error("FATAL", e.message); process.exit(1); });
+export { SOURCES, parseRss, parseHtml, parseRadarJson, parseDateText, toBeijingISO };
+
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMain) main().catch(e => { console.error("FATAL", e.message); process.exit(1); });

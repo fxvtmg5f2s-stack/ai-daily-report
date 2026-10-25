@@ -7,12 +7,16 @@ on:
     - cron: "*/15 0-13 * * *"
   workflow_dispatch: {}
 
-# 爆炸检测需要读上一次的 hot 状态文件（先读仓库中的 data/hot-state.json），
-# 为简单起见每次全量判定近 12h 新条目；文案里带时间戳做去重引导。
-# 2026-08-23：去重状态改存 Actions artifact（state/pushed.json），12h 内已推条目不再重复推送。
+# 2026-10-25：去重状态从 Actions artifact 改为仓库内 state/pushed.json。
+# 旧做法用 download-artifact@v4 且没带 run-id，只下载“当前 run”的 artifact；
+# 每次开跑时当前 run 还没有 artifact → 日志报 Artifact not found → 12h 状态永远为空，
+# 同一条旧闻可以几小时内反复推（2026-10-24 16:05 / 20:40 两次 V4.1 Flash 就是这个原因）。
 permissions:
-  contents: read
-  actions: write
+  contents: write
+
+concurrency:
+  group: hot-flash
+  cancel-in-progress: false
 
 jobs:
   hot-flash:
@@ -21,28 +25,48 @@ jobs:
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
-      - name: 下载推送去重状态
-        uses: actions/download-artifact@v4
-        with:
-          name: hot-state
-          path: state
-        continue-on-error: true
+
       - name: 抓取信息源（热模式）
         run: HOT_MODE=1 node scripts/fetch-sources.mjs
+
       - name: DeepSeek 爆炸判定
         run: HOT_MODE=1 node scripts/summarize.mjs
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+
       - name: 推送（仅爆炸级，微信 + Bark）
         run: node scripts/push.mjs hot
         env:
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
           BARK_DEVICE_KEY: ${{ secrets.BARK_DEVICE_KEY }}
-      - name: 上传推送去重状态
-        uses: actions/upload-artifact@v4
-        with:
-          name: hot-state
-          path: state/pushed.json
-          retention-days: 7
-          overwrite: true
-          if-no-files-found: warn
+
+      - name: 保存推送去重状态（有变化才提交）
+        if: always()
+        run: |
+          if [ ! -f state/pushed.json ]; then
+            echo "没有 state/pushed.json（本次没有推送或判定失败），跳过"
+            exit 0
+          fi
+          git config user.name "hot-flash-bot"
+          git config user.email "bot@local"
+          git add state/pushed.json
+          if git diff --cached --quiet; then
+            echo "state 无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "hot-state: $(TZ=Asia/Shanghai date +%F-%H:%M)"
+          ok=0
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "state 已回写（第 $i 次）"
+              ok=1
+              break
+            fi
+            echo "state 回写失败（第 $i 次），5 秒后重试"
+            git rebase --abort 2>/dev/null || true
+            sleep 5
+          done
+          if [ "$ok" -ne 1 ]; then
+            echo "::error::state/pushed.json 回写失败；下一班去重会退回上一次已提交的状态"
+            exit 1
+          fi

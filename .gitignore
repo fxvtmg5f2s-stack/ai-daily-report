@@ -4,5 +4,5 @@ data/raw-hot.json
 data/report.md
 data/hot.json
 data/.pushed-*
-state/
+data/logs/
 *.bak-auto-*

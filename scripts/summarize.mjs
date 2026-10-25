@@ -5,21 +5,20 @@
 // 大 prompt 会导致 content 为空 → 必须精简输入 + 重试兜底。
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = path.join(__dirname, "..", "data");
 const RAW = path.join(DATA_DIR, "raw.json");
 const REPORT = path.join(DATA_DIR, "report.md");
-// 爆炸推送去重状态（经 GitHub Actions artifact 跨运行持久化）
+// 爆炸推送去重状态（2026-10-25 改为随仓库提交的 state/pushed.json；artifact 跨 run 恢复已证实失效）
 const STATE_DIR = path.join(__dirname, "..", "state");
 const STATE_FILE = path.join(STATE_DIR, "pushed.json");
-
-function normTitle(t) { return (t || "").replace(/[^\w\u4e00-\u9fa5]/g, "").slice(0, 40); }
-function loadState() { try { return JSON.parse(fs.readFileSync(STATE_FILE, "utf8")); } catch { return { pushed: [] }; } }
+// 内容库（跨日报连续性 + 旧闻硬去重）
+const LIB_DIR = path.join(DATA_DIR, "library");
+const LIB_FILE = path.join(LIB_DIR, "index.json");
 
 const KEY = process.env.DEEPSEEK_API_KEY;
-if (!KEY) { console.error("缺少 DEEPSEEK_API_KEY 环境变量"); process.exit(1); }
 const MODEL = process.env.DAILY_MODEL || "deepseek-flash";
 const API = "https://api.deepseek.com/chat/completions";
 
@@ -35,6 +34,67 @@ function bjTime(s) {
   return BJ_FMT.format(d).replace(/\//g, "-"); // "08-21 15:30"
 }
 const bjToday = () => new Date(Date.now() + 8 * 3600 * 1000).toISOString().slice(0, 10);
+
+// 标题归一化：去掉标点/空格，只留字与数字；state 与去重都用它
+function normTitle(t) { return (t || "").replace(/[^\w\u4e00-\u9fa5]/g, "").slice(0, 40); }
+function normKey(t) { return (t || "").replace(/[^\w\u4e00-\u9fa5]/g, "").toLowerCase().slice(0, 80); }
+
+function loadLibrary() {
+  try { const lib = JSON.parse(fs.readFileSync(LIB_FILE, "utf8")); return Array.isArray(lib) ? lib : []; }
+  catch { return []; }
+}
+
+// 从内容库取「已报过」的标题/URL（默认 7 天；hot 用 30 天 + state.ever）
+// 2026-10-25 加：以前只在 prompt 里给近 3 天标题，模型不守；现在同一份数据做代码硬过滤。
+function seenFromLibrary(days = 7, excludeToday = false) {
+  const lib = loadLibrary();
+  const today = bjToday();
+  const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+  const titles = new Set(), urls = new Set();
+  for (const d of lib) {
+    if (!d.date || d.date < cutoff) continue;
+    if (excludeToday && d.date === today) continue;
+    for (const it of d.items || []) {
+      if (it.title) titles.add(normKey(it.title));
+      if (it.url) urls.add(it.url);
+    }
+  }
+  return { titles, urls };
+}
+
+// state/pushed.json 结构：{ pushed: [{key,url,ts}], ever: [{key,url,ts}] }
+// pushed = 近 7 天（防重复推送）；ever = 永久键（防官网置顶老公告隔几天又回来）
+function loadState() {
+  try {
+    const s = JSON.parse(fs.readFileSync(STATE_FILE, "utf8"));
+    return {
+      pushed: Array.isArray(s.pushed) ? s.pushed : [],
+      ever: Array.isArray(s.ever) ? s.ever : [],
+    };
+  } catch { return { pushed: [], ever: [] }; }
+}
+function saveState(state) {
+  const map = new Map();
+  for (const e of state.ever || []) if (e.key) map.set(`${e.key}|${e.url || ""}`, e);
+  state.ever = [...map.values()].slice(-3000);
+  state.pushed = (state.pushed || []).slice(-1000);
+  fs.mkdirSync(STATE_DIR, { recursive: true });
+  fs.writeFileSync(STATE_FILE, JSON.stringify(state));
+}
+
+// 2026-10-25 加：只认「过去 12 小时、有链接、有时间」的新条目。
+// 旧逻辑 fresh<5 就回退 items.slice(0,15)，会把官网置顶的老公告重新送进模型（V4.1 Flash 就是这么反复播的）。
+function buildHotCandidates(items, { now = Date.now(), seen = { titles: new Set(), urls: new Set() }, hours = 12 } = {}) {
+  const cutoff = now - hours * 3600 * 1000;
+  return items.filter(it => {
+    if (!it.url || !it.published_at) return false;
+    const t = new Date(it.published_at).getTime();
+    if (isNaN(t) || t <= cutoff) return false;
+    if (seen.titles.has(normKey(it.title)) || seen.titles.has(normTitle(it.title))) return false;
+    if (seen.urls.has(it.url)) return false;
+    return true;
+  });
+}
 
 const dailyPrompt = (items, trendHistory, recentTitles) => `你是AI资讯主编。读者每天只有60秒，只想弄清"今天有没有值得我管的事"。下面 ${items.length} 条候选资讯JSON（title/source/host/domain/time/summary/url）。
 
@@ -59,7 +119,8 @@ const dailyPrompt = (items, trendHistory, recentTitles) => `你是AI资讯主编
 「三件事」只收 ≥4 分；够格不足3条就给2条，不许凑数。若 ≥4 分不足2条，**最多取1条**最高分的单源媒体，条目后标「（单源）」，并在"为什么重要"里写清影响（不要写"单源/媒体/权威媒体"这类元信息）。
 
 【判重与延续】
-下面给你近3天已报事件标题：只是重复昨天事实的→直接丢弃；是延续（新进展/反转/后续）的→标题最前加「[持续跟踪]」，第一行改成「前情：… ｜ 最新：…」。
+下面给你近7天已报事件标题：只是重复昨天事实的→直接丢弃；是延续（新进展/反转/后续）的→标题最前加「[持续跟踪]」，第一行改成「前情：… ｜ 最新：…」。
+所有条目必须有 url（url 为空的候选已在代码里剔除）；不要把官网置顶/旧公告当今日新闻。
 
 【输出 Markdown，总长硬性 ≤1000 字，日期统一 YYYY-MM-DD】
 # 📰 AI 日报 — ${bjToday()}
@@ -97,9 +158,14 @@ ${JSON.stringify(items)}`;
 
 const hotPrompt = (items) => `你是AI资讯「爆炸级」检测器。下面是过去12小时 ${items.length} 条新资讯JSON（字段：title/source/url/summary/time）。
 判定爆炸级标准：头部公司（OpenAI/Anthropic/Google/DeepSeek/阿里Qwen/智谱/月之暗面/xAI/微软/Meta/Nvidia/Mistral/AWS/Apple/字节豆包/MiniMax/零一万物）发布新模型或重大战略/政策；行业级突破；≥2不同来源同报一件重磅事。
+【只认"新"（2026-10-25 加，违反即误报）】
+- time 为"未知"、或发布时间早于 24 小时 → 不算爆炸；
+- 官网置顶、产品介绍页、长期公告、模型旧版本介绍 → 不算新发布；
+- 同一事件近 7 天已报过 → 不算；
+- 每条都必须带输入里的 url；没有 url 的条目不要输出。
 【输出】严格JSON（不要markdown代码块、不要多余文字）：
-{"is_explosive":true或false,"reason":"一句话","items":[{"title":"原标题","url":"原url","source":"来源名","time":"YYYY-MM-DD","level":"explosive或attention","why":"一句话说明为什么值得看","tip":"≤40字科普，术语用生活化类比"}]}
-规则：is_explosive=true 时，items 第一项必须是爆炸主条目(level="explosive")，随后最多再补4条（同事件相关条目或过去12小时其他值得关注条目，level="attention"）；每条都必须有 tip；source/time 从输入数据复制，无时间戳写"未知"。is_explosive=false 时 items 输出空数组 []。
+{"is_explosive":true或false,"reason":"一句话","items":[{"title":"原标题","url":"原url","source":"来源名","time":"YYYY-MM-DD HH:mm","level":"explosive或attention","why":"一句话说明为什么值得看","tip":"≤40字科普，术语用生活化类比"}]}
+规则：is_explosive=true 时，items 第一项必须是爆炸主条目(level="explosive")，随后最多再补4条（同事件相关条目或过去12小时其他值得关注条目，level="attention"）；每条都必须有 tip；title/url/source/time 从输入数据复制，不许改写，无时间戳写"未知"。is_explosive=false 时 items 输出空数组 []。
 【数据】
 ${JSON.stringify(items)}`;
 
@@ -157,10 +223,6 @@ async function withRetry(fn, attempts = 2) {
   throw lastErr;
 }
 
-// —— 内容库（2026-09-05）：跨日报连续性 + 蓝色大肥鱼检索 ——
-const LIB_DIR = path.join(DATA_DIR, "library");
-const LIB_FILE = path.join(LIB_DIR, "index.json");
-
 // 读历史日报的「趋势雷达/趋势追踪」节，注入 prompt 实现连载式追踪
 // 2026-10-20 修：旧正则用 (?=\n## |\n$) 收尾，遇「趋势是最后一节且文件末尾无换行」永远匹配不到
 //   → 趋势历史长期为空、状态全是🆕。改成按行找节标题，兼容新版「## 趋势」。
@@ -190,35 +252,32 @@ function loadTrendHistory(days = 7) {
 // 2026-10-20 加：HN 首页混进非 AI 条目（Go 证书链/XSLT/JDK/ESP32…），先按标题闸门过滤
 const AI_TITLE_RE = /\b(ai|a\.i\.|llm|llms|gpt|chatgpt|claude|gemini|deepseek|openai|anthropic|llama|qwen|mistral|kimi|glm|agent|agents|agentic|chatbot|copilot|diffusion|midjourney|sora|veo|neural|transformer|inference|fine-?tun\w*|machine learning|language model|multimodal|rag|embedding|gpu|nvidia|tpu)\b/i;
 
-// 2026-10-20 加：近 2 天已报过的 URL 不再进候选（防旧闻重播；不含当天，允许重跑当天）
-function recentUrls(days = 2) {
-  try {
-    const lib = JSON.parse(fs.readFileSync(LIB_FILE, "utf8"));
-    const today = bjToday();
-    const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
-    const seen = new Set();
-    for (const d of lib) {
-      if (d.date === today || d.date < cutoff) continue;
-      for (const it of d.items || []) if (it.url) seen.add(it.url);
-    }
-    return seen;
-  } catch { return new Set(); }
+// 2026-10-20 加：近 N 天已报过的 URL 不再进候选（防旧闻重播；不含当天，允许重跑当天）
+// 2026-10-25：2 天 → 7 天，并改用 loadLibrary
+function recentUrls(days = 7) {
+  const lib = loadLibrary();
+  const today = bjToday();
+  const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+  const seen = new Set();
+  for (const d of lib) {
+    if (d.date === today || d.date < cutoff) continue;
+    for (const it of d.items || []) if (it.url) seen.add(it.url);
+  }
+  return seen;
 }
 
-// 2026-10-20 加：近 3 天已报标题（判重 + 判延续），最多 40 条
-function loadRecentTitles(days = 3, max = 40) {
-  try {
-    const lib = JSON.parse(fs.readFileSync(LIB_FILE, "utf8"));
-    const today = bjToday();
-    const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
-    const list = [];
-    for (const d of lib) {
-      if (d.date === today || d.date < cutoff) continue;
-      for (const it of d.items || []) if (it.title) list.push(`${d.date} ${it.title}`);
-    }
-    if (!list.length) return "";
-    return "【近3天已报事件（只用于判重/判延续，严禁照抄措辞）】\n" + list.slice(0, max).map(t => "- " + t.slice(0, 70)).join("\n");
-  } catch { return ""; }
+// 近 N 天已报标题（判重 + 判延续），最多 max 条
+function loadRecentTitles(days = 7, max = 70) {
+  const lib = loadLibrary();
+  const today = bjToday();
+  const cutoff = new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
+  const list = [];
+  for (const d of lib) {
+    if (d.date === today || d.date < cutoff) continue;
+    for (const it of d.items || []) if (it.title) list.push(`${d.date} ${it.title}`);
+  }
+  if (!list.length) return "";
+  return `【近${days}天已报事件（只用于判重/判延续，严禁照抄措辞）】\n` + list.slice(0, max).map(t => "- " + t.slice(0, 70)).join("\n");
 }
 
 // 2026-10-20 加：日报末尾透明度统计（代码算，不让模型编）
@@ -283,15 +342,26 @@ function updateLibrary(reportMd) {
 }
 
 async function main() {
+  if (!KEY) { console.error("缺少 DEEPSEEK_API_KEY 环境变量"); process.exit(1); }
   const raw = JSON.parse(fs.readFileSync(RAW, "utf8"));
   let items = raw.items || [];
 
-  // 2026-10-20：HN 非 AI 噪音 + 近 2 天已报过的 URL 先剔除，再进预筛
-  const recent = recentUrls(2);
+  // 2026-10-25：无链接条目一律不进池（官网卡片解析失败时宁缺毋滥）
+  const totalRaw = items.length;
+  const linkless = items.filter(i => !i.url).length;
+  items = items.filter(i => i.url);
+
+  // 2026-10-25：硬去重——近 30 天已报过的 URL/标题不再进候选（不含当天，允许重跑当天）
+  // 旧实现只查近 2 天 URL，且只在 prompt 里给近 3 天标题；V4.1 Flash 这种 9 月老公告因此能反复回来。
+  const seenRecent = seenFromLibrary(30, true);
   const before = items.length;
-  items = items.filter(i => !(i.source_id === "hn" && !AI_TITLE_RE.test(i.title || "")) && !recent.has(i.url));
+  items = items.filter(i =>
+    !(i.source_id === "hn" && !AI_TITLE_RE.test(i.title || "")) &&
+    !seenRecent.urls.has(i.url) &&
+    !seenRecent.titles.has(normKey(i.title))
+  );
   const scrapedCount = items.length;
-  console.log(`候选过滤：${before} → ${items.length}（剔除 HN 非AI / 近2天已报 ${before - items.length} 条）`);
+  console.log(`候选过滤：原始 ${totalRaw} → ${items.length}（无链接 ${linkless} / HN非AI / 近30天已报 ${before - items.length} 条）`);
 
   // 预筛：官方一手每源保留最近 5 条（防止一手挤满额度）；媒体限额 20 条（辅助角色）；其余按量截断
   const official = items.filter(i => COMPANY_SOURCE_IDS.has(i.source_id));
@@ -315,35 +385,68 @@ async function main() {
       console.log(`夜间静默（北京时间 ${bjHour} 点），跳过爆炸判定`);
       return;
     }
-    // 爆炸检测
-    const cutoff = Date.now() - 12 * 3600 * 1000;
-    const fresh = items.filter(it => it.published_at && new Date(it.published_at).getTime() > cutoff);
-    const base = fresh.length >= 5 ? fresh : items.slice(0, 15);
-    const poolHot = base.slice(0, 80).map(i => ({
+
+    // 2026-10-25：只认过去 12 小时、有链接、有时间、近 30 天没报过的新条目。
+    // 不再 fresh<5 → items.slice(0,15) 回退；没有新条目就明确不推，而不是拿官网置顶旧公告凑数。
+    const state = loadState();
+    const seenHot = seenFromLibrary(30);
+    for (const e of state.ever) {
+      if (e.key) seenHot.titles.add(e.key);
+      if (e.url) seenHot.urls.add(e.url);
+    }
+    const fresh = buildHotCandidates(items, { seen: seenHot });
+    if (!fresh.length) {
+      fs.writeFileSync(path.join(DATA_DIR, "hot.json"), JSON.stringify({ is_explosive: false, reason: "过去12小时没有未报过的新条目" }));
+      console.log(`爆炸检测：${items.length} 条，12 小时内未报过的新条目 0 条，不判定、不推送`);
+      return;
+    }
+    const poolHot = fresh.slice(0, 80).map(i => ({
       title: (i.title || "").slice(0, 100),
       source: (i.source || "").slice(0, 24),
       url: i.url || "",
       summary: (i.summary || "").slice(0, 60),
-      time: (i.published_at || "").slice(0, 10),
+      time: bjTime(i.published_at),
     }));
-    console.log(`爆炸检测：${items.length} 条（新条目 ${fresh.length}）送入判定`);
+    console.log(`爆炸检测：${items.length} 条（12h 内未报过 ${fresh.length} 条）送入判定`);
     // 2026-09-18 实测：V4.1 Flash 在这类大 prompt 上 reasoning 必烧穿预算 ⇒ 首枪直接关思考
-    const raw = await withRetry((i) => callLLM(hotPrompt(poolHot), i === 0 ? 8192 : 12000, { reasoningEffort: "none" }));
+    const rawOut = await withRetry((i) => callLLM(hotPrompt(poolHot), i === 0 ? 8192 : 12000, { reasoningEffort: "none" }));
     // 去掉可能的 ```json 围栏，容错解析
-    const jsonText = raw.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
+    const jsonText = rawOut.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
     let out;
-    try { out = JSON.parse(jsonText); } catch (e) { throw new Error(`LLM 返回非 JSON: ${raw.slice(0, 200)}`); }
-    // 去重：12 小时内已推送过的标题/URL 不再推
-    const state = loadState();
+    try { out = JSON.parse(jsonText); } catch (e) { throw new Error(`LLM 返回非 JSON: ${rawOut.slice(0, 200)}`); }
+
+    // 推送前硬去重：库/永久键/近 7 天 pushed 三套都查；标题和 URL 任一中就丢
     const now = Date.now();
-    const live = state.pushed.filter(p => now - p.ts < 12 * 3600 * 1000);
+    const live = state.pushed.filter(p => now - p.ts < 7 * 86400000);
     const titleKeys = new Set(live.map(p => p.key));
     const urlKeys = new Set(live.map(p => p.url).filter(Boolean));
-    out.items = (out.items || []).filter(it => !titleKeys.has(normTitle(it.title)) && !(it.url && urlKeys.has(it.url)));
-    if (out.items.length === 0) out.is_explosive = false;
-    for (const it of out.items) live.push({ key: normTitle(it.title), url: it.url || "", ts: now });
-    fs.mkdirSync(STATE_DIR, { recursive: true });
-    fs.writeFileSync(STATE_FILE, JSON.stringify({ pushed: live.slice(-500) }));
+    const hit = (it) => seenHot.titles.has(normKey(it.title)) || seenHot.titles.has(normTitle(it.title)) ||
+      titleKeys.has(normKey(it.title)) || titleKeys.has(normTitle(it.title)) ||
+      (it.url && (seenHot.urls.has(it.url) || urlKeys.has(it.url)));
+    const emitted = new Set();
+    out.items = (out.items || []).filter(it => {
+      if (!it.url || hit(it)) return false;
+      const k = normKey(it.title);
+      if (emitted.has(k)) return false;
+      emitted.add(k);
+      return true;
+    });
+    // 主条被过滤掉就不要退化成“推几条 attention”
+    if (!out.items.length || !out.items.some(i => i.level === "explosive")) out.is_explosive = false;
+    if (out.is_explosive) {
+      for (const it of out.items) {
+        const rec = { key: normTitle(it.title), url: it.url || "", ts: now };
+        live.push(rec);
+        state.ever.push(rec);
+      }
+      state.pushed = live;
+      if (!process.env.HOT_DRY) saveState(state);
+    }
+    if (process.env.HOT_DRY) {
+      console.log("[DRY] 不写 hot.json / state/pushed.json");
+      console.log("判定结果:", JSON.stringify(out).slice(0, 600));
+      return;
+    }
     fs.writeFileSync(path.join(DATA_DIR, "hot.json"), JSON.stringify(out));
     console.log("判定结果:", JSON.stringify(out).slice(0, 400));
     return;
@@ -359,8 +462,8 @@ async function main() {
   let pool = fresh24.length >= 8 ? fresh24 : (fresh48.length >= 8 ? fresh48 : items);
   pool = [...pool, ...undated.slice(0, 10)];
   const trendHistory = loadTrendHistory(7);
-  const recentTitles = loadRecentTitles(3);
-  console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length} / 趋势历史 ${trendHistory ? "有" : "无"} / 近3天已报标题 ${recentTitles ? "有" : "无"}）送入 DeepSeek(${MODEL}) 汇总…`);
+  const recentTitles = loadRecentTitles(7);
+  console.log(`日报模式：${pool.length} 条（24h内 ${fresh24.length} / 48h内 ${fresh48.length} / 无时间戳 ${undated.length} / 趋势历史 ${trendHistory ? "有" : "无"} / 近7天已报标题 ${recentTitles ? "有" : "无"}）送入 DeepSeek(${MODEL}) 汇总…`);
   // 日报：2026-09-18 实测 V4.1 Flash 在真实数据下 reasoning 两次都烧穿（8191 tokens、content 空）
   //   ⇒ 首枪起就关思考（"none"），只把「放大预算」留作降级；正文长度闸门 400 字符防存根。
   const visibleLen = (s) => s.replace(/\((https?:\/\/[^)\s]+)\)/g, "").length;
@@ -390,4 +493,7 @@ async function main() {
   console.log("已生成日报:", REPORT, `(${out.length} 字符)`);
   updateLibrary(out);
 }
-main().catch(e => { console.error("FATAL", e.message); process.exit(1); });
+export { normTitle, normKey, buildHotCandidates, seenFromLibrary, loadState };
+
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMain) main().catch(e => { console.error("FATAL", e.message); process.exit(1); });

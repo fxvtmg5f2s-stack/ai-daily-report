@@ -12,6 +12,8 @@ GitHub Actions 9:00 那班只在「本机没出」时补推，不再一天两份
        fetch → summarize → push daily              │    有 → 跳过（本机已推）
        → 落档 → git 心跳 → Web Push                │    无 → fetch → summarize → push daily
                                                    └─ hot-flash.yml  */15（实际 2-5 次/天）
+                                                        只认 12h 内 + 有 url/时间 + 近 30 天未报过；
+                                                        没有新条目就明确不推，不再回退老公告
 ```
 
 ```
@@ -26,6 +28,8 @@ summarize.mjs（deepseek-flash, reasoning_effort=none）
   │  长度闸门：去掉 URL 后可见字数 >1500 → 退回压缩（保留验证点与其他节）
   │  输出 data/report.md ≈ 1200 可见字 + 末尾一行透明度统计
   │  同步更新内容库 data/library/index.json
+state/pushed.json（2026-10-25 起随仓库提交）
+  └─ 爆炸去重：近 7 天 pushed + 永久 ever；不再用跨 run 失效的 Actions artifact
 push.mjs 双通道
   ├─ Server酱 → 微信（全文 + 门户链接）
   └─ Bark → iPhone，**只发 1 条**（一句话 + 3 条标题，点击直达 /lan-gate/report）
@@ -64,7 +68,7 @@ push.mjs 双通道
 | 媒体（辅助交叉，配额 20 条） | TechCrunch AI、量子位 |
 | 聚合雷达 | AI News Radar、CloudFlare AI 日报 |
 
-**已知源问题（待修）**：6 个官网（Anthropic/DeepSeek/Qwen/智谱/Kimi/微软）抓不到发布时间；Google AI 最新一篇已 13 天、DeepMind 5 天、Apple 5.6 天；3 个 GitHub 发布流 480–600 天没更新；AI News Radar 偶发 526。
+**已知源问题**：HTML 源已支持 `<a><h2>` 卡片与日期解析（2026-10-25，DeepSeek/Anthropic 已能拿到链接和日期）；仍有个别官网无日期或改版后解析不到，缺失 `url` 的条目会被直接丢弃，不再生成“无链接老公告”。Google AI 最新一篇已 13 天、DeepMind 5 天、Apple 5.6 天；3 个 GitHub 发布流 480–600 天没更新；AI News Radar 偶发 526。
 
 ## 配置（GitHub Secrets + 本机 User 环境变量，密钥绝不入库）
 
@@ -85,6 +89,7 @@ $env:DEEPSEEK_API_KEY='...'; $env:SERVERCHAN_SENDKEY='...'; $env:BARK_DEVICE_KEY
 node scripts/fetch-sources.mjs     # 抓源
 node scripts/summarize.mjs         # 汇总（HOT_MODE=1 为爆炸检测）
 node scripts/push.mjs daily        # 推日报（hot 为爆炸推送）；PUSH_DRY=1 干跑
+node scripts/selftest.mjs          # 无网络/无 LLM 的去重回归自测
 ```
 
 任务计划当天已推送过会跳过；要强制重跑：`pwsh -File _scripts\run-daily-local.ps1 -Force`。
@@ -99,3 +104,4 @@ node scripts/push.mjs daily        # 推日报（hot 为爆炸推送）；PUSH_D
 - 2026-10-20：**60 秒版**——模板重写（一句话/三件事/其他/趋势，重要度 1-5 打分，可见 900 字）；Bark 5-7 条并成 1 条；HN 非 AI 噪音过滤；近 2 天 URL 去重；**修趋势历史正则**（旧正则遇到「趋势是最后一节且文件末尾无换行」永不匹配，导致状态长期全是 🆕）；**云端心跳去重**（本机成功后 commit+push 当天存档，云端 9:00 见存档即跳过）；任务计划加 WakeToRun、关电池限制、当天已推跳过；推送失败不再落档（改用 `.pushed-<日期>` 标记，失败可补推）。
 - 2026-10-20 晚（参考 GitHub 同类项目）：**分档 + 来源上限**（5=官方首发+行业级影响；4=官方/权威媒体单源/两家交叉；3=科技媒体单源；非 AI≤2、无时间戳≤3；「某 API 支持某格式」最高 4）；**代码校验「三件事」媒体单源 ≤1，超了自动返工**；**近 3 天标题注入 → 重复丢弃、延续标 [持续跟踪]**（前情/最新）；每条加**验证点**（next signal）；导语**禁套话词表**；**多源/单源标记**；末尾**透明度统计**（候选→评选→收录→媒体单源，代码算不靠模型）；长度闸门改为可见 >1500 才压缩且必须保留验证点与其他节。
 - 2026-10-21：云端 hot-flash 连续 `402 Insufficient Balance`——查明 **GitHub Secret 与本地 User key 是两把**（本地 ¥19.95 可用，secret 那把余额 0）；已用 PyNaCl sealed-box 调 `PUT /actions/secrets/DEEPSEEK_API_KEY` 轮换为可用 key。本机 8:05 漏跑（PC 11:19 才开机，`StartWhenAvailable` 未补）→ 任务加 **AtLogOn 触发器** + ps1 **8:00 时间闸门**；当天日报已手动补跑推送（微信 pushid 62943453）。
+- 2026-10-25：**修“爆炸级老闻复播”三层根因**——①抓源 HTML 解析支持 `<a><h2>` 卡片 + `<time>`/中文日期（DeepSeek V4.1 Flash 终于拿到 2026-09-10 与真实链接；Anthropic 同类结构一并修），无链接标题直接丢弃；②hot 只认 12h 内、有 `url`+`published_at`、近 30 天库内未报过的条目，**删掉 `fresh<5 → items.slice(0,15)` 回退**；③去重状态从 Actions artifact 改为随仓库提交的 `state/pushed.json`（旧 `download-artifact@v4` 未带 `run-id`，日志实测 `Artifact not found`，每次都是空状态），并加 7 天 pushed + 永久 ever 两层；新增 `selftest.mjs` 6 项回归。本机心跳 push 加 `pull --rebase` + 3 次重试 + 日志 + 失败 Bark 告警，补推 10-23~25 三个心跳提交。
