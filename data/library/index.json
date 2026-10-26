@@ -1,5 +1,45 @@
 [
  {
+  "date": "2026-10-26",
+  "items": [
+   {
+    "title": "微软发布最新自研芯片 Maia 300",
+    "url": "https://news.microsoft.com/maia-2026/",
+    "company": "",
+    "section": "三件事",
+    "time": "时间未知"
+   },
+   {
+    "title": "Anthropic 称单个 Agent 已胜过多个子 Agent",
+    "url": "https://the-decoder.com/anthropic-says-one-ai-agent-beats-many-subagents-now-that-models-can-handle-complexity-alone",
+    "company": "",
+    "section": "三件事",
+    "time": "10-25 17:12"
+   },
+   {
+    "title": "Grok 放出 AI 生成《奥德赛》前七分钟",
+    "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-26 05:31"
+   },
+   {
+    "title": "Hugging Face 开源 14B DNA 语言模型 Carbon-X",
+    "url": "https://www.marktechpost.com/2026/10/25/hugging-face-carbon-x-14b-dna-language-model",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-26 00:53"
+   },
+   {
+    "title": "Nvidia 开源 Flora，机器人视频标注成本降 125 倍",
+    "url": "https://the-decoder.com/nvidia-open-sources-flora-to-make-robot-video-labeling-125x-cheaper-than-gpt-6-astra",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-25 18:08"
+   }
+  ]
+ },
+ {
   "date": "2026-10-25",
   "items": [
    {
