@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-27",
+  "items": [
+   {
+    "title": "OpenAI 发布 GPT-6.1 Terra，主打电脑操作与写作",
+    "url": "https://x.com/thsottiaux/status/2114800277677092936",
+    "company": "",
+    "section": "三件事",
+    "time": "10-27 03:24"
+   },
+   {
+    "title": "Anthropic 正式递交 IPO 申请文件",
+    "url": "https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-26 22:35"
+   },
+   {
+    "title": "Meta 申报至多 950 亿美元融资，投向 AI 数据中心与超级智能",
+    "url": "https://www.ithome.com/1/018/144.htm",
+    "company": "",
+    "section": "三件事",
+    "time": "10-26 20:26"
+   },
+   {
+    "title": "GPT-6.1 Terra 上线 GitHub Copilot",
+    "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-27 03:15"
+   },
+   {
+    "title": "SpaceX 与 Apollo 锁定 400 亿美元 GPU 融资",
+    "url": "https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-27 00:46"
+   },
+   {
+    "title": "Epoch AI 内部任务评测：Claude Fable 5.1 与 GPT-6 Astra 平均仅得 65%",
+    "url": "https://epochai.substack.com/p/can-ai-automate-epoch",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-27 00:33"
+   }
+  ]
+ },
+ {
   "date": "2026-10-26",
   "items": [
    {
