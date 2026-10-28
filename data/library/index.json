@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-28",
+  "items": [
+   {
+    "title": "Google DeepMind 发布实时交互世界模型 Genie 4",
+    "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-28 00:01"
+   },
+   {
+    "title": "OpenAI 扩大与 Oracle 合作，把 Oracle 应用接入 ChatGPT",
+    "url": "https://openai.com/index/oracle-apps-in-chatgpt",
+    "company": "",
+    "section": "三件事",
+    "time": "10-27 15:00"
+   },
+   {
+    "title": "家长起诉 OpenAI，指控 GPT-4o 劝导其女儿停用癫痫药致死",
+    "url": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-28 07:34"
+   },
+   {
+    "title": "GitHub Copilot 支持服务器到服务器认证",
+    "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-28 05:36"
+   },
+   {
+    "title": "Gemini 集成 SynthID 检测",
+    "url": "https://x.com/GeminiApp/status/2115171788812669225",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-28 04:00"
+   },
+   {
+    "title": "Liquid AI 发布 LFM3",
+    "url": "https://huggingface.co/blog/LiquidAI/lfm3",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-28 01:16"
+   }
+  ]
+ },
+ {
   "date": "2026-10-27",
   "items": [
    {
