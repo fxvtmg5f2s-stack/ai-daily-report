@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-29",
+  "items": [
+   {
+    "title": "Google DeepMind 发布 Gemini 4 Carbon 前沿模型",
+    "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-29 01:00"
+   },
+   {
+    "title": "Anthropic IPO 文件披露现金及短期投资达 1317 亿美元",
+    "url": "https://x.com/rohanpaul_ai/status/2115491649543635378",
+    "company": "",
+    "section": "三件事",
+    "time": "10-29 01:11"
+   },
+   {
+    "title": "GitHub Universe 2026 发布 Copilot app、Fusion 等智能体产品",
+    "url": "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack",
+    "company": "",
+    "section": "三件事",
+    "time": "10-29 00:09"
+   },
+   {
+    "title": "OpenAI 与 ServiceNow 扩大合作，覆盖企业工作流",
+    "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-28 21:15"
+   },
+   {
+    "title": "NVIDIA 开源 Nemotron 3.5 Transcribe 语音识别模型",
+    "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-28 22:58"
+   },
+   {
+    "title": "Anthropic 研究模型连破 Chrome、Safari、Android、Windows、Linux",
+    "url": "https://www.ithome.com/1/019/268.htm",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-29 06:35"
+   }
+  ]
+ },
+ {
   "date": "2026-10-28",
   "items": [
    {
