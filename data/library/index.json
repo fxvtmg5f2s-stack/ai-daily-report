@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-30",
+  "items": [
+   {
+    "title": "Mistral 开源 1T 参数旗舰 Large 4 权重",
+    "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.0",
+    "company": "",
+    "section": "三件事",
+    "time": "10-29 22:16"
+   },
+   {
+    "title": "OpenAI 撤回 Pro 限额砍半，Codex 各档用量翻倍",
+    "url": "https://x.com/thsottiaux/status/2115850175868727621",
+    "company": "",
+    "section": "三件事",
+    "time": "10-30 00:56"
+   },
+   {
+    "title": "Gemini 支持对话内直接生成、预览与编辑文档/PDF/表格",
+    "url": "https://x.com/GeminiApp/status/2115845164824711247",
+    "company": "",
+    "section": "三件事",
+    "time": "10-30 00:36"
+   },
+   {
+    "title": "OpenAI 更新 Model Spec，重组为五项核心价值观",
+    "url": "https://openai.com/index/updated-model-spec",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-30 01:00"
+   },
+   {
+    "title": "豆包工作接入 DeepSeek、Kimi、GLM",
+    "url": "https://www.aibase.com/news/31971",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-30 10:36"
+   },
+   {
+    "title": "Kimi 接入 Gmail、Drive 与日历",
+    "url": "https://www.aibase.com/news/31977",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-30 10:36"
+   }
+  ]
+ },
+ {
   "date": "2026-10-29",
   "items": [
    {
