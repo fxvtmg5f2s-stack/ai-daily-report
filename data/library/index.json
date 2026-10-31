@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-10-31",
+  "items": [
+   {
+    "title": "OpenAI 让网站用 robots.txt 一次性声明 AI 训练偏好",
+    "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "company": "",
+    "section": "三件事",
+    "time": "10-30 17:30"
+   },
+   {
+    "title": "Anthropic 传 IPO 后获信用机构高收益垃圾级评级",
+    "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+    "company": "",
+    "section": "三件事",
+    "time": "10-31 05:52"
+   },
+   {
+    "title": "AI 支出担忧引发科技股连日下跌，Intel 盘中跌逾 30%",
+    "url": "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo",
+    "company": "",
+    "section": "三件事",
+    "time": "10-30 22:50"
+   },
+   {
+    "title": "Cursor 披露 Claude Code VS Code 扩展被植入恶意软件，最多影响 5000 用户",
+    "url": "https://x.com/cursor_ai/status/2116074289053175808",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-30 15:46"
+   },
+   {
+    "title": "Epoch AI 实验：GLM 5.3 用约 1000 美元算力自主攻击 Firefox",
+    "url": "https://epochai.substack.com/p/glm-patch-gap-exploit-firefox",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-30 20:07"
+   },
+   {
+    "title": "Sierra 宣布 ARR 突破 4 亿美元，Q3 单季新增超 1.5 亿",
+    "url": "https://sierra.ai/blog/our-customers-ambition-is-accelerating-our-growth",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-30 20:50"
+   }
+  ]
+ },
+ {
   "date": "2026-10-30",
   "items": [
    {
