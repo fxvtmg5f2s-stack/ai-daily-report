@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-01",
+  "items": [
+   {
+    "title": "OpenAI 新一轮融资目标下调，300 亿美元仅募得约 110 亿",
+    "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-01 00:12"
+   },
+   {
+    "title": "Anthropic 招股文件披露近 9000 亿美元隐性债务",
+    "url": "https://www.ithome.com/1/020/444.htm",
+    "company": "",
+    "section": "三件事",
+    "time": "10-31 11:25"
+   },
+   {
+    "title": "微软向约四分之一员工提供自愿离职，AI 关键团队除外",
+    "url": "https://the-decoder.com/microsoft-offers-a-quarter-of-its-workforce-voluntary-severance-while-shielding-ai-critical-teams",
+    "company": "",
+    "section": "三件事",
+    "time": "10-31 18:43"
+   },
+   {
+    "title": "Anthropic 上线水印，两款旧模型留漏洞",
+    "url": "https://the-decoder.com/anthropics-watermark-rollout-leaves-a-loophole-on-two-older-claude-models",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-01 03:20"
+   },
+   {
+    "title": "OpenAI 拟用 Daybreak Blue 安全会话数据训练",
+    "url": "https://the-decoder.com/openai-plans-to-train-models-on-daybreak-blue-cybersecurity-session-data-that-was-previously-off-limits",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-01 00:38"
+   },
+   {
+    "title": "Nvidia 洽谈为 Nscale 西弗吉尼亚数据中心提供债务担保",
+    "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "10-31 09:20"
+   }
+  ]
+ },
+ {
   "date": "2026-10-31",
   "items": [
    {
