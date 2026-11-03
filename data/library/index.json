@@ -1,5 +1,45 @@
 [
  {
+  "date": "2026-11-03",
+  "items": [
+   {
+    "title": "OpenAI 推出 Grid Protectors 计划，算力园区将在电网承压时削减用电",
+    "url": "https://openai.com/index/grid-protectors-program",
+    "company": "",
+    "section": "三件事",
+    "time": "11-02 23:00"
+   },
+   {
+    "title": "ChatGPT 与 Codex 12 月起共用使用额度",
+    "url": "https://techcrunch.com/2026/11/02/openai-is-finally-merging-chatgpts-chat-and-work-tabs/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-02 21:57"
+   },
+   {
+    "title": "Anthropic 警告已非常接近 RSI 能力",
+    "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-03 06:14"
+   },
+   {
+    "title": "纽约时报等起诉 Brave 抓取内容",
+    "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-03 03:19"
+   },
+   {
+    "title": "Musk 因成本过高下调 Grok Bot 限额",
+    "url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-03 00:23"
+   }
+  ]
+ },
+ {
   "date": "2026-11-02",
   "items": [
    {
