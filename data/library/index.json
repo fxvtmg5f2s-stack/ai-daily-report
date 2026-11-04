@@ -1,5 +1,45 @@
 [
  {
+  "date": "2026-11-04",
+  "items": [
+   {
+    "title": "Anthropic 研发 FlashProve，可验证 AI 回复出自哪个模型",
+    "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-04 06:41"
+   },
+   {
+    "title": "推理服务商 Fal 融资 13 亿美元，估值翻倍至 160 亿",
+    "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-04 03:34"
+   },
+   {
+    "title": "数据中心转向退役喷气发动机发电",
+    "url": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-04 06:19"
+   },
+   {
+    "title": "Anthropic 仍在消化算力成本压力",
+    "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-04 01:07"
+   },
+   {
+    "title": "Google 允许学校关闭 AI 工具，但需放弃搜索",
+    "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-04 00:30"
+   }
+  ]
+ },
+ {
   "date": "2026-11-03",
   "items": [
    {
