@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-05",
+  "items": [
+   {
+    "title": "OpenAI 收购 Pierre Computer，Codex 工具链并入",
+    "url": "https://openai.com/index/openai-to-acquire-pierre",
+    "company": "",
+    "section": "三件事",
+    "time": "11-04 22:30"
+   },
+   {
+    "title": "Meta 收购 AI 编码初创 Conductor",
+    "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-05 05:10"
+   },
+   {
+    "title": "Anthropic 组建 15 人芯片团队，用 Claude 做设计",
+    "url": "https://www.aibase.com/news/32091",
+    "company": "",
+    "section": "三件事",
+    "time": "11-04 20:59"
+   },
+   {
+    "title": "GitHub Copilot 接入 Xcode 编程助手",
+    "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-05 03:10"
+   },
+   {
+    "title": "腾讯 Hy4 正式版发布",
+    "url": "https://www.aibase.com/news/32078",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-04 15:31"
+   },
+   {
+    "title": "ChatGPT 搜索查询量达谷歌 20%",
+    "url": "https://www.aibase.com/news/32060",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-04 11:00"
+   }
+  ]
+ },
+ {
   "date": "2026-11-04",
   "items": [
    {
