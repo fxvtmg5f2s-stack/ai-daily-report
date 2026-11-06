@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-06",
+  "items": [
+   {
+    "title": "GPT-6 Cyber：面向对齐网络安全 Agent 的新模型",
+    "url": "https://openai.com/index/introducing-gpt-6-cyber",
+    "company": "",
+    "section": "三件事",
+    "time": "11-05 17:00"
+   },
+   {
+    "title": "Gemini Omni 1.2 Flash：更快更便宜，支持更长片段",
+    "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-06 01:05"
+   },
+   {
+    "title": "Meta 警告：选举反弹可能拖慢 AI 扩张",
+    "url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-06 03:12"
+   },
+   {
+    "title": "Claude 上线个人财务工具",
+    "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-06 02:00"
+   },
+   {
+    "title": "Dropbox 3.5 亿美元收购 Tigris Data",
+    "url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-05 23:19"
+   },
+   {
+    "title": "百度开源文心 5.5 Flash Base",
+    "url": "https://www.qbitai.com/2026/11/507787.html",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-05 15:15"
+   }
+  ]
+ },
+ {
   "date": "2026-11-05",
   "items": [
    {
