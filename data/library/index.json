@@ -1,5 +1,52 @@
 [
  {
+  "date": "2026-11-07",
+  "items": [
+   {
+    "title": "OpenAI 据报再募 110 亿美元，估值达 1.25 万亿美元",
+    "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-07 06:53"
+   },
+   {
+    "title": "SageMaker Inference 支持多实例 GPU，单卡切分提升端点利用率",
+    "url": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+    "company": "",
+    "section": "三件事",
+    "time": "11-07 02:01"
+   },
+   {
+    "title": "网信办集中整治 AI 假冒名人，清理 4.7 万条内容、处置 3961 个账号",
+    "url": "https://www.aibase.com/news/32148",
+    "company": "",
+    "section": "三件事",
+    "time": "11-06 15:58"
+   },
+   {
+    "title": "Palo Alto 拟 5 亿美元收购 AI 代理安全公司 Clutch",
+    "url": "https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-06 14:28"
+   },
+   {
+    "title": "蚂蚁发布 Ling 3.2 Flash：560B 总参、25B 激活、1M 上下文",
+    "url": "https://www.aibase.com/news/32130",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-06 11:26"
+   },
+   {
+    "title": "Ramp 数据：AI 支出停滞，恰逢 Anthropic 临近 IPO",
+    "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+    "company": "",
+    "section": "其他值得留意",
+    "time": "11-06 23:54"
+   }
+  ]
+ },
+ {
   "date": "2026-11-06",
   "items": [
    {
